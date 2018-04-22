@@ -1,0 +1,46 @@
+
+.grass {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 3% 9%;
+}
+.grass-left-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 0% 9%;
+}
+.grass-right-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 6.6% 9%;
+}
+.grass-top-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 3% 6.7%;
+}
+.grass-bottom-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 3% 13.3%;
+}
+.grass-top-left {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 0% 6.7%;
+}
+.grass-top-right {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 6.6% 6.7%;
+}
+.grass-bottom-left {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 0% 13.3%;
+}
+.grass-bottom-right {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 6.6% 13.3%;
+}

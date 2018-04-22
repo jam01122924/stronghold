@@ -1,0 +1,24 @@
+.game-container {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  min-width: 320px;
+
+  cursor: default;
+
+  .disabled-option {
+    color: grey;
+  }
+  .unselected-dropdown {
+    color: grey;
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+}

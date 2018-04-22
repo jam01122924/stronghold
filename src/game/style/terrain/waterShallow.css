@@ -1,0 +1,46 @@
+
+.water-shallow {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/water.png');
+  background-position: 3% 70%;
+}
+.water-shallow-left-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/water.png');
+  background-position: 0% 70%;
+}
+.water-shallow-right-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/water.png');
+  background-position: 7.1% 70%;
+}
+.water-shallow-top-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/water.png');
+  background-position: 3% 67%;
+}
+.water-shallow-bottom-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/water.png');
+  background-position: 3% 73.3%;
+}
+.water-shallow-top-left {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/water.png');
+  background-position: 0% 67%;
+}
+.water-shallow-top-right {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/water.png');
+  background-position: 7% 67%;
+}
+.water-shallow-bottom-left {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/water.png');
+  background-position: 0% 73.3%;
+}
+.water-shallow-bottom-right {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/water.png');
+  background-position: 7% 73.3%;
+}

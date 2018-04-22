@@ -1,0 +1,39 @@
+@import '../../../../style/color.scss';
+.edit-map-UI-container {
+  option {
+    color: black;
+  }
+  label {
+    margin: 5px 10px 5px 5px;
+    width: 90px;
+    text-align: right;
+  }
+  .dropdown {
+    margin: 8px 20px 8px 0;
+  }
+  .select-box {
+    width: 135px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .btn-bar {
+    margin: 6px 3px 0 3px;
+  }
+  .btn {
+    padding: 4px 8px;
+    text-align: center;
+  }
+  .active-tool-btns {
+    color: $color-gray95;
+    background: $color-orange40;
+  }
+  .tool-panel {
+    background: $color-orange20;
+    width: 100%;
+    margin-top: 4px;
+    .fa {
+      zoom:1.5;
+      -moz-transform:scale(1.5);
+    }
+  }
+}

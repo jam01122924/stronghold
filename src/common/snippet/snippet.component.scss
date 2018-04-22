@@ -1,0 +1,195 @@
+@import '../../style/style.scss';
+@import '../../style/animation.scss';
+
+.snippet-container {
+  .snippet-content {
+    display: block;
+    position: relative;
+    margin: 0 0 16px 0;
+    border: 1px solid $color-theme-bg;
+    background: white;
+		-webkit-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.2);
+		-moz-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.2);
+		box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.2);
+    color: #242424;
+    overflow: hidden;
+    .img-left {
+      float: left;
+      width: 62%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .img-right {
+      float: right;
+      width: 62%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .img-top {
+      display: block;
+      width: 100%;
+      height: 62%;
+      overflow-y: hidden;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .img-bottom {
+      display: block;
+      width: 100%;
+      height: 62%;
+      overflow-y: hidden;
+      position: absolute;
+      bottom: 0;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .img-middle {
+      display: block;
+      width: 100%;
+      height: 62%;
+      overflow-y: hidden;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .img-bg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow-y: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .snippet-height-sm {
+    // snippet height:
+    height: 62vw;
+    @media only screen and (min-width: 768px) {
+      height: 31vw;
+    }
+    @media only screen and (min-width: 992px) {
+      height: 21vw;
+    }
+    @media only screen and (min-width: 1200px) {
+      height: 15vw;
+    }
+  }
+  .snippet-height-md {
+    // snippet height:
+    height: 100vw;
+    @media only screen and (min-width: 768px) {
+      height: 50vw;
+    }
+    @media only screen and (min-width: 992px) {
+      height: 33vw;
+    }
+    @media only screen and (min-width: 1200px) {
+      height: 25vw;
+    }
+  }
+  .snippet-height-lg {
+    // snippet height:
+    height: 150vw;
+    @media only screen and (min-width: 768px) {
+      height: 75vw;
+    }
+    @media only screen and (min-width: 992px) {
+      height: 50vw;
+    }
+    @media only screen and (min-width: 1200px) {
+      height: 37.5vw;
+    }
+  }
+
+  .snippet-content {
+    cursor: pointer;
+    .title {
+      text-align: left;
+      font-size: 2em;
+      color: $color-snippet-title;
+      cursor: pointer;
+      margin-top: 10px;
+      height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .title:hover {
+      animation-name: animation-snippetTitleHover;
+      animation-duration: 0.6s;
+      color: $color-snippet-title-hover;
+    }
+    .sub-title {
+      text-align: left;
+      color: $color-snippet-sub-title;
+      font-size: 0.8em;
+      margin-bottom: 10px;
+      height: 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .content {
+      margin: 10px;
+      text-align: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 80px;
+      overflow: hidden;
+    }
+  }
+
+  .top-content, .bottom-content, .left-content, .right-content {
+    margin: 10px;
+  }
+  .left-content {
+    float: left;
+    width: calc(38% - 20px);
+  }
+  .right-content {
+    float: right;
+    width: calc(38% - 20px);
+  }
+  .img-inside-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    .img-inside-content-box {
+      margin: 10px;
+      margin-top: 30%;
+    }
+    .title {
+      color: $color-gray85;
+    }
+    .sub-title {
+      color: $color-gray75;
+    }
+    .content {
+      color: $color-gray80;
+    }
+  }
+  .img-inside-content:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    animation-name: animation-grayOutLayerHover;
+    animation-duration: 0.6s;
+  }
+  .img-inside-content {
+    animation-name: animation-grayOutLayerLeft;
+    animation-duration: 0.6s;
+  }
+
+}

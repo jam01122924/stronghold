@@ -1,0 +1,46 @@
+
+.sand {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 3% 49%;
+}
+.sand-left-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 0% 49%;
+}
+.sand-right-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 6.6% 49%;
+}
+.sand-top-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 3% 46.7%;
+}
+.sand-bottom-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 3% 53.3%;
+}
+.sand-top-left {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 0% 46.7%;
+}
+.sand-top-right {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 6.6% 46.7%;
+}
+.sand-bottom-left {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 0% 53.3%;
+}
+.sand-bottom-right {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 6.6% 53.3%;
+}

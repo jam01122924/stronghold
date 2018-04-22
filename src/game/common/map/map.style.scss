@@ -1,0 +1,62 @@
+@import '../../../style/color.scss';
+
+.map-container {
+  text-align: center;
+  position: relative;
+  overflow: visible;
+  margin: auto;
+  border: 1px solid gold;
+
+  width: 80vw;
+  height: 80vw;
+
+  @media screen and (orientation:portrait) {
+   /* Portrait styles here */
+   width: 80vw;
+   height: 80vw;
+  }
+  /* Landscape */
+  @media screen and (orientation:landscape) {
+     /* Landscape styles here */
+     width: 80vh;
+     height: 80vh;
+  }
+  .map-reposition {
+    position: absolute;
+  }
+}
+.map-layer-container {
+  line-height: 0;
+  text-align: left;
+  .map-line-container {
+    width: 10000vw;
+    .map-grid-container {
+      position: relative;
+      display: inline-block;
+      .map-grid-unit {
+        display: inline-block;
+        width: 7.272727vh;
+        height: 7.272727vh;
+        @media screen and (orientation:portrait) {
+         /* Portrait styles here */
+         width: 7.272727vw;
+         height: 7.272727vw;
+        }
+        /* Landscape */
+        @media screen and (orientation:landscape) {
+           /* Landscape styles here */
+           width: 7.272727vh;
+           height: 7.272727vh;
+        }
+      }
+      .map-grid-overlap-unit {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+    .map-grid-show-grid {
+      border: 0.5px solid rgba(125, 255, 215, 0.4);
+    }
+  }
+}

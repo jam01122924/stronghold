@@ -1,0 +1,46 @@
+
+.tree-plain {
+  background-size: 800%;
+  background-image: url('/imgs/grid/tree_imgs2.png');
+  background-position: 43.2% 14.2%;
+}
+.tree-grassland {
+  background-size: 850%;
+  background-image: url('/imgs/grid/tree_imgs2.png');
+  background-position: 78% 92%;
+}
+.tree-forest {
+  background-size: 850%;
+  background-image: url('/imgs/grid/tree_imgs2.png');
+  background-position: 64.4% 92.5%;
+}
+.tree-mountain {
+  background-size: 800%;
+  background-image: url('/imgs/grid/tree_imgs2.png');
+  background-position: 86% 57%;
+}
+.tree-swamp-1 {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/tree_imgs.png');
+  background-position: 40% 40%;
+}
+.tree-swamp-2 {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/tree_imgs.png');
+  background-position: 40% 46.6%;
+}
+.tree-swamp-3 {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/tree_imgs.png');
+  background-position: 40% 53.3%;
+}
+.tree-desert {
+  background-size: 1550%;
+  background-image: url('/imgs/grid/tree_imgs.png');
+  background-position: 100% 86.4%;
+}
+.tree-burned {
+  background-size: 800%;
+  background-image: url('/imgs/grid/tree_imgs2.png');
+  background-position: 86% 43%;
+}

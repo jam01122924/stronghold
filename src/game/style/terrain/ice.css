@@ -1,0 +1,46 @@
+
+.ice {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 3% 69%;
+}
+.ice-left-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 0% 69%;
+}
+.ice-right-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 6.6% 69%;
+}
+.ice-top-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 2.8% 66.7%;
+}
+.ice-bottom-edge {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 3% 73.3%;
+}
+.ice-top-left {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 0% 66.7%;
+}
+.ice-top-right {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 6.6% 66.7%;
+}
+.ice-bottom-left {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 0% 73.3%;
+}
+.ice-bottom-right {
+  background-size: 1600%;
+  background-image: url('/imgs/grid/ground_texture2.png');
+  background-position: 6.6% 73.3%;
+}

@@ -1,0 +1,63 @@
+
+.road-mud {
+  background-color: rgb(185,122,86);
+}
+.road-stone {
+  background-color: rgb(185,185,185);
+}
+
+.road-L-R{
+  background-size: 520%;
+  background-image: url('/imgs/grid/road.png');
+  background-position: 30% 0%;
+}
+.road-L-T {
+  background-size: 520%;
+  background-image: url('/imgs/grid/road.png');
+  background-position: 65.5% 33%;
+}
+.road-L-B {
+  background-size: 520%;
+  background-image: url('/imgs/grid/road.png');
+  background-position: 65.5% 0%;
+}
+.road-T-B {
+  background-size: 520%;
+  background-image: url('/imgs/grid/road.png');
+  background-position: 33% 55%;
+}
+.road-T-R {
+  background-size: 520%;
+  background-image: url('/imgs/grid/road.png');
+  background-position: 0% 33%;
+}
+.road-B-R {
+  background-size: 520%;
+  background-image: url('/imgs/grid/road.png');
+  background-position: 0% 0%;
+}
+.road-L-T-R {
+  background-size: 520%;
+  background-image: url('/imgs/grid/road.png');
+  background-position: 33% 99%;
+}
+.road-L-T-B{
+  background-size: 520%;
+  background-image: url('/imgs/grid/road.png');
+  background-position: 65.5% 99%;
+}
+.road-L-B-R {
+  background-size: 520%;
+  background-image: url('/imgs/grid/road.png');
+  background-position: 0% 65.5%;
+}
+.road-T-B-R {
+  background-size: 520%;
+  background-image: url('/imgs/grid/road.png');
+  background-position: 0% 99%;
+}
+.road-L-T-B-R {
+  background-size: 520%;
+  background-image: url('/imgs/grid/road.png');
+  background-position: 33% 33%;
+}

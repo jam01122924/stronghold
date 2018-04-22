@@ -1,0 +1,16 @@
+.generate-map-UI-container {
+  text-align: center; }
+  .generate-map-UI-container .modal-grid {
+    width: 100%; }
+  .generate-map-UI-container option {
+    color: black; }
+  .generate-map-UI-container label {
+    margin: 5px 10px 5px 5px;
+    width: 90px;
+    text-align: right; }
+  .generate-map-UI-container .dropdown {
+    margin: 8px 20px 8px 0; }
+  .generate-map-UI-container .select-box {
+    width: 135px;
+    overflow: hidden;
+    text-overflow: ellipsis; }

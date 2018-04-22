@@ -1,0 +1,13 @@
+.page-404-container {
+  font-size: 2em; }
+  .page-404-container .title {
+    font-size: 15vw;
+    margin: 20vh 0 0 0; }
+  .page-404-container .sub-title {
+    margin: 0 0 10vh 0;
+    font-size: 2em; }
+  .page-404-container .home-page-btn {
+    margin-top: 6vh; }
+    .page-404-container .home-page-btn a {
+      padding: 10px 40px;
+      font-size: 25px; }

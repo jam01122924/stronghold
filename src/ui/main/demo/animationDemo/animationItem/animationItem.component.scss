@@ -1,0 +1,23 @@
+.animationItem-container {
+  width: 100%;
+  position: relative;
+}
+.animationItem-content {
+  width: 100%;
+  padding: 10px;
+
+  .animation-area {
+    width: 100%;
+    padding: 20px;
+    background-color: #404040;
+    text-align: left;
+  }
+
+  .animation-input-area {
+    background-color: #494949;
+    .animation-control-panel {
+      text-align: left;
+      font-size: 16px;
+    }
+  }
+}

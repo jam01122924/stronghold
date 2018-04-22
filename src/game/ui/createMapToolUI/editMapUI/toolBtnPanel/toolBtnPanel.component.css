@@ -1,0 +1,29 @@
+.tool-btn-panel-container .texture-img {
+  background-size: 20%;
+  zoom: 0.2;
+  -moz-transform: scale(0.2);
+  -moz-transform-origin: 0 0; }
+
+.tool-btn-panel-container .btn-toolbar {
+  margin: 5px 0; }
+
+.tool-btn-panel-container .tool-btn-panel-btn-group {
+  margin: 5px; }
+
+.tool-btn-panel-container .texture-btn {
+  padding: 2px;
+  height: 38px; }
+  @media screen and (max-height: 666px) {
+    .tool-btn-panel-container .texture-btn {
+      height: 30px; } }
+  .tool-btn-panel-container .texture-btn .texture-btn-img {
+    width: 32px;
+    height: 32px; }
+    @media screen and (max-height: 666px) {
+      .tool-btn-panel-container .texture-btn .texture-btn-img {
+        width: 24px;
+        height: 24px; } }
+
+.tool-btn-panel-container .active-texture, .tool-btn-panel-container .texture-btn:hover, .tool-btn-panel-container .texture-btn:focus {
+  background: #2799f5;
+  border-color: #2799f5; }

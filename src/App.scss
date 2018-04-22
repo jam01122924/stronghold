@@ -1,0 +1,29 @@
+@import 'style/style.scss';
+
+.App {
+  text-align: center;
+  background-color: $color-theme-bg;
+  min-height: 100vh;
+  height: auto;
+  min-width: 100vw;
+  color: $color-font;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: $color-theme;
+  color: $color-font;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

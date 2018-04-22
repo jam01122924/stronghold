@@ -1,0 +1,34 @@
+@import '../../../../../style/color.scss';
+.tool-btn-panel-container{
+  .texture-img {
+    background-size: 20%;
+    zoom:0.2;
+    -moz-transform:scale(0.2);
+    -moz-transform-origin: 0 0;
+  }
+  .btn-toolbar {
+    margin: 5px 0;
+  }
+  .tool-btn-panel-btn-group {
+    margin: 5px;
+  }
+  .texture-btn {
+    padding: 2px;
+    height: 38px;
+    @media screen and (max-height: 666px) {
+      height: 30px;
+    }
+    .texture-btn-img {
+      width: 32px;
+      height: 32px;
+      @media screen and (max-height: 666px) {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+  .active-texture, .texture-btn:hover, .texture-btn:focus {
+    background: $color-blue-light40;
+    border-color: $color-blue-light40;
+  }
+}
