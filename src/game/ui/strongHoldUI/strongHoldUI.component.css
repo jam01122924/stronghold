@@ -1,0 +1,75 @@
+.stronghold-ui-container {
+  height: 100%;
+  width: 100%;
+  position: relative; }
+  .stronghold-ui-container .stronghold-bg {
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden; }
+    .stronghold-ui-container .stronghold-bg img {
+      height: 100%;
+      width: auto; }
+  .stronghold-ui-container .stronghold-building-container {
+    position: relative;
+    margin-top: -100vh;
+    text-align: left; }
+    .stronghold-ui-container .stronghold-building-container .stronghold-building-content div {
+      position: absolute; }
+    .stronghold-ui-container .stronghold-building-container .stronghold-building-content img {
+      opacity: 0.6;
+      -webkit-transition: opacity 0.4s ease-in-out;
+      -moz-transition: opacity 0.4s ease-in-out;
+      -ms-transition: opacity 0.4s ease-in-out;
+      -o-transition: opacity 0.4s ease-in-out;
+      transition: opacity 0.4s ease-in-out; }
+    .stronghold-ui-container .stronghold-building-container .stronghold-building-content img:hover {
+      opacity: 1; }
+    .stronghold-ui-container .stronghold-building-container .stronghold-building-content .lord-house {
+      top: 4vh;
+      left: 18vh; }
+    .stronghold-ui-container .stronghold-building-container .stronghold-building-content .city-hall {
+      top: 21vh;
+      left: 40vh; }
+    .stronghold-ui-container .stronghold-building-container .stronghold-building-content .park {
+      top: 42vh;
+      left: 70vh; }
+    .stronghold-ui-container .stronghold-building-container .stronghold-building-content .black-smith {
+      top: 48vh;
+      left: 30vh; }
+    .stronghold-ui-container .stronghold-building-container .stronghold-building-content .church {
+      top: 3vh;
+      left: 75vh; }
+    .stronghold-ui-container .stronghold-building-container .stronghold-building-content .ware-house {
+      top: 30vh;
+      left: 8vh; }
+    .stronghold-ui-container .stronghold-building-container .stronghold-building-content .traven {
+      top: 54vh;
+      left: 60vh; }
+    .stronghold-ui-container .stronghold-building-container .stronghold-building-content .shop {
+      top: 1vh;
+      left: 54vh; }
+    .stronghold-ui-container .stronghold-building-container .stronghold-building-content .living-house {
+      top: 0;
+      left: 120vh; }
+      .stronghold-ui-container .stronghold-building-container .stronghold-building-content .living-house .living-house1 {
+        top: 5vh;
+        left: 18vh; }
+      .stronghold-ui-container .stronghold-building-container .stronghold-building-content .living-house .living-house2 {
+        top: 16vh;
+        left: 43vh; }
+      .stronghold-ui-container .stronghold-building-container .stronghold-building-content .living-house .living-house3 {
+        top: 54vh;
+        left: 14vh; }
+      .stronghold-ui-container .stronghold-building-container .stronghold-building-content .living-house .living-house4 {
+        top: 26vh;
+        left: 19vh; }
+      .stronghold-ui-container .stronghold-building-container .stronghold-building-content .living-house .living-house5 {
+        top: 38vh;
+        left: -2vh; }
+      .stronghold-ui-container .stronghold-building-container .stronghold-building-content .living-house .living-house6 {
+        top: 40vh;
+        left: 36vh; }
+      .stronghold-ui-container .stronghold-building-container .stronghold-building-content .living-house .living-house7 {
+        top: 50vh;
+        left: -24vh; }

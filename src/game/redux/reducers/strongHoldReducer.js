@@ -72,8 +72,9 @@ const strongHoldInit = {
 
 const strongHoldReducer = (state = strongHoldInit, action) => {
   switch (action.type) {
-    case 'CHANGE_RESOURCE':
-      let newState = {...state, state.resource};
+    case 'CHANGE_RESOURCE': {
+      let newState = Object.assign({}, state);
+      newState.resource = Object.assign({}, state.resource);
       newState.resource[action.data.resource] = {...state.resource[action.data.resource]};
       let newAmount = newState.resource[action.data.resource].current + action.data.amount;
       if(newAmount>newState.resource[action.data.resource].max) {
@@ -81,14 +82,18 @@ const strongHoldReducer = (state = strongHoldInit, action) => {
       }
       newState.resource[action.data.resource].current = newAmount;
       return newState;
-    case 'CHANGE_RESOURCE_MAX':
-      let newState = {...state, state.resource};
+    }
+    case 'CHANGE_RESOURCE_MAX': {
+      let newState = Object.assign({}, state);
+      newState.resource = Object.assign({}, state.resource);
       newState.resource[action.data.resource] = {...state.resource[action.data.resource]};
       newState.resource[action.data.resource].max = action.data.max;
       return newState;
+    }
 
-    case 'CHANGE_WORK_POSITION':
-      let newState = {...state, state.workPosition};
+    case 'CHANGE_WORK_POSITION': {
+      let newState = Object.assign({}, state);
+      newState.workPosition = Object.assign({}, state.workPosition);
       newState.workPosition[action.data.workPosition] = {...state.workPosition[action.data.workPosition]};
       let newAmount = newState.workPosition[action.data.workPosition].current + action.data.amount;
       if(newAmount>newState.workPosition[action.data.workPosition].max) {
@@ -96,20 +101,26 @@ const strongHoldReducer = (state = strongHoldInit, action) => {
       }
       newState.workPosition[action.data.workPosition].current = newAmount;
       return newState;
-    case 'CHANGE_WORK_POSITION_MAX':
-      let newState = {...state, state.workPosition};
+    }
+    case 'CHANGE_WORK_POSITION_MAX': {
+      let newState = Object.assign({}, state);
+      newState.workPosition = Object.assign({}, state.workPosition);
       newState.workPosition[action.data.workPosition] = {...state.workPosition[action.data.workPosition]};
       newState.workPosition[action.data.workPosition].max = action.data.max;
       return newState;
-      
-    case 'CHANGE_BUILDING':
-      let newState = {...state, state.buildings};
+    }
+
+    case 'CHANGE_BUILDING': {
+      let newState = Object.assign({}, state);
+      newState.buildings = Object.assign({}, state.buildings);
       newState.buildings[action.data.building] = action.data.data;
       return newState;
-    case 'CHANGE_HERO_LIST':
+    }
+    case 'CHANGE_HERO_LIST': {
       let newState = {...state};
       newState.HeroList = action.data;
       return newState;
+    }
 
     default:
       return state;

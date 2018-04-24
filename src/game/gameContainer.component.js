@@ -9,6 +9,7 @@ import IntroUI from './ui/introUI/introUI.component';
 import CreateCharacter from './ui/createCharacter/createCharacter.component';
 import InGameLandingUI from './ui/inGameLandingUI/inGameLandingUI.component';
 import CreateMapToolUI from './ui/createMapToolUI/createMapToolUI.component';
+import StrongHoldUI from './ui/strongHoldUI/strongHoldUI.component';
 
 class GameContainer extends React.Component {
 
@@ -35,6 +36,8 @@ class GameContainer extends React.Component {
         break;
       case 'createCharacter': ui = <CreateCharacter></CreateCharacter>;
         break;
+      case 'strongHoldUI': ui = <StrongHoldUI></StrongHoldUI>;
+        break;
       case 'inGameLandingUI': ui = <InGameLandingUI></InGameLandingUI>;
         break;
       case 'createMapToolUIMapUI': ui = <CreateMapToolUI></CreateMapToolUI>;
@@ -44,7 +47,9 @@ class GameContainer extends React.Component {
     }
     return (
       <div className="gameContainer-container">
-        {ui} {this.props.stage}
+        <div className="gameContainer-content">
+          {ui}
+        </div>
       </div>
     );
   }

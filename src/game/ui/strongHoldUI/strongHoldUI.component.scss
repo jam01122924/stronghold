@@ -1,0 +1,104 @@
+.stronghold-ui-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  .stronghold-bg {
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+  .stronghold-building-container {
+    position: relative;
+    margin-top: -100vh;
+    text-align: left;
+    .stronghold-building-content {
+      div {
+        position: absolute;
+      }
+      img {
+        opacity: 0.6;
+        -webkit-transition: opacity 0.4s ease-in-out;
+        -moz-transition: opacity 0.4s ease-in-out;
+        -ms-transition: opacity 0.4s ease-in-out;
+        -o-transition: opacity 0.4s ease-in-out;
+        transition: opacity 0.4s ease-in-out;
+      }
+      img:hover {
+        opacity: 1;
+      }
+
+      .lord-house {
+        top: 4vh;
+        left: 18vh;
+      }
+      .city-hall {
+        top: 21vh;
+        left: 40vh;
+      }
+      .park {
+        top: 42vh;
+        left: 70vh;
+      }
+      .black-smith {
+        top: 48vh;
+        left: 30vh;
+      }
+      .church {
+        top: 3vh;
+        left: 75vh;
+      }
+      .ware-house {
+        top: 30vh;
+        left: 8vh;
+      }
+      .traven {
+        top: 54vh;
+        left: 60vh;
+      }
+      .shop {
+        top: 1vh;
+        left: 54vh;
+      }
+      .living-house {
+        top: 0;
+        left: 120vh;
+        .living-house1 {
+          top: 5vh;
+          left: 18vh;
+        }
+        .living-house2 {
+          top: 16vh;
+          left: 43vh;
+        }
+        .living-house3 {
+          top: 54vh;
+          left: 14vh;
+        }
+        .living-house4 {
+          top: 26vh;
+          left: 19vh;
+        }
+        .living-house5 {
+          top: 38vh;
+          left: -2vh;
+        }
+        .living-house6 {
+          top: 40vh;
+          left: 36vh;
+        }
+        .living-house7 {
+          top: 50vh;
+          left: -24vh;
+        }
+
+      }
+
+
+    }
+  }
+}

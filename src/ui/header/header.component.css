@@ -255,3 +255,6 @@
 
 .header-container .navbar-inverse .navbar-nav > li > a:focus {
   color: #F7882F; }
+
+.navbar {
+  margin-bottom: 0 !important; }

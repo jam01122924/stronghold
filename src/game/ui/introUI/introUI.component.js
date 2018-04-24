@@ -22,7 +22,7 @@ class IntroUI extends React.Component {
   }
 
   confirm() {
-    this.props.dispatch(gameStageActions.changeStage('inGameLandingUI'));
+    this.props.dispatch(gameStageActions.changeStage('strongHoldUI'));
   }
 
   render() {
