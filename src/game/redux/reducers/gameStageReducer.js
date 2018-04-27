@@ -7,7 +7,8 @@
 
 
 const gameStageReducerInit = {
-  stage: 'landingMenu'
+  stage: 'landingMenu',
+  language: 'en',
 };
 
 const gameStageReducer = (state = gameStageReducerInit, action) => {
@@ -15,6 +16,11 @@ const gameStageReducer = (state = gameStageReducerInit, action) => {
     case 'CHANGE_STAGE': {
       var newState = Object.assign({}, state);
       newState['stage'] = action.stage;
+      return newState;
+    }
+    case 'CHANGE_LANGUAGE': {
+      var newState = Object.assign({}, state);
+      newState['language'] = action.language;
       return newState;
     }
 

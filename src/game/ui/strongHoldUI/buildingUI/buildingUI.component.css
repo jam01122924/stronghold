@@ -1,0 +1,87 @@
+.building-ui-modal {
+  z-index: 100; }
+  .building-ui-modal a {
+    color: #53AaF7; }
+  .building-ui-modal .modal-content {
+    background-color: #0C0C0C;
+    color: #CCCCCC;
+    border: 2px solid #CCCCCC;
+    -webkit-box-shadow: 0 3px 9px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 3px 9px rgba(255, 255, 255, 0.5);
+    min-width: 280px; }
+  .building-ui-modal .building-menu-container .tab-content {
+    background: none; }
+    .building-ui-modal .building-menu-container .tab-content .building-info {
+      margin: 20px 10vw 0;
+      padding: 10% 0 0;
+      min-height: 300px;
+      color: #E6E6E6; }
+      .building-ui-modal .building-menu-container .tab-content .building-info .building-title {
+        width: 100%;
+        font-size: 1.5em;
+        text-shadow: 0 0 5px black;
+        text-align: center; }
+      .building-ui-modal .building-menu-container .tab-content .building-info .building-lv {
+        font-size: 1.2em;
+        text-shadow: 0 0 5px black;
+        margin: 10px auto;
+        text-align: center;
+        float: none; }
+      .building-ui-modal .building-menu-container .tab-content .building-info .building-info-content {
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.3); }
+        .building-ui-modal .building-menu-container .tab-content .building-info .building-info-content .resouce-type {
+          display: inline-block;
+          width: 60px;
+          margin-right: 10px; }
+      .building-ui-modal .building-menu-container .tab-content .building-info .upgrade-btn {
+        margin: 40px auto 0;
+        text-align: center; }
+    .building-ui-modal .building-menu-container .tab-content .list-group-item {
+      background: none;
+      color: #CCCCCC; }
+      .building-ui-modal .building-menu-container .tab-content .list-group-item .change-position-num-btn {
+        right: 0;
+        position: absolute; }
+        .building-ui-modal .building-menu-container .tab-content .list-group-item .change-position-num-btn .btn {
+          padding: 0 6px;
+          min-width: 22px;
+          margin: 0 5px; }
+      .building-ui-modal .building-menu-container .tab-content .list-group-item .position-num {
+        width: 100px;
+        text-align: center;
+        display: inline-block; }
+      .building-ui-modal .building-menu-container .tab-content .list-group-item .storage-name {
+        width: 80px;
+        display: inline-block;
+        margin: 5px 0;
+        line-height: 20px; }
+      .building-ui-modal .building-menu-container .tab-content .list-group-item .storage-num {
+        width: 60%;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        margin: 5px 0; }
+        .building-ui-modal .building-menu-container .tab-content .list-group-item .storage-num .progress {
+          margin-bottom: 0;
+          color: black; }
+          .building-ui-modal .building-menu-container .tab-content .list-group-item .storage-num .progress .progress-bar {
+            color: white; }
+        .building-ui-modal .building-menu-container .tab-content .list-group-item .storage-num .storage-progress-num {
+          margin-top: -20px;
+          color: #222222; }
+      .building-ui-modal .building-menu-container .tab-content .list-group-item .storage-upgrade-btn {
+        float: right; }
+        @media only screen and (max-width: 520px) {
+          .building-ui-modal .building-menu-container .tab-content .list-group-item .storage-upgrade-btn {
+            float: none;
+            display: block;
+            margin: 5px auto 0; } }
+    .building-ui-modal .building-menu-container .tab-content .list-group-item:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #F3F3F3; }
+    .building-ui-modal .building-menu-container .tab-content .list-group-item:first-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0; }
+  .building-ui-modal .building-menu-container .nav li a {
+    padding: 10px; }

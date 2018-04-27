@@ -26,3 +26,7 @@
     color: grey; }
   .gameContainer-container a {
     cursor: pointer; }
+
+.clear {
+  float: none;
+  clear: both; }

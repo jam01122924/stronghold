@@ -1,0 +1,27 @@
+.stronghold-header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.5);
+  .resource-container {
+    display: inline-block;
+    min-width: 60px;
+    margin: 5px 5px;
+    color: #CCCCCC;
+    .resource-name {
+      color: #AAAAAA;
+    }
+  }
+  .toggle-btn {
+    font-size: 30px;
+    margin: 5px;
+    color: #AAAAAA;
+  }
+  .toggle-btn:hover {
+    color: #CCCCCC;
+  }
+  z-index: 99;
+}

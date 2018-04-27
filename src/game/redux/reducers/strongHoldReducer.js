@@ -1,69 +1,90 @@
 const strongHoldInit = {
   buildings: {
+    cityLord: {
+      lv: 1,
+      name: 'cityLord',
+      img: '/imgs/house/small/lord-house.gif',
+    },
     cityHall: {
       lv: 0,
-      name: 'City Hall',
-      img: '',
+      name: 'cityHall',
+      img: '/imgs/house/small/cityHall.png',
     },
-    blacksmithShop: {
-      lv: 0,
-      name: 'Blacksmith shop',
-      img: '',
+    lumberMill: {
+      lv: 1,
+      name: 'lumberMill',
+      img: '/imgs/house/small/Lumber_Mill.png'
     },
-    workshop: {
+    blacksmith: {
       lv: 0,
-      name: 'Workshop',
-      img: '',
+      name: 'blacksmith',
+      img: '/imgs/house/small/blacksmith.png',
     },
     tavern: {
       lv: 0,
-      name: 'Tavern',
-      img: '',
+      name: 'tavern',
+      img: '/imgs/house/small/tavern.png',
     },
     warehouse: {
-      lv: 0,
-      name: 'Warehouse',
-      img: '',
+      lv: 1,
+      storageLv: {
+        food: 1,
+        wood: 1,
+        stone: 0,
+        iron: 0,
+        silver: 0,
+        gold: 0,
+        mythril: 0,
+        gem: 0,
+        crystal: 0,
+      },
+      name: 'warehouse',
+      img: '/imgs/house/small/warehouse.png',
     },
-    graveyard: {
+    church: {
       lv: 0,
-      name: 'Graveyard',
-      img: '',
+      name: 'church',
+      img: '/imgs/house/small/church.png',
     },
     merchantShop: {
       lv: 0,
-      name: 'Merchant Shop',
-      img: '',
+      name: 'merchantShop',
+      img: '/imgs/house/small/merchantShop.png',
     },
     residentialDistrict : {
       lv: 0,
-      name: 'Residential District',
+      name: 'residentialDistrict',
       img: '',
     },
+    cityPark: {
+      lv: 0,
+      name: 'cityPark',
+      img: '/imgs/house/small/City_Park.png',
+    }
   },
   resource: {
-    food: {current: 0, max: 0},
-    room: {current: 0, max: 0},
-    money: {current: 0, max: 0},
-    wood: {current: 0, max: 0},
-    stone: {current: 0, max: 0},
-    iron: {current: 0, max: 0},
-    silver: {current: 0, max: 0},
-    gold: {current: 0, max: 0},
-    mythril: {current: 0, max: 0},
-    gem: {current: 0, max: 0},
-    crystal: {current: 0, max: 0},
+    food: {current: 50, max: 500},
+    room: {current: 5, max: 10},
+    money: {current: 0, max: 1000},
+    wood: {current: 400, max: 500},
+    stone: {current: 0, max: 500},
+    iron: {current: 0, max: 500},
+    silver: {current: 0, max: 500},
+    gold: {current: 0, max: 500},
+    mythril: {current: 0, max: 500},
+    gem: {current: 0, max: 500},
+    crystal: {current: 0, max: 500},
   },
   workPosition: {
-    farming: {current: 0, max: 0},
-    logging: {current: 0, max: 0},
-    stoneMining:{current: 0, max: 0},
-    ironMining: {current: 0, max: 0},
-    silverMining: {current: 0, max: 0},
-    goldMining: {current: 0, max: 0},
-    mythrilMining: {current: 0, max: 0},
-    gemMining: {current: 0, max: 0},
-    crystalMining: {current: 0, max: 0},
+    farm: {name:'Farm', current: 0, max: 10, produce: {food: 1}, consume: {}},
+    lumber: {name:'Lumber Mill', current: 0, max: 10, produce: {wood: 1}, consume: {food: 1}},
+    stoneMine:{name:'Stone Mine', current: 0, max: 10, produce: {stone: 1}, consume: {food: 2}},
+    ironMine: {name:'Iron Mine', current: 0, max: 0, produce: {iron: 1}, consume: {food: 3}},
+    silverMine: {name:'Silver Mine', current: 0, max: 0, produce: {silver: 1}, consume: {food: 5}},
+    goldMine: {name:'Gold Mine', current: 0, max: 0, produce: {gold: 1}, consume: {food: 7}},
+    mythrilMine: {name:'Mythril Mine', current: 0, max: 0, produce: {mythri: 1}, consume: {food: 10}},
+    gemMine: {name:'Gem Mine', current: 0, max: 0, produce: {gem: 1}, consume: {food: 15}},
+    crystalMine: {name:'Crystal Mine', current: 0, max: 0, produce: {crystal: 1}, consume: {food: 30}},
   },
   shopList: [],
   HeroList: [],
@@ -96,9 +117,6 @@ const strongHoldReducer = (state = strongHoldInit, action) => {
       newState.workPosition = Object.assign({}, state.workPosition);
       newState.workPosition[action.data.workPosition] = {...state.workPosition[action.data.workPosition]};
       let newAmount = newState.workPosition[action.data.workPosition].current + action.data.amount;
-      if(newAmount>newState.workPosition[action.data.workPosition].max) {
-        newAmount = newState.workPosition[action.data.workPosition].max;
-      }
       newState.workPosition[action.data.workPosition].current = newAmount;
       return newState;
     }
@@ -115,6 +133,14 @@ const strongHoldReducer = (state = strongHoldInit, action) => {
       newState.buildings = Object.assign({}, state.buildings);
       newState.buildings[action.data.building] = action.data.data;
       return newState;
+    }
+    case 'INCREASE_BUILDING_LV': {
+      let newState = Object.assign({}, state);
+      newState.buildings = Object.assign({}, state.buildings);
+      newState.buildings[action.data.building] = Object.assign({}, state.buildings[action.data.building]);
+      newState.buildings[action.data.building].lv += action.data.data;
+      return newState;
+
     }
     case 'CHANGE_HERO_LIST': {
       let newState = {...state};

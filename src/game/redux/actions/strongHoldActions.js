@@ -46,6 +46,17 @@ export const changeBuilding = data => {
   };
 };
 
+export const increaseBuildingLv = data => {
+  return {
+    type: 'INCREASE_BUILDING_LV',
+    data: {
+      building: data.building,
+      data: data.num
+    }
+
+  }
+}
+
 
 export const changeHeroList = data => {
   return {

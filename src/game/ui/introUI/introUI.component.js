@@ -10,6 +10,7 @@ class IntroUI extends React.Component {
 
   constructor(props, context) {
     super(props, context);
+    this.LAN = window.localization.gameLanguage.introUI;
     this.state = {
 
     };
@@ -28,9 +29,9 @@ class IntroUI extends React.Component {
   render() {
     return (
       <div className="intro-container">
-        Intro
+        <Intro />
         <div className="intro-btn">
-          <button className="btn-game btn-black-blue menu-btn" onClick={this.confirm}>CONTINUE</button>
+          <button className="btn-game btn-black-blue menu-btn" onClick={this.confirm}>{this.LAN.continue}</button>
         </div>
       </div>
     );

@@ -1,0 +1,8 @@
+@import '../../../style/animation.scss';
+
+.floating-text-container {
+  opacity:0;
+  animation-name: animation-fadeUpOut;
+  animation-duration: 2s;
+  text-shadow: 0px 0px 10px #ffffff;
+}

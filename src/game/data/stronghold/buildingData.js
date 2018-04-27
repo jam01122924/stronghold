@@ -9,55 +9,57 @@ const buildingData = {
     gem: 40,
     crystal: 50,
   },
-  cityHall: [
-    {lv: 0, income: 0},
-    {lv: 1, income: 1},
-    {lv: 2, income: 2},
-    {lv: 3, income: 3},
-    {lv: 4, income: 4},
-    {lv: 5, income: 6},
-    {lv: 6, income: 8},
-    {lv: 7, income: 10},
-    {lv: 8, income: 12},
-    {lv: 9, income: 15},
-    {lv: 10, income: 18},
-    {lv: 11, income: 22},
-  ],
-  blacksmithShop: {
-    lv: 0,
-    name: 'Blacksmith shop',
-    img: '',
+  cityLord: {
+    upgradeCost: 2,
+    increaseType: 'storage',
+    increase: 'money',
+    increaseParam: 500, // final num = increaseParam * 1.5 * lv
   },
-  workshop: {
-    lv: 0,
-    name: 'Workshop',
-    img: '',
+  cityHall: {
+    upgradeCost: 2.5,
+    increaseType: 'produce',
+    increase: 'money',
+    amount: 1,
+  },
+  lumberMill: {
+    upgradeCost: 1.2,
+    increaseType: 'produce',
+    increase: 'wood',
+    amount: 10,
+  },
+  blacksmith: {
+    upgradeCost: 1.5,
   },
   tavern: {
-    lv: 0,
-    name: 'Tavern',
-    img: '',
+    upgradeCost: 1.6,
   },
   warehouse: {
-    lv: 0,
-    name: 'Warehouse',
-    img: '',
+    upgradeCost: 1.2,
+    food: {increase: 500, timer:1.2, cost: 200},
+    wood: {increase: 500, timer:1.2, cost: 200},
+    stone: {increase: 500, timer:1.2, cost: 500},
+    iron: {increase: 500, timer:1.2, cost: 1200},
+    silver: {increase: 400, timer:1.2, cost: 2000},
+    gold: {increase: 400, timer:1.2, cost: 4000},
+    mythril: {increase: 400, timer:1.2, cost: 20000},
+    gem: {increase: 300, timer:1.2, cost: 100000},
+    crystal: {increase: 300, timer:1.2, cost: 500000},
   },
-  graveyard: {
-    lv: 0,
-    name: 'Graveyard',
-    img: '',
+  church: {
+    upgradeCost: 1.8,
   },
   merchantShop: {
-    lv: 0,
-    name: 'Merchant Shop',
-    img: '',
+    upgradeCost: 2,
   },
   residentialDistrict : {
-    lv: 0,
-    name: 'Residential District',
-    img: '',
+    upgradeCost: 1,
+    increaseType: 'storage',
+    increase: 'room',
+    amount: 5,
   },
+  cityPark: {
+    upgradeCost: 1.5,
+  }
 };
 
 export default buildingData;

@@ -17,7 +17,7 @@ class Intro extends React.Component {
   render() {
     return (
       <div className="intro-container">
-
+        INTRO
       </div>
     );
   }

@@ -2,7 +2,6 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import * as gameStageActions from './redux/actions/gameStageActions';
-import * as mapActions from './redux/actions/mapActions';
 
 import LandingMenu from './ui/landingMenu/landingMenu.component';
 import IntroUI from './ui/introUI/introUI.component';
@@ -11,16 +10,20 @@ import InGameLandingUI from './ui/inGameLandingUI/inGameLandingUI.component';
 import CreateMapToolUI from './ui/createMapToolUI/createMapToolUI.component';
 import StrongHoldUI from './ui/strongHoldUI/strongHoldUI.component';
 
+import gameLanguage from './data/localization/gameLanguage';
+
 class GameContainer extends React.Component {
 
   constructor(props, context) {
     super(props, context);
     this.state = {
     };
+    window.localization = {
+      gameLanguage: gameLanguage[props.language]
+    };
   }
 
   componentDidMount() {
-
   }
 
   changeStage(stage) {
@@ -57,7 +60,7 @@ class GameContainer extends React.Component {
 
 function mapStoreToProps (store, ownProps) {
 	const { gameStage } = store;
-  const { stage } = gameStage || { stage: '' }
-	return { stage };
+  const { stage, language } = gameStage || { stage: '', language: 'en' };
+	return { stage, language };
 }
 export default connect(mapStoreToProps)(GameContainer);

@@ -4,3 +4,10 @@ export const changeStage = stage => {
     stage
   };
 };
+
+export const changeLanguage = language => {
+  return {
+    type: 'CHANGE_LANGUAGE',
+    language
+  };
+};

@@ -1,0 +1,118 @@
+@import '../../../gameColor.scss';
+
+.building-ui-modal {
+  z-index: 100;
+  a {
+    color: #53AaF7;
+  }
+  .modal-content {
+    background-color: $color-gray5;
+    color: $color-gray85;
+    border: 2px solid $color-gray85;
+    -webkit-box-shadow: 0 3px 9px rgba(255,255,255,.5);
+    box-shadow: 0 3px 9px rgba(255,255,255,.5);
+    min-width: 280px;
+  }
+  .building-menu-container {
+    .tab-content {
+      background: none;
+      .building-info {
+        margin: 20px 10vw 0;
+        padding: 10% 0 0;
+        min-height: 300px;
+        color: $color-gray90;
+        .building-title {
+          width: 100%;
+          font-size: 1.5em;
+          text-shadow: 0 0 5px black;
+          text-align: center;
+        }
+        .building-lv {
+          font-size: 1.2em;
+          text-shadow: 0 0 5px black;
+          margin: 10px auto;
+          text-align: center;
+          float: none;
+        }
+        .building-info-content {
+          padding: 10px;
+          background: rgba(0, 0, 0, 0.3);
+          .resouce-type {
+            display: inline-block;
+            width: 60px;
+            margin-right: 10px;
+          }
+        }
+        .upgrade-btn {
+          margin: 40px auto 0;
+          text-align: center;
+        }
+      }
+      .list-group-item {
+        background: none;
+        color: $color-gray85;
+        // City Hall Menu Style:
+        .change-position-num-btn {
+          right: 0;
+          position: absolute;
+          .btn {
+            padding: 0 6px;
+            min-width: 22px;
+            margin: 0 5px;
+          }
+        }
+        .position-num {
+          width: 100px;
+          text-align: center;
+          display: inline-block;
+        }
+        // Warehouse Menu Style:
+        .storage-name {
+          width: 80px;
+          display: inline-block;
+          margin: 5px 0;
+          line-height: 20px;
+        }
+        .storage-num {
+          width: 60%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: middle;
+          margin: 5px 0;
+          .progress {
+            margin-bottom: 0;
+
+            color: black;
+            .progress-bar {
+              color: white;
+            }
+          }
+          .storage-progress-num {
+            margin-top: -20px;
+            color: $color-gray15;
+          }
+        }
+        .storage-upgrade-btn {
+          float: right;
+          @media only screen and (max-width: 520px) {
+            float: none;
+            display: block;
+            margin: 5px auto 0;
+          }
+        }
+
+      }
+      .list-group-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: $color-gray95;
+      }
+      .list-group-item:first-child {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+    .nav li a {
+      padding: 10px;
+    }
+  }
+}

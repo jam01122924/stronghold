@@ -20,49 +20,120 @@
       div {
         position: absolute;
       }
-      img {
+      .building-img-container {
+        cursor: pointer;
         opacity: 0.6;
-        -webkit-transition: opacity 0.4s ease-in-out;
-        -moz-transition: opacity 0.4s ease-in-out;
-        -ms-transition: opacity 0.4s ease-in-out;
-        -o-transition: opacity 0.4s ease-in-out;
-        transition: opacity 0.4s ease-in-out;
+        cursor: pointer;
       }
-      img:hover {
+      .building-img-container:hover {
         opacity: 1;
       }
+      .building-name-tag-container {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        .building-name-tag {
+          margin: 50% 5% 0 5%;
+          padding: 10px;
+          color: white;
+          width: 100%;
+          text-shadow: 0 0 5px black;
+          text-align: center;
+        }
+      }
+      .building-name-tag-container:hover, .building-name-tag-container:focus, .building-name-tag-container:active {
+        opacity: 1;
+      }
+      .ruin-container {
+        transform: scale(0.8);
+      }
+      .lumber-progress-container {
+        height: 10px;
+        width: 90%;
+        margin-top: 50px;
+        .progress {
+          width: 100%;
+          height: 10px;
+          .progress-bar {
+            line-height: 10px;
+          }
+        }
+      }
 
-      .lord-house {
-        top: 4vh;
+      .cityLord {
+        top: 2vh;
         left: 18vh;
+        img {
+          height: 38vh;
+          width: auto;
+        }
       }
-      .city-hall {
-        top: 21vh;
-        left: 40vh;
+      .cityHall {
+        top: 25vh;
+        left: 45vh;
+        img {
+          height: 36vh;
+          width: auto;
+        }
       }
-      .park {
-        top: 42vh;
-        left: 70vh;
+      .cityPark {
+        top: 46vh;
+        left: 76vh;
+        img {
+          height: 26vh;
+          width: auto;
+        }
       }
-      .black-smith {
+      .blacksmith {
         top: 48vh;
-        left: 30vh;
+        left: 35vh;
+        img {
+          height: 20vh;
+          width: auto;
+        }
+      }
+      .lumberMill {
+        top: 64vh;
+        left: 22vh;
+        img {
+          height: 12vh;
+          width: auto;
+        }
       }
       .church {
         top: 3vh;
         left: 75vh;
+        img {
+          height: 46vh;
+          width: auto;
+        }
       }
-      .ware-house {
-        top: 30vh;
+      .warehouse {
+        top: 32vh;
         left: 8vh;
+        img {
+          height: 34vh;
+          width: auto;
+        }
       }
-      .traven {
-        top: 54vh;
-        left: 60vh;
+      .tavern {
+        top: 58vh;
+        left: 62vh;
+        img {
+          height: 20vh;
+          width: auto;
+        }
       }
-      .shop {
+      .merchantShop {
         top: 1vh;
         left: 54vh;
+        img {
+          height: 26vh;
+          width: auto;
+        }
       }
       .living-house {
         top: 0;
@@ -70,35 +141,69 @@
         .living-house1 {
           top: 5vh;
           left: 18vh;
+          img {
+            height: 26vh;
+            width: auto;
+          }
         }
         .living-house2 {
-          top: 16vh;
-          left: 43vh;
+          top: 15vh;
+          left: 41vh;
+          img {
+            height: 26vh;
+            width: auto;
+          }
         }
         .living-house3 {
           top: 54vh;
-          left: 14vh;
+          left: 15vh;
+          img {
+            height: 26vh;
+            width: auto;
+          }
         }
         .living-house4 {
           top: 26vh;
           left: 19vh;
+          img {
+            height: 26vh;
+            width: auto;
+          }
         }
         .living-house5 {
           top: 38vh;
           left: -2vh;
+          img {
+            height: 26vh;
+            width: auto;
+          }
         }
         .living-house6 {
           top: 40vh;
           left: 36vh;
+          img {
+            height: 30vh;
+            width: auto;
+          }
         }
         .living-house7 {
-          top: 50vh;
-          left: -24vh;
+          top: 55vh;
+          left: -22vh;
+          img {
+            height: 27vh;
+            width: auto;
+          }
         }
 
       }
 
 
     }
+  }
+  .floating-msg {
+    position: absolute;
+    top: 50vh;
+    width: 100vw;
+    text-align: center;
   }
 }
