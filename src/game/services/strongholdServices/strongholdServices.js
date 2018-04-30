@@ -4,6 +4,7 @@ import buildingData from '../../data/stronghold/buildingData';
 const strongholdServices = {
   getUpgradeResourceRequired: getUpgradeResourceRequired,
   getStorageUpgradeResourceRequired: getStorageUpgradeResourceRequired,
+  getStorageMax: getStorageMax,
   getResourceProduce: getResourceProduce,
   convertNum: convertNum,
 };
@@ -29,7 +30,15 @@ function getStorageUpgradeResourceRequired(resource, lv) {
   if(!buildingData.warehouse[resource]) {
     return;
   }
-  return buildingData.warehouse[resource].cost * Math.pow(buildingData.warehouse[resource].timer, lv);
+  return Math.floor(buildingData.warehouse[resource].cost * Math.pow(buildingData.warehouse[resource].timer, lv-1)/10)*10;
+}
+
+function getStorageMax(resource, lv) {
+  if(!buildingData.warehouse[resource]) {
+    return;
+  }
+  return Math.floor(buildingData.warehouse[resource].increase * Math.pow(buildingData.warehouse[resource].timer, lv)/100)*100;
+
 }
 
 function getResourceProduce(building, lv) {

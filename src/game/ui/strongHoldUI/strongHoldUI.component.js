@@ -25,6 +25,8 @@ class StrongHoldUI extends React.Component {
       lumberProgress: 0,
       needMoreResource: false,
     };
+
+    let self = this;
     this.residentialDistrictContent = (
       <div className="living-house">
         {/*
@@ -65,10 +67,10 @@ class StrongHoldUI extends React.Component {
           </div>
         </div>
         */}
-        <div className="living-house7">
+        <div className="living-house7" onClick={(e)=>{self.openBuilding('residentialDistrict', e)}}>
           <img src="/imgs/house/small/livinghouse7.png" />
           <div className="building-name-tag-container">
-            <div className="building-name-tag">{this.LAN.building.residentialDistrict}</div>
+            <div className="building-name-tag">{window.localization.gameLanguage.building.residentialDistrict}</div>
           </div>
         </div>
       </div>
@@ -126,7 +128,7 @@ class StrongHoldUI extends React.Component {
         lumberProgress: this.state.lumberProgress + 10
       }, ()=>{
         if(this.state.lumberProgress>=100) {
-          this.props.dispatch(strongHoldActions.changeResource({resource: 'wood', amount: this.props.buildings.lumberMill.lv*100}));
+          this.props.dispatch(strongHoldActions.changeResource({resource: 'wood', amount: this.props.buildings.lumberMill.lv*100000}));
           this.setState({
             lumberProgress: 0,
             needMoreResource: '+ ' + this.props.buildings.lumberMill.lv*10 + ' ' + this.LAN.resource.wood
@@ -140,6 +142,7 @@ class StrongHoldUI extends React.Component {
       })
     } else {
       this.setState({currentUI: building});
+      console.log('111')
     }
   }
 

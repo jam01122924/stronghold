@@ -105,7 +105,8 @@
         width: auto; }
     .stronghold-ui-container .stronghold-building-container .stronghold-building-content .living-house {
       top: 0;
-      left: 120vh; }
+      left: 120vh;
+      cursor: pointer; }
       .stronghold-ui-container .stronghold-building-container .stronghold-building-content .living-house .living-house1 {
         top: 5vh;
         left: 18vh; }

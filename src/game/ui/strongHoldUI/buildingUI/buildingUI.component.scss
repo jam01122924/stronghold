@@ -17,7 +17,7 @@
     .tab-content {
       background: none;
       .building-info {
-        margin: 20px 10vw 0;
+        margin: 20px auto 0;
         padding: 10% 0 0;
         min-height: 300px;
         color: $color-gray90;
@@ -100,7 +100,6 @@
             margin: 5px auto 0;
           }
         }
-
       }
       .list-group-item:hover {
         background: rgba(255, 255, 255, 0.2);
@@ -114,5 +113,42 @@
     .nav li a {
       padding: 10px;
     }
+
+    // warehouse upgrade:
+    .storage-upgrade-ui {
+      text-align: center;
+      margin: 20px 10px;
+      .resource-info {
+        margin: 20px 0;
+        font-size: 1.2em;
+        .resource-requirement {
+          font-size: 1.2em;
+        }
+        .success {
+          color: #37941C
+        }
+      }
+      .storage-info {
+        margin: 20px 0;
+      }
+      .storage-action {
+        margin: 10px 0;
+        button {
+          margin: 0 20px;
+        }
+      }
+    }
+  }
+}
+
+
+.hero-info-modal {
+  .modal-content {
+    background-color: $color-gray5;
+    color: $color-gray85;
+    border: 2px solid $color-gray85;
+    -webkit-box-shadow: 0 3px 9px rgba(255,255,255,.5);
+    box-shadow: 0 3px 9px rgba(255,255,255,.5);
+    min-width: 280px;
   }
 }

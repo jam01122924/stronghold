@@ -67,13 +67,13 @@ const strongHoldInit = {
     room: {current: 5, max: 10},
     money: {current: 0, max: 1000},
     wood: {current: 400, max: 500},
-    stone: {current: 0, max: 500},
-    iron: {current: 0, max: 500},
-    silver: {current: 0, max: 500},
-    gold: {current: 0, max: 500},
-    mythril: {current: 0, max: 500},
-    gem: {current: 0, max: 500},
-    crystal: {current: 0, max: 500},
+    stone: {current: 0, max: 0},
+    iron: {current: 0, max: 0},
+    silver: {current: 0, max: 0},
+    gold: {current: 0, max: 0},
+    mythril: {current: 0, max: 0},
+    gem: {current: 0, max: 0},
+    crystal: {current: 0, max: 0},
   },
   workPosition: {
     farm: {name:'Farm', current: 0, max: 10, produce: {food: 1}, consume: {}},
@@ -139,6 +139,15 @@ const strongHoldReducer = (state = strongHoldInit, action) => {
       newState.buildings = Object.assign({}, state.buildings);
       newState.buildings[action.data.building] = Object.assign({}, state.buildings[action.data.building]);
       newState.buildings[action.data.building].lv += action.data.data;
+      return newState;
+
+    }
+    case 'CHANGE_STORAGE_LV': {
+      let newState = Object.assign({}, state);
+      newState.buildings = Object.assign({}, state.buildings);
+      newState.buildings.warehouse = Object.assign({}, state.buildings.warehouse);
+      newState.buildings.warehouse.storageLv = Object.assign({}, state.buildings.warehouse.storageLv);
+      newState.buildings.warehouse.storageLv[action.data.storage] += action.data.lv;
       return newState;
 
     }

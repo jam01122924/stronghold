@@ -12,7 +12,7 @@
   .building-ui-modal .building-menu-container .tab-content {
     background: none; }
     .building-ui-modal .building-menu-container .tab-content .building-info {
-      margin: 20px 10vw 0;
+      margin: 20px auto 0;
       padding: 10% 0 0;
       min-height: 300px;
       color: #E6E6E6; }
@@ -85,3 +85,27 @@
       border-top-right-radius: 0; }
   .building-ui-modal .building-menu-container .nav li a {
     padding: 10px; }
+  .building-ui-modal .building-menu-container .storage-upgrade-ui {
+    text-align: center;
+    margin: 20px 10px; }
+    .building-ui-modal .building-menu-container .storage-upgrade-ui .resource-info {
+      margin: 20px 0;
+      font-size: 1.2em; }
+      .building-ui-modal .building-menu-container .storage-upgrade-ui .resource-info .resource-requirement {
+        font-size: 1.2em; }
+      .building-ui-modal .building-menu-container .storage-upgrade-ui .resource-info .success {
+        color: #37941C; }
+    .building-ui-modal .building-menu-container .storage-upgrade-ui .storage-info {
+      margin: 20px 0; }
+    .building-ui-modal .building-menu-container .storage-upgrade-ui .storage-action {
+      margin: 10px 0; }
+      .building-ui-modal .building-menu-container .storage-upgrade-ui .storage-action button {
+        margin: 0 20px; }
+
+.hero-info-modal .modal-content {
+  background-color: #0C0C0C;
+  color: #CCCCCC;
+  border: 2px solid #CCCCCC;
+  -webkit-box-shadow: 0 3px 9px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 3px 9px rgba(255, 255, 255, 0.5);
+  min-width: 280px; }

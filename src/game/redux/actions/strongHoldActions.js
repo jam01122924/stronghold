@@ -57,6 +57,17 @@ export const increaseBuildingLv = data => {
   }
 }
 
+export const  increaseStorageLv = data => {
+  return {
+    type: 'CHANGE_STORAGE_LV',
+    data: {
+      storage: data.storage,
+      lv: data.lv
+    }
+
+  }
+}
+
 
 export const changeHeroList = data => {
   return {

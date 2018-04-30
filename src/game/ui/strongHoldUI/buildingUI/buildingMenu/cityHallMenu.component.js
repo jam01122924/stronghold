@@ -14,7 +14,7 @@ class CityHallMenu extends React.Component {
 
   constructor(props, context) {
     super(props, context);
-    this.LAN = window.localization.gameLanguage.strongHoldUI;
+    this.LAN = window.localization.gameLanguage;
     this.state = {
       key: 'main'
     };
@@ -81,7 +81,7 @@ class CityHallMenu extends React.Component {
           upgradeUI.push(<div key={r + 'newLine'}></div>);
         }
       }
-      upgradeUI.push(<div className="upgrade-btn" key='upgradeBtn'><Button onClick={this.upgradeBuilding} disabled={!enoughResource} bsStyle="primary">{this.LAN.lbls.upgradeLevel}</Button></div>)
+      upgradeUI.push(<div className="upgrade-btn" key='upgradeBtn'><Button onClick={this.upgradeBuilding} disabled={!enoughResource} bsStyle="primary">{this.LAN.strongHoldUI.lbls.upgradeLevel}</Button></div>)
       //===============================End of Building Info==============================
 
 
@@ -92,7 +92,7 @@ class CityHallMenu extends React.Component {
         jobList.push(
           <ListGroupItem key={position + 'Key'}>
             <div>
-              <span>{this.props.workPosition[position].name}:</span>
+              <span>{this.LAN.workPosition[position]}:</span>
               <span className="change-position-num-btn">
                 <HoldableContainer onHold={()=>this.reducePosition(position)} rate={10}>
                   <Button onClick={()=>this.reducePosition(position)}>-</Button>
@@ -120,11 +120,11 @@ class CityHallMenu extends React.Component {
           <Tabs
             activeKey={this.state.key}
             onSelect={this.handleSelect}
-            id="controlled-tab-example"
+            id="cityHallTabs"
           >
-            <Tab eventKey={'main'} title="Main">
+            <Tab eventKey={'main'} title={this.LAN.strongHoldUI.lbls.main}>
               <div className="tab-content">
-                <div className="building-info" style={{background: 'url(' + this.props.buildings[this.props.building].img + ')', backgroundRepeat: 'no-repeat', backgroundSize: (screenMode==='landscape'?'auto 100%':'100% auto')}}>
+                <div className="building-info" style={{background: 'url(' + this.props.buildings[this.props.building].img + ')', backgroundRepeat: 'no-repeat', backgroundSize: (screenMode==='landscape'?'auto 100%':'100% auto'), backgroundPosition: 'center'}}>
                   <div className="building-title">
                     <div className={this.props.building}>
                       {this.props.buildings[this.props.building].name}
@@ -134,9 +134,9 @@ class CityHallMenu extends React.Component {
                     Lv {this.props.buildings[this.props.building].lv}
                   </div>
                   <div className="building-info-content">
-                    <div>Produce:</div>
-                    <p>Gold: {this.props.buildings[this.props.building].lv}/min</p>
-                    <div>Upgrade Resource:</div>
+                    <div>{this.LAN.strongHoldUI.lbls.produce}:</div>
+                    <p>{this.LAN.resource.money}: {this.props.buildings[this.props.building].lv}/{this.LAN.strongHoldUI.lbls.min}</p>
+                    <div>{this.LAN.strongHoldUI.lbls.upgradeResource}</div>
                     <div>{upgradeUI}</div>
                   </div>
                 </div>
@@ -147,10 +147,10 @@ class CityHallMenu extends React.Component {
                 <ListGroup>
                   <ListGroupItem>
                     <span className="free-worker-num">
-                      Free Worker: {this.props.resource.room.current - this.props.workPosition.farm.current - this.props.workPosition.lumber.current - this.props.workPosition.stoneMine.current - this.props.workPosition.ironMine.current - this.props.workPosition.silverMine.current - this.props.workPosition.goldMine.current - this.props.workPosition.mythrilMine.current - this.props.workPosition.gemMine.current - this.props.workPosition.crystalMine.current}
+                      {this.LAN.strongHoldUI.cityHall.freeWorkers}: {this.props.resource.room.current - this.props.workPosition.farm.current - this.props.workPosition.lumber.current - this.props.workPosition.stoneMine.current - this.props.workPosition.ironMine.current - this.props.workPosition.silverMine.current - this.props.workPosition.goldMine.current - this.props.workPosition.mythrilMine.current - this.props.workPosition.gemMine.current - this.props.workPosition.crystalMine.current}
                     </span>
                     <span className="food-produce-num right">
-                      Food: <span style={{color: foodProduce>0?'#34F080':'red'}}>{foodProduce}</span>
+                      {this.LAN.resource.food}: <span style={{color: foodProduce>0?'#34F080':'red'}}>{foodProduce}</span>
                     </span>
                   </ListGroupItem>
                   {jobList}

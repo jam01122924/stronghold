@@ -31,14 +31,30 @@ const gameLanguage = {
         main: 'Main',
         upgradeResource: 'Upgrade Resource:',
         upgradeLevel: 'Upgrade Level',
+        upgrade: 'Upgrade',
+        produce: 'Produce',
+        min: 'min',
+        need: 'Need',
+        lack: 'Lack',
+        cancel: 'Cancel',
       },
       cityLord: {
         visitor: 'Visitor',
         quest: 'Quest',
         status: 'Status',
+        heroes: 'Heroes',
+      },
+      cityHall: {
+        freeWorkers: 'Free Workers',
       },
       warehouse: {
-
+        resource: 'Resource',
+        treasure: 'Treasure',
+        equipment: 'Equipment',
+        item: 'Item',
+        questItem: 'Quest Item',
+        youHaveEnoughResource: 'You already have enough resource to upgrade.',
+        storageLimitIncreased: 'storage limit will be increased:',
       },
     },
     building: {

@@ -7,7 +7,7 @@ import * as strongHoldActions from '../../../../redux/actions/strongHoldActions'
 import { Tab, Tabs, Button, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 import strongholdServices from '../../../../services/strongholdServices/strongholdServices';
-
+import HeroTab from './heroTab/heroTab.component';
 
 class CityLordMenu extends React.Component {
 
@@ -71,11 +71,11 @@ class CityLordMenu extends React.Component {
           <Tabs
             activeKey={this.state.key}
             onSelect={this.handleSelect}
-            id="controlled-tab-example"
+            id="cityLordTabs"
           >
             <Tab eventKey={'main'} title={this.LAN.lbls.main}>
               <div className="tab-content">
-                <div className="building-info" style={{background: 'url(' + this.props.buildings[this.props.building].img + ')', backgroundRepeat: 'no-repeat', backgroundSize: (screenMode==='landscape'?'auto 100%':'100% auto')}}>
+                <div className="building-info" style={{background: 'url(' + this.props.buildings[this.props.building].img + ')', backgroundRepeat: 'no-repeat', backgroundSize: (screenMode==='landscape'?'auto 100%':'100% auto'), backgroundPosition: 'center'}}>
                   <div className="building-title">
                     <div className={this.props.building}>
                       {window.localization.gameLanguage.building[this.props.buildings[this.props.building].name]}
@@ -89,6 +89,11 @@ class CityLordMenu extends React.Component {
                     <div>{upgradeUI}</div>
                   </div>
                 </div>
+              </div>
+            </Tab>
+            <Tab eventKey={'heroes'} title={this.LAN.cityLord.heroes}>
+              <div className="tab-content">
+                <HeroTab />
               </div>
             </Tab>
             <Tab eventKey={'visitor'} title={this.LAN.cityLord.visitor}>
