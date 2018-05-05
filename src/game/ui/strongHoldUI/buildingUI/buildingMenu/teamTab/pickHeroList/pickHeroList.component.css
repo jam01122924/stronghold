@@ -1,0 +1,27 @@
+.hero-tab-container {
+  margin-top: 10px; }
+  .hero-tab-container .hero-list-item .hero-list-btn {
+    width: 100%;
+    text-align: right; }
+    .hero-tab-container .hero-list-item .hero-list-btn button {
+      margin: 4px 10px;
+      min-width: 120px; }
+    @media only screen and (max-width: 479px) {
+      .hero-tab-container .hero-list-item .hero-list-btn {
+        text-align: center; } }
+  .hero-tab-container .hero-list-item .hero-info {
+    display: inline-block; }
+  .hero-tab-container .selected-hero {
+    background-color: #244070 !important; }
+
+.hero-info-btns {
+  margin: 20px auto;
+  text-align: center; }
+  .hero-info-btns .hero-info-btn-container {
+    display: inline-block;
+    margin: 0 10px; }
+    .hero-info-btns .hero-info-btn-container button {
+      display: inline-block; }
+    .hero-info-btns .hero-info-btn-container .fire-hero-btn {
+      height: 54px;
+      width: 60px; }

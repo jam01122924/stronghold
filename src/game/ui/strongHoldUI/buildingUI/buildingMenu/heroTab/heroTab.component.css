@@ -1,2 +1,14 @@
 .hero-tab-container {
   margin-top: 10px; }
+
+.hero-info-btns {
+  margin: 20px auto;
+  text-align: center; }
+  .hero-info-btns .hero-info-btn-container {
+    display: inline-block;
+    margin: 0 10px; }
+    .hero-info-btns .hero-info-btn-container button {
+      display: inline-block; }
+    .hero-info-btns .hero-info-btn-container .fire-hero-btn {
+      height: 54px;
+      width: 60px; }

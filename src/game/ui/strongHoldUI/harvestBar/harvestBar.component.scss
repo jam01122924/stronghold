@@ -1,0 +1,14 @@
+.harvest-bar-container {
+  position: absolute;
+  bottom: 10px;
+  padding: 0 20px 0 20px;
+  font-size: 24px;
+  .harvest-progress-bar {
+    width: 60px;
+  }
+  .floating-msg {
+    position: absolute;
+    top: -50vh;
+    margin: 0 auto;
+  }
+}

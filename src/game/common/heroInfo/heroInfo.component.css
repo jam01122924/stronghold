@@ -1,0 +1,44 @@
+.hero-info-container {
+  border-radius: 5px;
+  padding: 10px;
+  border: 3px ridge #cccccc;
+  background: #2a2a2a;
+  text-align: center; }
+  .hero-info-container .hero-info-top {
+    margin: 10px auto 20px; }
+    .hero-info-container .hero-info-top .hero-name {
+      font-size: 1.1em; }
+    .hero-info-container .hero-info-top .hero-lv {
+      font-size: 0.9em; }
+  .hero-info-container .hero-info-center {
+    height: 320px; }
+  .hero-info-container .hero-info-panel {
+    display: relative;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px ridge #cccccc;
+    background: #333333; }
+    .hero-info-container .hero-info-panel .hero-info-col {
+      text-align: left;
+      width: 50%;
+      margin-bottom: 10px; }
+      @media only screen and (max-width: 479px) {
+        .hero-info-container .hero-info-panel .hero-info-col {
+          width: 100%; } }
+      .hero-info-container .hero-info-panel .hero-info-col .hero-info-name {
+        display: inline-block;
+        min-width: 55px; }
+      .hero-info-container .hero-info-panel .hero-info-col .hero-info-value {
+        display: inline-block;
+        text-align: center;
+        vertical-align: top;
+        min-width: 100px; }
+        .hero-info-container .hero-info-panel .hero-info-col .hero-info-value .hero-status-line {
+          text-align: left; }
+        .hero-info-container .hero-info-panel .hero-info-col .hero-info-value .status-name {
+          display: inline-block;
+          min-width: 40px; }
+        .hero-info-container .hero-info-panel .hero-info-col .hero-info-value .status-num {
+          display: inline-block;
+          text-align: right;
+          min-width: 60px; }

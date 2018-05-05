@@ -1,0 +1,22 @@
+.team-tab-container .team-hero-info {
+  width: 23%;
+  display: inline-block;
+  border: 2px ridge #cccccc;
+  margin: 10px 1%;
+  border-radius: 5px;
+  padding: 10px 3px;
+  text-align: center;
+  min-height: 200px; }
+  @media only screen and (max-width: 640px) {
+    .team-tab-container .team-hero-info {
+      width: 48%;
+      margin: 10px 1%;
+      min-height: 160px; } }
+  @media only screen and (max-width: 480px) {
+    .team-tab-container .team-hero-info {
+      width: 96%;
+      margin: 10px 2%;
+      min-height: 120px; } }
+  .team-tab-container .team-hero-info .team-hero-name {
+    width: 100%;
+    overflow: hidden; }

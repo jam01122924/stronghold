@@ -103,6 +103,12 @@
       .stronghold-ui-container .stronghold-building-container .stronghold-building-content .merchantShop img {
         height: 26vh;
         width: auto; }
+    .stronghold-ui-container .stronghold-building-container .stronghold-building-content .cityExit {
+      top: 83vh;
+      left: 44vh; }
+      .stronghold-ui-container .stronghold-building-container .stronghold-building-content .cityExit img {
+        height: 22vh;
+        width: auto; }
     .stronghold-ui-container .stronghold-building-container .stronghold-building-content .living-house {
       top: 0;
       left: 120vh;

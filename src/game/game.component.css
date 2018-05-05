@@ -30,3 +30,27 @@
 .clear {
   float: none;
   clear: both; }
+
+.hero-quality-c {
+  font-weight: bolder;
+  color: #777777; }
+
+.hero-quality-b {
+  font-weight: bolder;
+  color: #30A335; }
+
+.hero-quality-a {
+  font-weight: bolder;
+  color: #3095F0; }
+
+.hero-quality-s {
+  font-weight: bolder;
+  color: #E0F040; }
+
+.hero-quality-ss {
+  font-weight: bolder;
+  color: #E034F0; }
+
+.hero-quality-sss {
+  font-weight: bolder;
+  color: #eb7d07; }

@@ -1,0 +1,51 @@
+.hero-tab-container {
+  margin-top: 10px; }
+  .hero-tab-container .hero-tab-intro {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 20px 0; }
+  .hero-tab-container .hero-list-item {
+    width: 100%;
+    font-size: 1.2em;
+    text-align: center; }
+    .hero-tab-container .hero-list-item .hero-name {
+      text-align: left;
+      display: inline-block;
+      width: 30%;
+      min-width: 140px;
+      text-overflow: ellipsis; }
+    .hero-tab-container .hero-list-item .hero-class {
+      min-width: 100px;
+      display: inline-block;
+      width: 30%; }
+    .hero-tab-container .hero-list-item .hero-quality {
+      min-width: 110px;
+      display: inline-block;
+      width: 22%; }
+    .hero-tab-container .hero-list-item .hero-score {
+      min-width: 80px;
+      display: inline-block;
+      width: 18%; }
+    .hero-tab-container .hero-list-item .hero-quality-c {
+      font-weight: bolder;
+      color: #777777; }
+    .hero-tab-container .hero-list-item .hero-quality-b {
+      font-weight: bolder;
+      color: #30A335; }
+    .hero-tab-container .hero-list-item .hero-quality-a {
+      font-weight: bolder;
+      color: #3095F0; }
+    .hero-tab-container .hero-list-item .hero-quality-s {
+      font-weight: bolder;
+      color: #E0F040; }
+    .hero-tab-container .hero-list-item .hero-quality-ss {
+      font-weight: bolder;
+      color: #E034F0; }
+    .hero-tab-container .hero-list-item .hero-quality-sss {
+      font-weight: bolder;
+      color: #eb7d07; }
+  .hero-tab-container .hero-info-btns {
+    margin: 20px auto; }
+    .hero-tab-container .hero-info-btns .hero-info-btn-container {
+      display: inline-block;
+      margin: 0 10px; }

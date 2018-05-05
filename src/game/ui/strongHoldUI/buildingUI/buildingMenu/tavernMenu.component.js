@@ -7,9 +7,10 @@ import * as strongHoldActions from '../../../../redux/actions/strongHoldActions'
 import { Tab, Tabs, Button, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 import strongholdServices from '../../../../services/strongholdServices/strongholdServices';
-import HeroTab from './heroTab/heroTab.component';
+import heroServices from '../../../../services/heroServices/heroServices';
+import TavernHeroTab from './tavernHeroTab/tavernHeroTab.component';
 
-class CityLordMenu extends React.Component {
+class tavernMenu extends React.Component {
 
   constructor(props, context) {
     super(props, context);
@@ -66,12 +67,25 @@ class CityLordMenu extends React.Component {
       }
       upgradeUI.push(<div className="upgrade-btn" key='upgradeBtn'><Button onClick={this.upgradeBuilding} disabled={!enoughResource} bsStyle="primary">{this.LAN.lbls.upgradeLevel}</Button></div>)
 
+      //===============================Tavern Upgarde Info==============================
+      let tavernUpgardeInfo = [];
+      let currentOdds = strongholdServices.getTavernHeroQualityOdds(this.props.buildings.tavern.lv);
+      let upgradeOdds = strongholdServices.getTavernHeroQualityOdds(this.props.buildings.tavern.lv + 1);
+      for(let quality in currentOdds) {
+        tavernUpgardeInfo.push(
+          <div className="quality-odds" key={quality + '-odds'}>
+            <span className={"quality-name  hero-quality-" + quality}>{quality&&quality.toUpperCase()}:</span>
+            <span className="quality-num"> {currentOdds[quality]}% <i className="fa fa-long-arrow-right" aria-hidden="true"></i> {upgradeOdds[quality]}%</span>
+          </div>
+        );
+      }
+
       return (
         <div className="building-menu-container">
           <Tabs
             activeKey={this.state.key}
             onSelect={this.handleSelect}
-            id="cityLordTabs"
+            id="tavernTabs"
           >
             <Tab eventKey={'main'} title={this.LAN.lbls.main}>
               <div className="tab-content">
@@ -85,34 +99,28 @@ class CityLordMenu extends React.Component {
                     {window.localization.gameLanguage.building.lv} {this.props.buildings[this.props.building].lv}
                   </div>
                   <div className="building-info-content" style={{margin: '60px 0 0 0'}}>
+                    <div className="tavern-upgrade-info">
+                      <div>{this.LAN.tavern.heroQualityRate}:</div>
+                      {tavernUpgardeInfo}
+                    </div>
                     <div>{this.LAN.lbls.upgradeResource}</div>
-                    <div>{upgradeUI}</div>
+                    <div>
+                      {upgradeUI}
+                    </div>
                   </div>
                 </div>
               </div>
             </Tab>
-            <Tab eventKey={'heroes'} title={this.LAN.cityLord.heroes}>
+            <Tab eventKey={'heroList'} title={this.LAN.cityLord.heroes}>
               <div className="tab-content">
-                <HeroTab />
+                <TavernHeroTab />
               </div>
-            </Tab>
-            <Tab eventKey={'visitor'} title={this.LAN.cityLord.visitor}>
-              <div className="tab-content">
-                <ListGroup>
-                  <ListGroupItem onClick={console.log}>Link 1</ListGroupItem>
-                  <ListGroupItem onClick={console.log}>Link 2</ListGroupItem>
-                  <ListGroupItem onClick={console.log}>Trigger an alert</ListGroupItem>
-                </ListGroup>
-              </div>
-            </Tab>
-            <Tab eventKey={'quest'} title={this.LAN.cityLord.quest}>
-              Tab 3 content
             </Tab>
           </Tabs>
         </div>
       );
     } else {
-      return <div>Error on City Lord Menu</div>
+      return <div>Error on Tavern Menu</div>
     }
   }
 }
@@ -123,4 +131,4 @@ function mapStoreToProps (store, ownProps) {
 
 	return { buildings, resource };
 }
-export default connect(mapStoreToProps)(CityLordMenu);
+export default connect(mapStoreToProps)(tavernMenu);

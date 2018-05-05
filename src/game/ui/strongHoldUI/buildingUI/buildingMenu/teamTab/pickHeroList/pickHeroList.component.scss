@@ -1,0 +1,41 @@
+@import '../../../../../../gameColor.scss';
+
+.hero-tab-container {
+  margin-top: 10px;
+  .hero-list-item {
+    .hero-list-btn {
+      width: 100%;
+      text-align: right;
+      button {
+        margin: 4px 10px;
+        min-width: 120px;
+      }
+      @media only screen and (max-width: 479px) {
+        text-align: center;
+      }
+    }
+    .hero-info {
+      display: inline-block;
+    }
+  }
+  .selected-hero {
+    background-color: $color-blue60 !important;
+  }
+
+}
+
+.hero-info-btns {
+  margin: 20px auto;
+  text-align: center;
+  .hero-info-btn-container {
+    display: inline-block;
+    margin: 0 10px;
+    button {
+      display: inline-block;
+    }
+    .fire-hero-btn {
+      height: 54px;
+      width: 60px;
+    }
+  }
+}

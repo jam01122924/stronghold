@@ -7,6 +7,8 @@ import { Modal, Button } from 'react-bootstrap';
 import CityLordMenu from './buildingMenu/cityLordMenu.component';
 import CityHallMenu from './buildingMenu/cityHallMenu.component';
 import WarehouseMainMenu from './buildingMenu/warehouseMenu.component';
+import TavernMenu from './buildingMenu/tavernMenu.component';
+import CityExitMenu from './buildingMenu/cityExitMenu.component';
 
 
 class BuildingUI extends React.Component {
@@ -36,6 +38,10 @@ class BuildingUI extends React.Component {
       case 'cityHall': modalContent=<CityHallMenu building="cityHall" />;
       break;
       case 'warehouse': modalContent=<WarehouseMainMenu building="warehouse" />;
+      break;
+      case 'tavern': modalContent=<TavernMenu building="tavern" />;
+      break;
+      case 'cityExit': modalContent=<CityExitMenu building="cityExit" />;
       break;
       default:
       break;

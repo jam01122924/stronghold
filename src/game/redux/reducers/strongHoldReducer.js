@@ -60,11 +60,16 @@ const strongHoldInit = {
       lv: 0,
       name: 'cityPark',
       img: '/imgs/house/small/City_Park.png',
+    },
+    cityExit: {
+      lv: 1,
+      name: 'cityExit',
+      img: '/imgs/house/small/bridge.png',
     }
   },
   resource: {
     food: {current: 50, max: 500},
-    room: {current: 5, max: 10},
+    room: {current: 10, max: 10},
     money: {current: 0, max: 1000},
     wood: {current: 400, max: 500},
     stone: {current: 0, max: 0},
@@ -82,12 +87,17 @@ const strongHoldInit = {
     ironMine: {name:'Iron Mine', current: 0, max: 0, produce: {iron: 1}, consume: {food: 3}},
     silverMine: {name:'Silver Mine', current: 0, max: 0, produce: {silver: 1}, consume: {food: 5}},
     goldMine: {name:'Gold Mine', current: 0, max: 0, produce: {gold: 1}, consume: {food: 7}},
-    mythrilMine: {name:'Mythril Mine', current: 0, max: 0, produce: {mythri: 1}, consume: {food: 10}},
+    mythrilMine: {name:'Mythril Mine', current: 0, max: 0, produce: {mythril: 1}, consume: {food: 10}},
     gemMine: {name:'Gem Mine', current: 0, max: 0, produce: {gem: 1}, consume: {food: 15}},
     crystalMine: {name:'Crystal Mine', current: 0, max: 0, produce: {crystal: 1}, consume: {food: 30}},
   },
+  timer: {
+    heroInTavernTimer: 0,
+    HeroInTravernPeriod: 3600,
+    resourceHarvestTimer: 0,
+    resourceHarvestPeriod: 60,
+  },
   shopList: [],
-  HeroList: [],
   visitorList: []
 };
 
@@ -154,6 +164,16 @@ const strongHoldReducer = (state = strongHoldInit, action) => {
     case 'CHANGE_HERO_LIST': {
       let newState = {...state};
       newState.HeroList = action.data;
+      return newState;
+    }
+    case 'CHANGE_HERO_IN_TAVERN_TIMER': {
+      let newState = {...state, timer: {...state.timer}};
+      newState.timer.heroInTavernTimer = action.data;
+      return newState;
+    }
+    case 'CHANGE_RESOURCE_HARVEST_TIMER': {
+      let newState = {...state, timer: {...state.timer}};
+      newState.timer.resourceHarvestTimer = action.data;
       return newState;
     }
 

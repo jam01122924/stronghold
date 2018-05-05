@@ -43,6 +43,10 @@ const gameLanguage = {
         quest: 'Quest',
         status: 'Status',
         heroes: 'Heroes',
+        upgrade: 'Upgrade',
+        fire: 'Fire',
+        fireWarning: 'You will lose this hero forever.',
+        heroInfo: 'Hero Info',
       },
       cityHall: {
         freeWorkers: 'Free Workers',
@@ -56,6 +60,23 @@ const gameLanguage = {
         youHaveEnoughResource: 'You already have enough resource to upgrade.',
         storageLimitIncreased: 'storage limit will be increased:',
       },
+      tavern: {
+        heroQualityRate: 'Chance of hero appears in the tavern',
+        enterIntro: 'Heroes Available for Hire',
+        hire: 'Hire',
+      },
+      cityExit: {
+        advanture: 'Advanture',
+        farming: 'Farming',
+        start: 'Start',
+        stop: 'Stop',
+        return: 'Return',
+        empty: 'Empty',
+        editTeam: 'Edit Team',
+        leave: 'Leave',
+        select: 'Select',
+        remove: 'Remove',
+      }
     },
     building: {
       cityLord: 'City Lord',
@@ -68,6 +89,7 @@ const gameLanguage = {
       merchantShop: 'Merchant Shop',
       residentialDistrict: 'Residential District',
       cityPark: 'City Park',
+      cityExit: 'City Gate',
       lv: 'Lv',
     },
     resource: {
@@ -94,6 +116,45 @@ const gameLanguage = {
       gemMine: 'Gem Mine',
       crystalMine: 'Crystal Mine',
     },
+    hero: {
+      status: {
+        strength: 'Strength',
+        perception: 'Perception',
+        endurance: 'Endurance',
+        charisma: 'Charisma',
+        intelligence: 'Intelligence',
+        agility: 'Agility',
+        luck:  'Luck'
+      },
+      statusShort: {
+        strength: 'STR',
+        perception: 'PER',
+        endurance: 'END',
+        charisma: 'CHA',
+        intelligence: 'INT',
+        agility: 'AGI',
+        luck:  'LUC'
+      },
+      info: {
+        name: 'Name',
+        rate: 'Rate',
+        class: 'Class',
+        lv: 'Lv',
+        quality: 'Quality',
+        growth: 'Growth',
+        grow: 'Grow',
+        talent: 'Talent',
+        skill: 'Skill',
+        status: 'Status',
+        view: 'View',
+        energy: 'Energy',
+      }
+    },
+    confirm: {
+      question: 'Are you sure?',
+      yes: 'Yes',
+      no: 'No',
+    }
   },
   cn: {
     landingMenu: {

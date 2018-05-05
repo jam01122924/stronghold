@@ -75,3 +75,17 @@ export const changeHeroList = data => {
     data: data
   };
 };
+
+export const changeHeroInTavernTimer = data => {
+  return {
+    type: 'CHANGE_HERO_IN_TAVERN_TIMER',
+    data: data
+  };
+};
+
+export const changeResourceHarvestTimer = data => {
+  return {
+    type: 'CHANGE_RESOURCE_HARVEST_TIMER',
+    data: data
+  };
+};

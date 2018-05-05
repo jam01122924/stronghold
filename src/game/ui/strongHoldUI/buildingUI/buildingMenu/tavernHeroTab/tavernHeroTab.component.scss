@@ -1,0 +1,69 @@
+@import '../../../../../gameColor.scss';
+
+.hero-tab-container {
+  margin-top: 10px;
+  .hero-tab-intro {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 20px 0;
+  }
+  .hero-list-item {
+    width: 100%;
+    font-size: 1.2em;
+    text-align: center;
+    .hero-name {
+      text-align: left;
+      display: inline-block;
+      width: 30%;
+      min-width: 140px;
+      text-overflow: ellipsis;
+    }
+    .hero-class {
+      min-width: 100px;
+      display: inline-block;
+      width: 30%;
+    }
+    .hero-quality {
+      min-width: 110px;
+      display: inline-block;
+      width: 22%;
+    }
+    .hero-score {
+      min-width: 80px;
+      display: inline-block;
+      width: 18%;
+    }
+    .hero-quality-c {
+      font-weight: bolder;
+      color: $color-hero-quality-c;
+    }
+    .hero-quality-b {
+      font-weight: bolder;
+      color: $color-hero-quality-b;
+    }
+    .hero-quality-a {
+      font-weight: bolder;
+      color: $color-hero-quality-a;
+    }
+    .hero-quality-s {
+      font-weight: bolder;
+      color: $color-hero-quality-s;
+    }
+    .hero-quality-ss {
+      font-weight: bolder;
+      color: $color-hero-quality-ss;
+    }
+    .hero-quality-sss {
+      font-weight: bolder;
+      color: $color-hero-quality-sss;
+    }
+  }
+
+  .hero-info-btns {
+    margin: 20px auto;
+    .hero-info-btn-container {
+      display: inline-block;
+      margin: 0 10px;
+    }
+  }
+}

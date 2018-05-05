@@ -6,6 +6,8 @@ const strongholdServices = {
   getStorageUpgradeResourceRequired: getStorageUpgradeResourceRequired,
   getStorageMax: getStorageMax,
   getResourceProduce: getResourceProduce,
+  getTavernHeroQuality: getTavernHeroQuality,
+  getTavernHeroQualityOdds: getTavernHeroQualityOdds,
   convertNum: convertNum,
 };
 
@@ -22,7 +24,6 @@ function getUpgradeResourceRequired(building, lv) {
       resource[r] = Math.round((30*(param*param + 5*param)*buildingData[building].upgradeCost)/10)*10;
     }
   }
-  console.log(resource);
   return resource;
 }
 
@@ -57,6 +58,32 @@ function convertNum(num) {
     num += 'K';
   }
   return num;
+}
+
+function getTavernHeroQuality(tavernLv) {
+  let odds = getTavernHeroQualityOdds(tavernLv);
+  let rand = Math.random()*100;
+  // console('getTavernHeroQuality < ', rand, odds);
+  let result = 'c';
+  for(let quality in odds){
+    if(rand<odds[quality]) {
+      result = quality;
+    } else {
+      break;
+    }
+  }
+  return result;
+}
+
+function getTavernHeroQualityOdds(tavernLv) {
+  return {
+    c: 100,
+    b: 10*tavernLv>80?80:10*tavernLv,
+    a: Math.floor((0.5*tavernLv>60?60:0.5*tavernLv)*10000)/10000,
+    s: Math.floor((0.025*tavernLv>30?30:0.025*tavernLv)*10000)/10000,
+    ss: Math.floor((0.0012*tavernLv>15?15:0.0012*tavernLv)*10000)/10000,
+    sss: Math.floor((0.0005*tavernLv>15?15:0.00005*tavernLv)*10000)/10000,
+  };
 }
 
 export default strongholdServices;

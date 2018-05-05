@@ -1,3 +1,5 @@
+@import './gameColor.scss';
+
 .gameContainer-container {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -38,4 +40,30 @@
 .clear {
   float: none;
   clear: both;
+}
+
+// Hero:
+.hero-quality-c {
+  font-weight: bolder;
+  color: $color-hero-quality-c;
+}
+.hero-quality-b {
+  font-weight: bolder;
+  color: $color-hero-quality-b;
+}
+.hero-quality-a {
+  font-weight: bolder;
+  color: $color-hero-quality-a;
+}
+.hero-quality-s {
+  font-weight: bolder;
+  color: $color-hero-quality-s;
+}
+.hero-quality-ss {
+  font-weight: bolder;
+  color: $color-hero-quality-ss;
+}
+.hero-quality-sss {
+  font-weight: bolder;
+  color: $color-hero-quality-sss;
 }

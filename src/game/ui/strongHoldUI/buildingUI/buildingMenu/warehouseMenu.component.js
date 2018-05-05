@@ -87,7 +87,7 @@ class WarehouseMenu extends React.Component {
           let percentage = this.props.resource[storage].current*100/this.props.resource[storage].max;
           storageUI.push(
             <ListGroupItem  key={storage + 'Typekey'} className="center">
-              <span className="storage-name">{this.LAN.resource[storage].toUpperCase()}</span>
+              <span className="storage-name">{this.LAN.resource[storage]&&this.LAN.resource[storage].toUpperCase()}</span>
               <span className={"storage-num" + (this.props.resource[storage].current===this.props.resource[storage].max?' storage-full-num':'')}>
                 <ProgressBar
                   now={percentage}

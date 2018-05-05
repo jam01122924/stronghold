@@ -1,7 +1,8 @@
 const warriorData = {
   growRate: {
     strength: {
-      lvIncrease: 10,
+      qualityIncrease: 10,
+      rateWeight: 1,
       growRate: [
         {rate: 60, grow: 1}, {rate: 40, grow: 2}, {rate: 20, grow: 3},
         {rate: 0, grow: 4}, {rate: -10, grow: 5}, {rate: -20, grow: 6},
@@ -9,7 +10,8 @@ const warriorData = {
       ]
     },
     perception: {
-      lvIncrease: 6,
+      qualityIncrease: 6,
+      rateWeight: 0.6,
       growRate: [
         {rate: 40, grow: 1}, {rate: 20, grow: 2}, {rate: 0, grow: 3},
         {rate: -10, grow: 4}, {rate: -20, grow: 5}, {rate: -30, grow: 6},
@@ -17,7 +19,8 @@ const warriorData = {
       ]
     },
     endurance: {
-      lvIncrease: 10,
+      qualityIncrease: 10,
+      rateWeight: 1,
       growRate: [
         {rate: 60, grow: 1}, {rate: 40, grow: 2}, {rate: 20, grow: 3},
         {rate: 0, grow: 4}, {rate: -10, grow: 5}, {rate: -20, grow: 6},
@@ -25,7 +28,8 @@ const warriorData = {
       ]
     },
     charisma: {
-      lvIncrease: 4,
+      qualityIncrease: 4,
+      rateWeight: 0.2,
       growRate: [
         {rate: 30, grow: 1}, {rate: 15, grow: 2}, {rate: 0, grow: 3},
         {rate: -10, grow: 4}, {rate: -15, grow: 5}, {rate: -20, grow: 6},
@@ -33,15 +37,17 @@ const warriorData = {
       ]
     },
     intelligence: {
-      lvIncrease: 4,
+      qualityIncrease: 4,
+      rateWeight: 0.2,
       growRate: [
         {rate: 30, grow: 1}, {rate: 15, grow: 2}, {rate: 0, grow: 3},
         {rate: -10, grow: 4}, {rate: -15, grow: 5}, {rate: -20, grow: 6},
         {rate: -30, grow: 7}
       ]
     },
-    Agility: {
-      lvIncrease: 6,
+    agility: {
+      qualityIncrease: 6,
+      rateWeight: 0.6,
       growRate: [
         {rate: 40, grow: 1}, {rate: 20, grow: 2}, {rate: 0, grow: 3},
         {rate: -10, grow: 4}, {rate: -20, grow: 5}, {rate: -30, grow: 6},
@@ -49,7 +55,8 @@ const warriorData = {
       ]
     },
     luck: {
-      lvIncrease: 5,
+      qualityIncrease: 4,
+      rateWeight: 0.4,
       growRate: [
         {rate: 30, grow: 1}, {rate: 15, grow: 2}, {rate: 0, grow: 3},
         {rate: -10, grow: 4}, {rate: -15, grow: 5}, {rate: -20, grow: 6},
@@ -84,4 +91,6 @@ const warriorData = {
     },
 
   }
-}
+};
+
+export default warriorData;

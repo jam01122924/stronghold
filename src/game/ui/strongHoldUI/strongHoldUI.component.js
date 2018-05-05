@@ -7,10 +7,10 @@ import $ from 'jquery';
 
 import { connect } from 'react-redux';
 import * as gameStageActions from '../../redux/actions/gameStageActions';
-import * as characterActions from '../../redux/actions/characterActions';
 import * as strongHoldActions from '../../redux/actions/strongHoldActions';
 
 import Header from './header/header.component';
+import HarvestBar from './harvestBar/harvestBar.component';
 import FloatingText from '../../common/floatingText/floatingText.component';
 import BuildingUI from './buildingUI/buildingUI.component';
 import strongholdServices from '../../services/strongholdServices/strongholdServices';
@@ -82,6 +82,11 @@ class StrongHoldUI extends React.Component {
   }
 
   componentDidMount() {
+
+  }
+
+  updateTimer() {
+
   }
 
   bgSwipe(direction) {
@@ -142,7 +147,6 @@ class StrongHoldUI extends React.Component {
       })
     } else {
       this.setState({currentUI: building});
-      console.log('111')
     }
   }
 
@@ -193,6 +197,9 @@ class StrongHoldUI extends React.Component {
             close={this.closeBuilding}
           />
         </div>
+        <div className="harvest-bar">
+          <HarvestBar />
+        </div>
         {this.state.needMoreResource?<div className="floating-msg"><FloatingText text={this.state.needMoreResource} color="#FFFFFF"/></div>:''}
       </div>
     );
@@ -202,8 +209,8 @@ class StrongHoldUI extends React.Component {
 function mapStoreToProps (store, ownProps) {
 	const { gameStage, strongHold } = store;
   const { stage } = gameStage || { stage: '' };
-  const { buildings, resource } = strongHold || {buildings: {}, resource: {}};
+  const { buildings, resource, workPosition, timer } = strongHold || {buildings: {}, resource: {}, workPosition: {}, timer: {}};
 
-	return { stage, buildings, resource };
+	return { stage, buildings, resource, workPosition, timer };
 }
 export default connect(mapStoreToProps)(StrongHoldUI);

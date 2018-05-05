@@ -43,7 +43,7 @@ class CityHallMenu extends React.Component {
     }
     if(enoughResource){
       for(let r in resourceNeeded) {
-        this.props.dispatch(strongHoldActions.changeResource({resource: r, amount: resourceNeeded[r]}));
+        this.props.dispatch(strongHoldActions.changeResource({resource: r, amount: -resourceNeeded[r]}));
       }
       this.props.dispatch(strongHoldActions.increaseBuildingLv({building: this.props.building, num: 1}))
     }
