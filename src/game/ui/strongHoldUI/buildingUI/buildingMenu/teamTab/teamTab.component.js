@@ -5,8 +5,9 @@ import './teamTab.component.css';
 import { connect } from 'react-redux';
 import * as storageActions from '../../../../../redux/actions/storageActions';
 import * as heroActions from '../../../../../redux/actions/heroActions';
+import * as gameStageActions from '../../../../../redux/actions/gameStageActions';
 
-import { Modal, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
+import { Modal, ListGroup, ListGroupItem, Button, Pagination } from 'react-bootstrap';
 
 // import storageServices from '../../../../../services/storageServices/storageServices';
 import heroServices from '../../../../../services/heroServices/heroServices';
@@ -25,6 +26,8 @@ class TeamTab extends React.Component {
 
     this.selectHero = this.selectHero.bind(this);
     this.toggleEditTeam = this.toggleEditTeam.bind(this);
+    this.createNewTeam = this.createNewTeam.bind(this);
+    this.start = this.start.bind(this);
 
   }
 
@@ -38,6 +41,18 @@ class TeamTab extends React.Component {
 
   toggleEditTeam() {
     this.setState({editingTeam: !this.state.editingTeam});
+  }
+
+  createNewTeam() {
+    this.props.dispatch(heroActions.addNewTeam());
+
+  }
+
+  start() {
+    if(this.props.hero.team[this.state.selectedTeam]&&this.props.hero.team[this.state.selectedTeam].member.length){
+      this.props.dispatch(gameStageActions.changeStage('advantureMap'));
+      this.props.dispatch(heroActions.sendHeroToAdvanture(this.state.selectedTeam));
+    }
   }
 
 
@@ -72,6 +87,14 @@ class TeamTab extends React.Component {
       }
     }
 
+    // team list:
+    let teamListPagination = [];
+    for(let i=1; i<=this.props.hero.team.length; i++) {
+      teamListPagination.push(
+        <Pagination.Item active={i === this.state.selectedTeam+1} key={'team-page-item-' + i} onClick={()=>{this.setState({selectedTeam: i-1})}}>{i}</Pagination.Item>
+      );
+    }
+
 
     return (
       <div className="team-tab-container">
@@ -81,14 +104,19 @@ class TeamTab extends React.Component {
             {TeamHeroListUI}
           </div>
           <div className="team-edit-btns">
-            <Button onClick={this.toggleEditTeam}>{this.LAN.strongHoldUI.cityExit.editTeam}</Button>
+            <div className="team-list-pagination">
+              <Pagination bsSize="medium">{teamListPagination}</Pagination>
+            </div>
+            <Button onClick={this.start} bsStyle="warning" className="team-start-btn" disabled={!(this.props.hero.team[this.state.selectedTeam]&&this.props.hero.team[this.state.selectedTeam].member.length)}>{this.LAN.strongHoldUI.cityExit.start}</Button>
+            <Button onClick={this.toggleEditTeam} >{this.LAN.strongHoldUI.cityExit.editTeam}</Button>
+            <Button onClick={this.createNewTeam} >{this.LAN.strongHoldUI.cityExit.createNewTeam}</Button>
           </div>
         </div>
       ):(
         <div className="team-edit-view">
           <PickHeroList teamIndex={this.state.selectedTeam}/>
           <div className="team-edit-btns">
-            <Button onClick={this.toggleEditTeam}>{this.LAN.strongHoldUI.cityExit.leave}</Button>
+            <Button onClick={this.toggleEditTeam} >{this.LAN.strongHoldUI.cityExit.leave}</Button>
           </div>
         </div>
       )}
@@ -99,9 +127,8 @@ class TeamTab extends React.Component {
 }
 
 function mapStoreToProps (store, ownProps) {
-	const { hero, storage } = store;
-  const { inventory } = storage || {inventory: {}};
+	const { hero, storage, gameStage } = store;
 
-	return { inventory, hero, storage };
+	return { hero, storage, gameStage };
 }
 export default connect(mapStoreToProps)(TeamTab);

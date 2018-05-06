@@ -6,7 +6,8 @@
   border-radius: 5px;
   padding: 10px 3px;
   text-align: center;
-  min-height: 200px; }
+  min-height: 200px;
+  vertical-align: top; }
   @media only screen and (max-width: 640px) {
     .team-tab-container .team-hero-info {
       width: 48%;
@@ -20,3 +21,18 @@
   .team-tab-container .team-hero-info .team-hero-name {
     width: 100%;
     overflow: hidden; }
+
+.team-tab-container .team-edit-btns {
+  width: 100%;
+  margin-top: 10px;
+  text-align: center; }
+  .team-tab-container .team-edit-btns button {
+    margin: 0 10px 10px;
+    min-width: 80px;
+    font-weight: bolder; }
+  @media only screen and (max-width: 480px) {
+    .team-tab-container .team-edit-btns .team-start-btn {
+      font-size: 1.4em;
+      width: 214px;
+      display: block;
+      margin: 0 auto 10px; } }

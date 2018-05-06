@@ -28,14 +28,14 @@ export const changeGrid = data => {
   };
 };
 
-export const changeLayer = data => {
-  return {
-    type: 'CHANGE_LAYER',
-    data: {
-      mapData: data.data
-    }
-  };
-};
+// export const changeLayer = data => {
+//   return {
+//     type: 'CHANGE_LAYER',
+//     data: {
+//       mapData: data.data
+//     }
+//   };
+// };
 
 export const selectTexture = (t) => {
   return {
@@ -60,6 +60,20 @@ export const movePosition = data => {
     }
   };
 };
+
+export const zoomMap = data => {
+  return {
+    type: 'ZOOM_MAP',
+    data: data
+  };
+};
+export const showHideGrid = data => {
+  return {
+    type: 'SHOW_HIDE_GRID',
+    data: data
+  };
+};
+
 
 export const generateRandomMap = data => {
   return {

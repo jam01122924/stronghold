@@ -1,0 +1,62 @@
+@import '../../../gameStyle.scss';
+
+.grid-map-container {
+  font-size: 6px;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+  background: grey;
+
+  .map-box {
+    top: 0;
+    margin: 0 auto;
+    position: relative;
+  }
+  .character-box-container {
+    text-align: center;
+    position: relative;
+    margin: -$map-box-vh auto;
+
+    width: $map-box-vh;
+    height: $map-box-vh;
+
+    @media screen and (orientation:portrait) {
+     /* Portrait styles here */
+     width: $map-box-vw;
+     height: $map-box-vw;
+     margin: -$map-box-vw auto;
+    }
+    /* Landscape */
+    @media screen and (orientation:landscape) {
+       /* Landscape styles here */
+       width: $map-box-vh;
+       height: $map-box-vh;
+       margin: -$map-box-vh auto;
+    }
+  }
+  .character-box {
+    position: absolute;
+    top: 42vh;
+    left: 42vh;
+    @media screen and (orientation:portrait) {
+      /* Portrait styles here */
+      top: 42vw;
+      left: 42vw;
+    }
+    /* Landscape */
+    @media screen and (orientation:landscape) {
+      /* Landscape styles here */
+      top: 42vh;
+      left: 42vh;
+    }
+  }
+
+  .zoom-btns {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+  }
+
+}

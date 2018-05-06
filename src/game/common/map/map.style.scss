@@ -1,4 +1,5 @@
-@import '../../../style/color.scss';
+@import '../../gameStyle.scss';
+@import '../../gameColor.scss';
 
 .map-container {
   text-align: center;
@@ -7,19 +8,19 @@
   margin: auto;
   border: 1px solid gold;
 
-  width: 80vw;
-  height: 80vw;
+  width: $map-box-vh;
+  height: $map-box-vh;
 
   @media screen and (orientation:portrait) {
    /* Portrait styles here */
-   width: 80vw;
-   height: 80vw;
+   width: $map-box-vw;
+   height: $map-box-vw;
   }
   /* Landscape */
   @media screen and (orientation:landscape) {
      /* Landscape styles here */
-     width: 80vh;
-     height: 80vh;
+     width: $map-box-vh;
+     height: $map-box-vh;
   }
   .map-reposition {
     position: absolute;
@@ -35,18 +36,18 @@
       display: inline-block;
       .map-grid-unit {
         display: inline-block;
-        width: 7.272727vh;
-        height: 7.272727vh;
+        width: $grid-vh;
+        height: $grid-vh;
         @media screen and (orientation:portrait) {
          /* Portrait styles here */
-         width: 7.272727vw;
-         height: 7.272727vw;
+         width: $grid-vw;
+         height: $grid-vw;
         }
         /* Landscape */
         @media screen and (orientation:landscape) {
            /* Landscape styles here */
-           width: 7.272727vh;
-           height: 7.272727vh;
+           width: $grid-vh;
+           height: $grid-vh;
         }
       }
       .map-grid-overlap-unit {
@@ -56,6 +57,7 @@
       }
     }
     .map-grid-show-grid {
+      box-sizing: border-box;
       border: 0.5px solid rgba(125, 255, 215, 0.4);
     }
   }

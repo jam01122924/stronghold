@@ -16,7 +16,8 @@ const mapReducerInit = {
       position: {
         x: 0,
         y: 0
-      }
+      },
+      foodConsume: 1,
     },
     {
       id: 'map1002',
@@ -31,13 +32,20 @@ const mapReducerInit = {
       position: {
         x: 0,
         y: 0
-      }
+      },
+      foodConsume: 1,
     }
   ],
   currentMapIndex: 0,
   season: 'spring',
   selectedTexture: '',
-  clickAction: ''
+  clickAction: '',
+  zoom: 1,
+  showGrid: false,
+  clickPos: {
+    x: 0,
+    y: 0
+  },
 };
 
 
@@ -88,16 +96,16 @@ const mapReducer = (state = mapReducerInit, action) => {
       }
       return state;
     }
-    case 'CHANGE_LAYER': {
-      if(action.data.mapData) {
-        let newState = Object.assign({}, state);
-        newState.mapDatas = [].concat(state.mapDatas.slice(0));
-        newState.mapDatas[state.currentMapIndex] = Object.assign({}, state.mapDatas[state.currentMapIndex]);
-        newState.mapDatas[state.currentMapIndex].data = [].concat(state.mapDatas[state.currentMapIndex].data.slice(0));
-        return newState;
-      }
-      return state;
-    }
+    // case 'CHANGE_LAYER': {
+    //   if(action.data.mapData) {
+    //     let newState = Object.assign({}, state);
+    //     newState.mapDatas = [].concat(state.mapDatas.slice(0));
+    //     newState.mapDatas[state.currentMapIndex] = Object.assign({}, state.mapDatas[state.currentMapIndex]);
+    //     newState.mapDatas[state.currentMapIndex].data = [].concat(state.mapDatas[state.currentMapIndex].data.slice(0));
+    //     return newState;
+    //   }
+    //   return state;
+    // }
     case 'CHANGE_CLICK_ACTION': {
       if(action.data) {
         let newState = Object.assign({}, state);
@@ -147,6 +155,24 @@ const mapReducer = (state = mapReducerInit, action) => {
       // return newState;
     }
 
+    case 'ZOOM_MAP': {
+      let newState = Object.assign({}, state);
+      newState.zoom = action.data;
+      return newState;
+    }
+    case 'SHOW_HIDE_GRID': {
+      let newState = Object.assign({}, state);
+      newState.showGrid = action.data;
+      return newState;
+    }
+
+
+
+
+
+
+
+
     case 'LOAD_LOCALSTORAGE_MAP':
       try {
         const newState = localStorage.getItem('UCX2018_STATE_MAP');
@@ -168,6 +194,7 @@ const mapReducer = (state = mapReducerInit, action) => {
         console.log('error on saving map store to localStorage', err);
       }
       return state;
+
 
     default:
       return state;

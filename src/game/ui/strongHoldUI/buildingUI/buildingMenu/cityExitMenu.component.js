@@ -41,12 +41,12 @@ class CityExitMenu extends React.Component {
         >
           <Tab eventKey={'advanture'} title={this.LAN.cityExit.advanture}>
             <div className="tab-content">
-              <TeamTab type="advanture" />aaaa
+              <TeamTab type="advanture" />
             </div>
           </Tab>
           <Tab eventKey={'farming'} title={this.LAN.cityExit.farming}>
             <div className="tab-content">
-              <TeamTab type="farming" />bbbb
+              <TeamTab type="farming" />
             </div>
           </Tab>
         </Tabs>

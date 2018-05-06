@@ -11,6 +11,10 @@
         text-align: center; } }
   .hero-tab-container .hero-list-item .hero-info {
     display: inline-block; }
+    .hero-tab-container .hero-list-item .hero-info .hero-index {
+      display: inline-block;
+      float: left;
+      font-size: 1.8em; }
   .hero-tab-container .selected-hero {
     background-color: #244070 !important; }
 

@@ -16,6 +16,11 @@
     }
     .hero-info {
       display: inline-block;
+      .hero-index {
+        display: inline-block;
+        float: left;
+        font-size: 1.8em;
+      }
     }
   }
   .selected-hero {

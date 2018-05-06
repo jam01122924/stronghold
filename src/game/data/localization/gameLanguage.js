@@ -76,6 +76,7 @@ const gameLanguage = {
         leave: 'Leave',
         select: 'Select',
         remove: 'Remove',
+        createNewTeam: 'Create Team',
       }
     },
     building: {

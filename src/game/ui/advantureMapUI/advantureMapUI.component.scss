@@ -1,0 +1,23 @@
+@import '../../../style/color.scss';
+
+.advanture-map-ui-container {
+  .tool-bar {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    max-height: 220px;
+    background: $color-gray20;
+  }
+  .btn {
+    font-size: 14px;
+    @media screen and (max-height: 667px) {
+      font-size: 12px;
+    }
+  }
+  .zoom-btns {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+  }
+}

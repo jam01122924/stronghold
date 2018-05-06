@@ -49,3 +49,16 @@ export const removeHeroFromTeam = (data) => {
     hero: data.hero
   };
 };
+
+export const addNewTeam = () => {
+  return {
+    type: 'ADD_NEW_TEAM'
+  };
+};
+
+export const sendHeroToAdvanture = (teamIndex) => {
+  return {
+    type: 'SEND_HERO_TO_ADVANTURE',
+    data: teamIndex
+  };
+};

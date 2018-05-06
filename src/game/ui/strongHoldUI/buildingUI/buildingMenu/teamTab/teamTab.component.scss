@@ -8,6 +8,7 @@
     padding: 10px 3px;
     text-align: center;
     min-height: 200px;
+    vertical-align: top;
 
     @media only screen and (max-width: 640px) {
       width: 48%;
@@ -23,6 +24,24 @@
     .team-hero-name {
       width: 100%;
       overflow: hidden;
+    }
+  }
+  .team-edit-btns {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    button {
+      margin: 0 10px 10px;
+      min-width: 80px;
+      font-weight: bolder;
+    }
+    .team-start-btn {
+      @media only screen and (max-width: 480px) {
+        font-size: 1.4em;
+        width: 214px;
+        display: block;
+        margin: 0 auto 10px;
+      }
     }
   }
 }

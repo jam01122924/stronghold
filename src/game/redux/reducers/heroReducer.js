@@ -46,6 +46,8 @@ let heroReducerInit = {
         luck: 2
       },
       talent: [],
+      faceImg: '',
+      mapImg: [],
     }
   ],
   inGrave: [],
@@ -54,6 +56,7 @@ let heroReducerInit = {
   inFarming: [],
   teamSize: 4,
   teamNum: 1,
+  advantureFood: 0,
 };
 
 const heroReducer = (state = heroReducerInit, action) => {
@@ -101,6 +104,21 @@ const heroReducer = (state = heroReducerInit, action) => {
       newState.team[action.teamIndex].member = state.team[action.teamIndex].member.slice(0);
       let index = heroServices.getHeroIndexById(newState.team[action.teamIndex].member, action.hero.id);
       newState.team[action.teamIndex].member.splice(index, 1);
+      return newState;
+    }
+    case 'ADD_NEW_TEAM': {
+      let newState = Object.assign({}, state);
+      newState.team = state.team.slice(0);
+      newState.team.push({
+        index: newState.team.length,
+        member: [],
+      });
+      newState.teamNum++;
+      return newState;
+    }
+    case 'SEND_HERO_TO_ADVANTURE': {
+      let newState = Object.assign({}, state);
+      newState.inAdvanture.push(action.data);
       return newState;
     }
 

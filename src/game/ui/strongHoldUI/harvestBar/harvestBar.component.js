@@ -26,6 +26,11 @@ class HarvestBar extends React.Component {
     this.initializeTimer();
 
   }
+  componentWillUnmount() {
+    console.log(this.harvestTimer, this.timeoutHarvestInfo);
+    clearTimeout(this.timeoutHarvestTimer);
+    clearTimeout(this.timeoutHarvestInfo);
+  }
 
   initializeTimer() {
     // check if it's first time:
@@ -94,7 +99,7 @@ class HarvestBar extends React.Component {
     this.setState({
       harvestInfo: harvestInfo
     });
-    setTimeout(()=>{
+    this.timeoutHarvestInfo = setTimeout(()=>{
       this.setState({
         harvestInfo: null
       });
@@ -105,9 +110,9 @@ class HarvestBar extends React.Component {
   }
 
   updateTimer() {
-    setTimeout(()=>{
+    this.timeoutHarvestTimer = setTimeout(()=>{
       this.setState({
-        harvestTimer: this.state.harvestTimer - 1,
+        harvestTimer: this.state.harvestTimer - 5,
       });
       if(this.state.harvestTimer<=0) {
         this.harvestResource(1);
@@ -116,7 +121,7 @@ class HarvestBar extends React.Component {
         });
       }
       this.updateTimer();
-    }, 1000);
+    }, 5000);
   }
 
   render() {

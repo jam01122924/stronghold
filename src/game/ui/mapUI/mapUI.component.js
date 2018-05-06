@@ -13,7 +13,7 @@ class MapUI extends React.Component {
     };
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.changeGrid = this.changeGrid.bind(this);
-    this.changeLayer = this.changeLayer.bind(this);
+    // this.changeLayer = this.changeLayer.bind(this);
     this.movePosition = this.movePosition.bind(this);
 
   }
@@ -60,9 +60,9 @@ class MapUI extends React.Component {
     }));
   }
 
-  changeLayer(layerData) {
-    this.props.dispatch(mapActions.changeLayer(layerData));
-  }
+  // changeLayer(layerData) {
+  //   this.props.dispatch(mapActions.changeLayer(layerData));
+  // }
   movePosition(x, y) {
     this.props.dispatch(mapActions.movePosition({x: x, y: y}));
   }

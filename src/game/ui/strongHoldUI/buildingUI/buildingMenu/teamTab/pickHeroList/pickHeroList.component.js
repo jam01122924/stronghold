@@ -78,8 +78,8 @@ class PickHeroList extends React.Component {
               <div className="hero-info hero-class">{this.props.hero.hired[index].class}</div>
               <div className="hero-info hero-quality">{this.LAN.hero.info.quality}: <span className={'hero-quality-' + this.props.hero.hired[index].quality}>{this.props.hero.hired[index].quality&&this.props.hero.hired[index].quality.toUpperCase()}</span></div>
               <div className="hero-info hero-score">{this.LAN.hero.info.rate}: {this.props.hero.hired[index].rate}</div>
-              <div className="hero-info hero-index">{isSelectedIndex}</div>
               <div className="hero-info hero-list-btn">
+                <div className="hero-index">{isSelectedIndex>0?isSelectedIndex:''}</div>
                 <Button onClick={()=>{this.viewHero(this.props.hero.hired[index])}} bsStyle="info">{this.LAN.hero.info.view}</Button>
                 <Button onClick={()=>{this.toggleHero(this.props.hero.hired[index], !!isSelectedIndex)}} bsStyle={isSelectedIndex>0?"danger":"primary"}>{isSelectedIndex>0?this.LAN.strongHoldUI.cityExit.remove:this.LAN.strongHoldUI.cityExit.select}</Button>
               </div>

@@ -9,6 +9,7 @@ import CreateCharacter from './ui/createCharacter/createCharacter.component';
 import InGameLandingUI from './ui/inGameLandingUI/inGameLandingUI.component';
 import CreateMapToolUI from './ui/createMapToolUI/createMapToolUI.component';
 import StrongHoldUI from './ui/strongHoldUI/strongHoldUI.component';
+import AdvantureMapUI from './ui/advantureMapUI/advantureMapUI.component';
 
 import gameLanguage from './data/localization/gameLanguage';
 
@@ -44,6 +45,8 @@ class GameContainer extends React.Component {
       case 'inGameLandingUI': ui = <InGameLandingUI></InGameLandingUI>;
         break;
       case 'createMapToolUIMapUI': ui = <CreateMapToolUI></CreateMapToolUI>;
+        break;
+      case 'advantureMap': ui = <AdvantureMapUI></AdvantureMapUI>;
         break;
       default: ui = <LandingMenu></LandingMenu>;
         break;
