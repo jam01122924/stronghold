@@ -19,7 +19,7 @@ class CreateMapToolUI extends React.Component {
 
     this.state = {
       zoom: 1,
-      showGrid: true
+      showGrid: false
     };
 
     this.handleGridClick = this.handleGridClick.bind(this);
@@ -68,6 +68,7 @@ class CreateMapToolUI extends React.Component {
           <ButtonGroup vertical>
             <Button onClick={()=>{this.zoom(this.state.zoom + 0.2)}}><i className="fa fa-search-plus" aria-hidden="true"></i></Button>
             <Button onClick={()=>{this.zoom(this.state.zoom - 0.2)}}><i className="fa fa-search-minus" aria-hidden="true"></i></Button>
+            <Button onClick={()=>{this.changeStage('advantureMap')}}>Adv</Button>
           </ButtonGroup>;
         </div>
       </div>

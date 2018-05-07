@@ -13,6 +13,7 @@ class AdvantureMapUI extends React.Component {
     super(props, context);
 
     this.goBackToStronghold = this.goBackToStronghold.bind(this);
+    this.editMap = this.editMap.bind(this);
   }
 
   changeStage(stage) {
@@ -30,6 +31,9 @@ class AdvantureMapUI extends React.Component {
   goBackToStronghold() {
     this.changeStage('strongHoldUI');
   }
+  editMap() {
+    this.changeStage('createMapToolUIMapUI');
+  }
 
   render() {
     return (
@@ -38,6 +42,7 @@ class AdvantureMapUI extends React.Component {
           <GridMap />
         </div>
         <button onClick={this.goBackToStronghold} style={{position: 'fixed', bottom: '20px', left: '20px', color: 'black'}} >Back</button>
+        <button onClick={this.editMap} style={{position: 'fixed', bottom: '60px', left: '20px', color: 'black'}} >EDIT</button>
       </div>
     );
   }
