@@ -1,11 +1,13 @@
 import map1001 from '../../data/maps/map1001';
 import map1002 from '../../data/maps/map1002';
 
+import map1_1 from '../../data/maps/001/1_1';
+
 const mapReducerInit = {
   mapDatas: [
     {
       id: 'map1001',
-      data: map1001,
+      data: map1_1.mapDatas[0].data,
       props: {
         mapSize: '',
         terrain: '',
@@ -21,7 +23,7 @@ const mapReducerInit = {
     },
     {
       id: 'map1002',
-      data: map1002,
+      data: map1_1.mapDatas[0].data,
       props: {
         mapSize: '',
         terrain: '',
