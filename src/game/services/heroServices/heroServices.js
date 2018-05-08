@@ -47,7 +47,7 @@ function calculateInitStatus(heroClass, quality, extraGrow) {
     strength: 0,
     perception: 0,
     endurance: 0,
-    charisma: 0,
+    sprite: 0,
     intelligence: 0,
     agility: 0,
     luck: 0
@@ -63,7 +63,7 @@ function calculateHeroExtraGrow(quality) {
     strength: Math.round(Math.random()*1000)/100,
     perception: Math.round(Math.random()*1000)/100,
     endurance: Math.round(Math.random()*1000)/100,
-    charisma: Math.round(Math.random()*1000)/100,
+    sprite: Math.round(Math.random()*1000)/100,
     intelligence: Math.round(Math.random()*1000)/100,
     agility: Math.round(Math.random()*1000)/100,
     luck: Math.round(Math.random()*1000)/100,

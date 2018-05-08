@@ -27,7 +27,7 @@ const warriorData = {
         {rate: -30, grow: 7}
       ]
     },
-    charisma: {
+    sprite: {
       qualityIncrease: 4,
       rateWeight: 0.2,
       growRate: [

@@ -8,7 +8,7 @@ extra Attr:
 
 
 装备可能属性：
-  all: ['strength', 'perception', 'endurance', 'charisma', 'intelligence', 'agility', 'luck'],
+  all: ['strength', 'perception', 'endurance', 'sprite', 'intelligence', 'agility', 'luck'],
   所有武器：
     ['hpAbsorb', 'mpAbsorb', 'criticalDamageTimer', 'weaponPower', 'speed']
   Body防具：
@@ -32,7 +32,7 @@ extra Attr:
   'strength',
   'perception',
   'endurance',
-  'charisma',
+  'sprite',
   'intelligence',
   'agility',
   'luck',

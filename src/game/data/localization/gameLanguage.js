@@ -122,7 +122,7 @@ const gameLanguage = {
         strength: 'Strength',
         perception: 'Perception',
         endurance: 'Endurance',
-        charisma: 'Charisma',
+        sprite: 'Sprite',
         intelligence: 'Intelligence',
         agility: 'Agility',
         luck:  'Luck'
@@ -131,7 +131,7 @@ const gameLanguage = {
         strength: 'STR',
         perception: 'PER',
         endurance: 'END',
-        charisma: 'CHA',
+        sprite: 'CHA',
         intelligence: 'INT',
         agility: 'AGI',
         luck:  'LUC'

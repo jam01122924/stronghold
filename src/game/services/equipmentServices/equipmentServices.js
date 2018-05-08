@@ -11,37 +11,6 @@ import equipmentData from './equipmentData';
 
 
 const qualityClass = ['worn', 'normal', 'good', 'excellent', 'magical', 'epic', 'legendary'];
-const attrArray = [
-  'strength',
-  'perception',
-  'endurance',
-  'charisma',
-  'intelligence',
-  'agility',
-  'luck',
-  'maxHp',
-  'hpRecover',
-  'hpAbsorb',
-  'maxMp',
-  'mpRecover',
-  'mpAbsorb',
-  'criticalRate',
-  'criticalDamageTimer',
-  'weaponPower',
-  'phyAtt',
-  'phyRangeAtt',
-  'phyDef',
-  'phyAttTimer',
-  'magAtt',
-  'magDef',
-  'magAttTimer',
-  'healTimer',
-  'healReceiveTimer',
-  'movementRange',
-  'speed',
-  'speach',
-  'dodgeRate',
-];
 
 const equipmentServices = {
   createEquipment: createEquipment,
@@ -75,7 +44,7 @@ function createEquipment(eClass, quality, lv) {
       weaponPower: calculatedWeaponPower(eClass, qualityClassLv, lv),
       lv: lv,
       requiredLv: equipmentData[eClass].lvDiff[diffLvIndex],
-      bonus: calculatedBonus(eClass, qualityClassLv, lv),
+      bonus: calculatedBonusArray(eClass, qualityClassLv, lv),
     };
     console.log(result);
     return result;
@@ -89,15 +58,18 @@ function calculatedWeaponPower(eClass, qualityClassLv, lv) {
   return Math.round(wp.base + lv*(Math.random()*(wp.max-wp.min) + wp.min + qualityClassLv*wp.qualityIncrease));
 }
 
-function calculatedBonus(eClass, qualityClassLv, lv) {
+function calculatedBonusArray(eClass, qualityClassLv, lv) {
   let result = [];
   let attrNum = [0, 0, 1, 2, 3, 4, 4];
-  let availableAttr = equipmentData.commonAttr.all.concat(equipmentData.commonAttr[equipmentData[eClass].type]).concat(equipmentData[eClass].bonusAttr);
+  let availableAttr = equipmentData.bonusAttr.all.concat(equipmentData.bonusAttr[equipmentData[eClass].type]).concat(equipmentData[eClass].bonusAttr);
   let mustHaveAttr = equipmentData[eClass].bonusAttr;
   // Normal Equipment:
   if(qualityClassLv<5) {
     switch(eClass) {
       case 'sword':
+        for(let i=0; i<attrNum[qualityClassLv]; i++) {
+
+        }
       break;
       default:
       break;
@@ -108,6 +80,10 @@ function calculatedBonus(eClass, qualityClassLv, lv) {
 
 
   return result;
+}
+
+function calculatedBonusItem(availableAttr, lv) {
+
 }
 
 function addRandomBonus(eClass, qualityClassLv, lv) {

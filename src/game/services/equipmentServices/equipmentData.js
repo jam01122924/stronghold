@@ -1,8 +1,35 @@
 const equipmentData = {
-  commonAttr: {
-    all: ['strength', 'perception', 'endurance', 'charisma', 'intelligence', 'agility', 'luck'],
-    weapon: ['hpAbsorb', 'mpAbsorb', 'criticalDamageTimer', 'weaponPower', 'speed',],
-    shield: ['maxHp', 'hpRecover', 'maxMp', 'mpRecover', 'criticalRate', 'phyDef', 'magDef', 'movementRange', 'speed', 'dodgeRate', 'blockRate',],
+  bonusAttr: {
+    all: [
+      { attr: 'strength', value: 5, lvIncrease: 2, max: -1 },
+      { attr: 'perception', value: 5, lvIncrease: 2, max: -1 },
+      { attr: 'endurance', value: 5, lvIncrease: 2, max: -1 },
+      { attr: 'sprite', value: 5, lvIncrease: 2, max: -1 },
+      { attr: 'intelligence', value: 5, lvIncrease: 2, max: -1 },
+      { attr: 'agility', value: 5, lvIncrease: 2, max: -1 },
+      { attr: 'luck', value: 5, lvIncrease: 2, max: -1 },
+    ],
+
+    weapon: [
+      { attr: 'hpAbsorb', value: 3, lvIncrease: 0.2, max: 30 },
+      { attr: 'mpAbsorb', value: 3, lvIncrease: 0.2, max: 30 },
+      { attr: 'hitRate', value: 3, lvIncrease: 0.2, max: 15 },
+      { attr: 'criticalDamageTimer', value: 5, lvIncrease: 0.5, max: 50 },
+      { attr: 'speed', value: 5, lvIncrease: 2, max: -1 },
+    ],
+    shield: [
+      { attr: 'maxHp', value: 50, lvIncrease: 20, max: -1 },
+      { attr: 'hpRecover', value: 5, lvIncrease: 2, max: -1 },
+      { attr: 'maxMp', value: 50, lvIncrease: 20, max: -1 },
+      { attr: 'mpRecover', value: 3, lvIncrease: 0.2, max: 30 },
+      { attr: 'criticalRate', value: 3, lvIncrease: 0.2, max: 30 },
+      { attr: 'phyDef', value: 3, lvIncrease: 0.2, max: 30 },
+      { attr: 'magDef', value: 3, lvIncrease: 0.2, max: 30 },
+      { attr: 'movementRange', value: 3, lvIncrease: 0.2, max: 30 },
+      { attr: 'speed', value: 3, lvIncrease: 0.2, max: 30 },
+      { attr: 'dodgeRate', value: 3, lvIncrease: 0.2, max: 30 },
+      { attr: 'blockRate', value: 3, lvIncrease: 0.2, max: 30 },
+    ],
     armor: ['maxHp', 'maxMp', 'hpRecover', 'mpRecover', 'phyDef', 'magDef', 'dodgeRate', ],
     glove: ['hpAbsorb', 'mpAbsorb', 'speed', 'criticalRate', 'criticalDamageTimer' ],
     bracers: ['hpRecover', 'mpRecover', 'speed', 'criticalRate', 'phyAttTimer' ],

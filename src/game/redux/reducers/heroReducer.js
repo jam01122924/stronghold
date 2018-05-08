@@ -22,7 +22,7 @@ let heroReducerInit = {
         strength: 10,
         perception: 6,
         endurance: 10,
-        charisma: 4,
+        sprite: 4,
         intelligence: 4,
         agility: 6,
         luck: 5
@@ -31,7 +31,7 @@ let heroReducerInit = {
         strength: 3,
         perception: 1,
         endurance: 3,
-        charisma: 1,
+        sprite: 1,
         intelligence: 1,
         agility: 2,
         luck: 2
@@ -40,7 +40,7 @@ let heroReducerInit = {
         strength: 3,
         perception: 1,
         endurance: 3,
-        charisma: 1,
+        sprite: 1,
         intelligence: 1,
         agility: 2,
         luck: 2
@@ -76,7 +76,7 @@ let heroReducerInit = {
         strength: 10,
         perception: 6,
         endurance: 10,
-        charisma: 4,
+        sprite: 4,
         intelligence: 4,
         agility: 6,
         luck: 5,
@@ -90,6 +90,7 @@ let heroReducerInit = {
         maxMp: 0,
         mpRecover: 0,
         mpAbsorb: 0,
+        hitRate: 40,
         criticalRate: 0,
         criticalDamageTimer: 1.5,
         weaponPower: 20,
