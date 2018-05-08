@@ -75,7 +75,6 @@ class WarehouseMenu extends React.Component {
   }
 
   render() {
-    let self = this;
     //===============================Building Info==============================
     if(this.props.buildings&&this.props.buildings[this.props.building]) {
       let screenMode = window.matchMedia("(orientation: portrait)").matches?'portrait':'landscape';

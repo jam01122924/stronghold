@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import * as strongHoldActions from '../../../redux/actions/strongHoldActions';
 
 import FloatingText from '../../../common/floatingText/floatingText.component';
-import strongholdServices from '../../../services/strongholdServices/strongholdServices';
 
 class HarvestBar extends React.Component {
 

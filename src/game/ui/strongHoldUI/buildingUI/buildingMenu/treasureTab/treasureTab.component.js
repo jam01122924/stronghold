@@ -3,11 +3,11 @@ import React from 'react';
 import './treasureTab.component.css';
 
 import { connect } from 'react-redux';
-import * as strongHoldActions from '../../../../../redux/actions/strongHoldActions';
+// import * as strongHoldActions from '../../../../../redux/actions/strongHoldActions';
 
-import { Tab, Tabs, Button } from 'react-bootstrap';
+import { Tab, Tabs } from 'react-bootstrap';
 
-import strongholdServices from '../../../../../services/strongholdServices/strongholdServices';
+// import strongholdServices from '../../../../../services/strongholdServices/strongholdServices';
 
 class TreasureTab extends React.Component {
 

@@ -1,7 +1,9 @@
 import React from 'react';
 import './heroInfo.component.css';
 
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import HeroEquipmentInfo from './heroEquipmentInfo/heroEquipmentInfo.component';
+
+import { Grid, Row, Col } from 'react-bootstrap';
 
 
 class HeroInfo extends React.Component {
@@ -48,6 +50,7 @@ class HeroInfo extends React.Component {
             </div>
           </div>
           <div className="hero-info-center">
+            <HeroEquipmentInfo heroData={this.props.heroData}/>
           </div>
           <div className="hero-info-bottom">
             <div className="hero-info-panel">

@@ -2,12 +2,9 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import * as strongHoldActions from '../../../../redux/actions/strongHoldActions';
-import * as heroActions from '../../../../redux/actions/heroActions';
 
-import { Tab, Tabs, Button, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Tab, Tabs } from 'react-bootstrap';
 
-import strongholdServices from '../../../../services/strongholdServices/strongholdServices';
 import TeamTab from './teamTab/teamTab.component';
 
 class CityExitMenu extends React.Component {

@@ -3,13 +3,11 @@ import React from 'react';
 import './heroTab.component.css';
 
 import { connect } from 'react-redux';
-import * as strongHoldActions from '../../../../../redux/actions/strongHoldActions';
 import * as storageActions from '../../../../../redux/actions/storageActions';
 import * as heroActions from '../../../../../redux/actions/heroActions';
 
 import { Modal, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 
-import strongholdServices from '../../../../../services/strongholdServices/strongholdServices';
 import heroServices from '../../../../../services/heroServices/heroServices';
 
 import HeroInfo from '../../../../../common/heroInfo/heroInfo.component';
@@ -147,7 +145,7 @@ class HeroTab extends React.Component {
 }
 
 function mapStoreToProps (store, ownProps) {
-	const { strongHold, hero, storage } = store;
+	const { hero, storage } = store;
   const { inventory } = storage || {inventory: {}};
 
 	return { hero, storage, inventory };

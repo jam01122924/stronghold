@@ -48,7 +48,7 @@ class EditMapUI extends React.Component {
     this.props.dispatch(mapActions.loadMapToLocal());
   }
   save() {
-    this.props.dispatch(mapActions.saveMapToLocal());
+    this.props.dispatch(mapActions.saveMapToLocal('test'));
   }
   generate() {
     this.setState({toolModal: 'generateMap'});

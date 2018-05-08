@@ -96,8 +96,9 @@ export const loadMapToLocal = () => {
     type: 'LOAD_LOCALSTORAGE_MAP'
   };
 };
-export const saveMapToLocal = () => {
+export const saveMapToLocal = (data) => {
   return {
-    type: 'SAVE_LOCALSTORAGE_MAP'
+    type: 'SAVE_LOCALSTORAGE_MAP',
+    data: data
   };
 };

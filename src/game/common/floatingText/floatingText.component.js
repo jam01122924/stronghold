@@ -3,9 +3,10 @@ import './floatingText.component.css';
 
 class FloatingText extends React.Component {
 
-  constructor(props, context) {
-    super(props, context);
-  }
+  // constructor(props, context) {
+  //   super(props, context);
+  //
+  // }
 
   componentDidMount() {
   }

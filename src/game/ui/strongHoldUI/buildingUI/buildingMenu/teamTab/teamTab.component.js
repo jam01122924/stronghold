@@ -3,14 +3,13 @@ import React from 'react';
 import './teamTab.component.css';
 
 import { connect } from 'react-redux';
-import * as storageActions from '../../../../../redux/actions/storageActions';
 import * as heroActions from '../../../../../redux/actions/heroActions';
 import * as gameStageActions from '../../../../../redux/actions/gameStageActions';
 
-import { Modal, ListGroup, ListGroupItem, Button, Pagination } from 'react-bootstrap';
+import { Button, Pagination } from 'react-bootstrap';
 
 // import storageServices from '../../../../../services/storageServices/storageServices';
-import heroServices from '../../../../../services/heroServices/heroServices';
+import HoldableContainer from '../../../../../common/holdableContainer/holdableContainer';
 
 import PickHeroList from './pickHeroList/pickHeroList.component';
 
@@ -106,6 +105,19 @@ class TeamTab extends React.Component {
           <div className="team-edit-btns">
             <div className="team-list-pagination">
               <Pagination bsSize="medium">{teamListPagination}</Pagination>
+            </div>
+            <div className="team-luggage">
+              <div className="luggage-food">
+                <HoldableContainer onHold={()=>this.changeFood(-1)} rate={10}>
+                  <Button onClick={()=>this.changeFood(-1)}>-</Button>
+                </HoldableContainer>
+                <span className="luggage-num">
+                  
+                </span>
+                <HoldableContainer onHold={()=>this.changeFood(1)} rate={10}>
+                  <Button onClick={()=>this.changeFood(1)}>+</Button>
+                </HoldableContainer>
+              </div>
             </div>
             <Button onClick={this.start} bsStyle="warning" className="team-start-btn" disabled={!(this.props.hero.team[this.state.selectedTeam]&&this.props.hero.team[this.state.selectedTeam].member.length)}>{this.LAN.strongHoldUI.cityExit.start}</Button>
             <Button onClick={this.toggleEditTeam} >{this.LAN.strongHoldUI.cityExit.editTeam}</Button>

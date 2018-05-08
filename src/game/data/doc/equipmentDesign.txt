@@ -1,0 +1,61 @@
+
+equipment lv:
+worn   -> normal -> good -> excellent -> magical -> epic -> legendary，     set
+破损的 -> 普通的 -> 优秀的 -> 精良的 -> 附魔的 -> 史诗级 -> 传说级，           套装
+gray  ->  white -> green -> blue -> golden -> purple -> orange             bright green
+extra Attr:
+0     ->   0    ->   1   ->   2  ->   3   ->    4   ->   4
+
+
+装备可能属性：
+  all: ['strength', 'perception', 'endurance', 'charisma', 'intelligence', 'agility', 'luck'],
+  所有武器：
+    ['hpAbsorb', 'mpAbsorb', 'criticalDamageTimer', 'weaponPower', 'speed']
+  Body防具：
+    ['maxHp', 'maxMp', 'hpRecover', 'mpRecover', 'phyDef', 'magDef', 'dodgeRate', 'healReceiveTimer',]
+  Glove:
+    ['hpAbsorb', 'mpAbsorb', 'speed', 'criticalRate', 'criticalDamageTimer' ]
+  Bracers:
+    ['hpRecover', 'mpRecover', 'speed', 'criticalRate', 'phyAttTimer' ]
+  Belt:
+    ['maxHp', 'maxMp', 'phyDef', 'magDef', 'dodgeRate']
+  ring, necklace:
+    ['hpRecover', 'hpAbsorb', 'mpRecover', 'mpAbsorb', 'criticalRate', 'criticalDamageTimer',
+    'phyAttTimer', 'magAttTimer', 'healTimer', 'healReceiveTimer', 'speed', 'dodgeRate', 'blockRate']
+  shield:
+    ['maxHp', 'hpRecover', 'maxMp', 'mpRecover', 'criticalRate', 'phyDef', 'magDef', 'movementRange', 'speed', 'dodgeRate', 'blockRate',]
+
+
+
+
+
+  'strength',
+  'perception',
+  'endurance',
+  'charisma',
+  'intelligence',
+  'agility',
+  'luck',
+
+  'maxHp',
+  'hpRecover',
+  'hpAbsorb',
+  'maxMp',
+  'mpRecover',
+  'mpAbsorb',
+  'criticalRate',
+  'criticalDamageTimer',
+  'weaponPower',
+  'phyAtt',
+  'phyRangeAtt',
+  'phyDef',
+  'phyAttTimer',
+  'magAtt',
+  'magDef',
+  'magAttTimer',
+  'healTimer',
+  'healReceiveTimer',
+  'movementRange',
+  'speed',
+  'speech',
+  'dodgeRate',

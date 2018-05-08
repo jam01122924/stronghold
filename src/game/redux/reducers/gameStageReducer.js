@@ -14,12 +14,12 @@ const gameStageReducerInit = {
 const gameStageReducer = (state = gameStageReducerInit, action) => {
   switch (action.type) {
     case 'CHANGE_STAGE': {
-      var newState = Object.assign({}, state);
+      let newState = Object.assign({}, state);
       newState['stage'] = action.stage;
       return newState;
     }
     case 'CHANGE_LANGUAGE': {
-      var newState = Object.assign({}, state);
+      let newState = Object.assign({}, state);
       newState['language'] = action.language;
       return newState;
     }

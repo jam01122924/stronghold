@@ -2,7 +2,6 @@ import React from 'react';
 import './advantureMapUI.component.css';
 import GridMap from './gridMap/gridMap.component';
 
-import { Button, ButtonGroup } from 'react-bootstrap';
 
 import { connect } from 'react-redux';
 import * as gameStageActions from '../../redux/actions/gameStageActions';
@@ -49,9 +48,8 @@ class AdvantureMapUI extends React.Component {
 }
 
 function mapStoreToProps (store, ownProps) {
-	const { gameStage, hero } = store;
+	const { gameStage, map } = store;
   const { stage } = gameStage || { stage: '' };
-  const { map } = store;
   const { mapDatas, position } = map || { mapDatas: [], position: {x:0, y:0}};
 	return { stage, mapDatas, position };
 }

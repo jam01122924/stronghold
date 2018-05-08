@@ -4,10 +4,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as strongHoldActions from '../../../../redux/actions/strongHoldActions';
 
-import { Tab, Tabs, Button, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Tab, Tabs, Button } from 'react-bootstrap';
 
 import strongholdServices from '../../../../services/strongholdServices/strongholdServices';
-import heroServices from '../../../../services/heroServices/heroServices';
 import TavernHeroTab from './tavernHeroTab/tavernHeroTab.component';
 
 class tavernMenu extends React.Component {

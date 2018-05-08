@@ -3,7 +3,6 @@ import React from 'react';
 import './tavernHeroTab.component.css';
 
 import { connect } from 'react-redux';
-import * as strongHoldActions from '../../../../../redux/actions/strongHoldActions';
 import * as heroActions from '../../../../../redux/actions/heroActions';
 
 import { Modal, ListGroup, ListGroupItem, Button } from 'react-bootstrap';

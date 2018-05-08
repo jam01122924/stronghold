@@ -7,7 +7,7 @@ import * as heroActions from '../../../../../../redux/actions/heroActions';
 
 import { Modal, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 
-import heroServices from '../../../../../../services/heroServices/heroServices';
+// import heroServices from '../../../../../../services/heroServices/heroServices';
 
 import HeroInfo from '../../../../../../common/heroInfo/heroInfo.component';
 

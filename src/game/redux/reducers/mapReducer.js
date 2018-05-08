@@ -1,5 +1,5 @@
-import map1001 from '../../data/maps/map1001';
-import map1002 from '../../data/maps/map1002';
+// import map1001 from '../../data/maps/map1001';
+// import map1002 from '../../data/maps/map1002';
 
 import map1_1 from '../../data/maps/001/1_1';
 
@@ -7,7 +7,7 @@ const mapReducerInit = {
   mapDatas: [
     {
       id: 'map1001',
-      data: map1_1.mapDatas[0].data,
+      data: map1_1.mapDatas[2].data,
       props: {
         mapSize: '',
         terrain: '',
@@ -23,7 +23,7 @@ const mapReducerInit = {
     },
     {
       id: 'map1002',
-      data: map1_1.mapDatas[0].data,
+      data: map1_1.mapDatas[2].data,
       props: {
         mapSize: '',
         terrain: '',
@@ -191,7 +191,7 @@ const mapReducer = (state = mapReducerInit, action) => {
     case 'SAVE_LOCALSTORAGE_MAP':
       try {
         const serializedState  = JSON.stringify(state);
-        localStorage.setItem('UCX2018_STATE_MAP', serializedState);
+        localStorage.setItem(action.data?action.data:'UCX2018_STATE_MAP', serializedState);
       } catch(err) {
         console.log('error on saving map store to localStorage', err);
       }

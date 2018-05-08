@@ -6,7 +6,6 @@ import Map from '../../../common/map/map.component';
 import Sprite from '../../../common/sprite/sprite.component';
 
 import { connect } from 'react-redux';
-import * as gameStageActions from '../../../redux/actions/gameStageActions';
 import * as mapActions from '../../../redux/actions/mapActions';
 
 class GridMap extends React.Component {

@@ -80,7 +80,7 @@ function calculateHeroExtraGrow(quality) {
     default: sum = 0; break;
   }
 
-  let addup = 0;
+  let addup = 0 - sum;
   // Add up result, and calculate the extra grow:
   for(let status in result) {
     addup += result[status];
@@ -102,6 +102,7 @@ function calculateHeroGrow(heroClass, quality, extraGrow) {
     case 's': qualityEnhance=3; break;
     case 'ss': qualityEnhance=4; break;
     case 'sss': qualityEnhance=5; break;
+    default: break;
   }
 
   console.log('=========start to calculate hero growth==========');
@@ -143,6 +144,7 @@ function upgradeStatus(heroClass, quality, extraGrow, oldStatus) {
     case 's': qualityEnhance=3; break;
     case 'ss': qualityEnhance=4; break;
     case 'sss': qualityEnhance=5; break;
+    default: break;
   }
 
   if(heroData&&heroData.classData&&heroData.classData[heroClass]&&heroData.classData[heroClass].growRate) {

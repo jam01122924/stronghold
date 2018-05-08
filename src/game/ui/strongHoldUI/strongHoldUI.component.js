@@ -6,7 +6,6 @@ import { ProgressBar  } from 'react-bootstrap';
 import $ from 'jquery';
 
 import { connect } from 'react-redux';
-import * as gameStageActions from '../../redux/actions/gameStageActions';
 import * as strongHoldActions from '../../redux/actions/strongHoldActions';
 
 import Header from './header/header.component';
@@ -68,7 +67,7 @@ class StrongHoldUI extends React.Component {
         </div>
         */}
         <div className="living-house7" onClick={(e)=>{self.openBuilding('residentialDistrict', e)}}>
-          <img src="/imgs/house/small/livinghouse7.png" />
+          <img src="/imgs/house/small/livinghouse7.png" alt="living-house-7"/>
           <div className="building-name-tag-container">
             <div className="building-name-tag">{window.localization.gameLanguage.building.residentialDistrict}</div>
           </div>
@@ -163,7 +162,7 @@ class StrongHoldUI extends React.Component {
         let obj = this.props.buildings[building];
         buildingContent.push(
           <div className={"building-img-container " + building} key={building} onClick={(e)=>{this.openBuilding(building, e)}}>
-            <img src={obj.lv>0?obj.img:'/imgs/house/small/ruin.png'} />
+            <img src={obj.lv>0?obj.img:'/imgs/house/small/ruin.png'} alt="ruin"/>
             <div className="building-name-tag-container">
               <div className="building-name-tag">{this.LAN.building[building]} {obj.lv===0?(this.LAN.strongHoldUI.messages.ruinBuild.part1 + strongholdServices.getUpgradeResourceRequired(building, 1).wood + this.LAN.strongHoldUI.messages.ruinBuild.part2):''}</div>
             </div>
@@ -181,7 +180,7 @@ class StrongHoldUI extends React.Component {
 
         <Swipeable onSwipeLeft={()=>{this.bgSwipe('left')}} onSwipeRight={()=>{this.bgSwipe('right')}}>
           <div className="stronghold-bg" ref={this.bgScreen} id="strongholdBG">
-            <img src="/imgs/village_bg2.jpg" />
+            <img src="/imgs/village_bg2.jpg" alt="village_bg2"/>
             <div className="stronghold-building-container">
               <div className="stronghold-building-content">
                 {buildingContent}
