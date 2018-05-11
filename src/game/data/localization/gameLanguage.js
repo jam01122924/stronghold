@@ -151,6 +151,15 @@ const gameLanguage = {
         energy: 'Energy',
       }
     },
+    map: {
+      confirmBackToStronghold: 'You are about to enter the Stronghold',
+      confirmChangeMap: 'You are about to enter ',
+
+      // Map Names:
+      peacefulForest: 'Peaceful Forest',
+      peacefulForest_south: 'South of Peaceful Forest',
+
+    },
     confirm: {
       question: 'Are you sure?',
       yes: 'Yes',

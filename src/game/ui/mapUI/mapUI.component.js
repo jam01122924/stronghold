@@ -45,7 +45,6 @@ class MapUI extends React.Component {
         this.movePosition(1, 0);
         break;
       default:
-        this.movePosition(0, 0);
         break;
     }
   }
@@ -80,6 +79,7 @@ class MapUI extends React.Component {
           mapSize={64}
           position={this.props.mapDatas[this.props.currentMapIndex].position}
           handleGridClick={this.props.handleGridClick}
+          handleGridHover={this.props.handleGridHover}
           overflowShow={this.props.overflowShow}
           showGrid={this.props.showGrid}
           />

@@ -22,7 +22,7 @@ let heroReducerInit = {
         strength: 10,
         perception: 6,
         endurance: 10,
-        sprite: 4,
+        charisma: 4,
         intelligence: 4,
         agility: 6,
         luck: 5
@@ -31,7 +31,7 @@ let heroReducerInit = {
         strength: 3,
         perception: 1,
         endurance: 3,
-        sprite: 1,
+        charisma: 1,
         intelligence: 1,
         agility: 2,
         luck: 2
@@ -40,7 +40,7 @@ let heroReducerInit = {
         strength: 3,
         perception: 1,
         endurance: 3,
-        sprite: 1,
+        charisma: 1,
         intelligence: 1,
         agility: 2,
         luck: 2
@@ -54,12 +54,14 @@ let heroReducerInit = {
           class: 'sword',
           type: 'weapon',
           name: 'shortSword',
+          img: '',
           weight: 3,
           position: ['rightHand', 'leftHand'],
           quality: 'a',
           weaponPower: 10,
           lv: 4,
           requiredLv: 0,
+          forgeLv: 0,
           bonus: [
             {
               attr: 'endurance',
@@ -76,7 +78,7 @@ let heroReducerInit = {
         strength: 10,
         perception: 6,
         endurance: 10,
-        sprite: 4,
+        charisma: 4,
         intelligence: 4,
         agility: 6,
         luck: 5,
@@ -90,7 +92,6 @@ let heroReducerInit = {
         maxMp: 0,
         mpRecover: 0,
         mpAbsorb: 0,
-        hitRate: 40,
         criticalRate: 0,
         criticalDamageTimer: 1.5,
         weaponPower: 20,
@@ -108,7 +109,6 @@ let heroReducerInit = {
         speech: 100,
         dodgeRate: 10,
         blockRate: 0,
-        parryRate: 0,
       },
     }
   ],

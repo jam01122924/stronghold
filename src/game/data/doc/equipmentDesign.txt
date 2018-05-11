@@ -57,5 +57,5 @@ extra Attr:
   'healReceiveTimer',
   'movementRange',
   'speed',
-  'speech',
   'dodgeRate',
+  'blockRate',

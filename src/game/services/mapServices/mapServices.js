@@ -1,11 +1,19 @@
+/*jshint esversion: 6 */
+
 import mapWater from './mapWaterServices';
 import mapTree from './mapTreeServices';
+
+import maps from '../../data/maps/mapData';
 
 const mapServices = {
   pickTexture: pickTexture,
   changeGrid: changeGrid,
   generateMap: generateMap,
-  validateGridData: validateGridData
+  validateGridData: validateGridData,
+
+  getMapList: getMapList,
+  getMapById: getMapById,
+  getAllMap: getAllMap,
 };
 
 function pickTexture(mapData, x, y) {
@@ -25,6 +33,7 @@ function changeGrid(mapData, x, y) {
 function generateMap(config, mapDatas) {
   console.log(config);
   config = {
+    name: config&&config.name?config.name:'test',
     mapSize: config&&config.mapSize?config.mapSize:'small',
     terrain: config&&config.terrain?config.terrain:'plain',
     water: config&&config.water?config.water:'lots',
@@ -79,6 +88,7 @@ function generateMap(config, mapDatas) {
 
   return {
     id: mapId,
+    name: config.name,
     position: {x: Math.floor(sizeX/2), y: Math.floor(sizeY/2)},
     props: config,
     data: result
@@ -148,12 +158,38 @@ function gTerrain(sizeX, sizeY, terrain){
 // ========================== End of generateMap ===============================
 
 function validateGridData(data) {
-  let options = ["terrain", "geomorphology", "building", "item", "monster"];
+  let options = ["terrain", "geomorphology", "building", "item", "monster", "action"];
   return options.indexOf(data)!==-1;
 }
 
 
 
+
+
+
+
+
+function getMapList() {
+  let result = [];
+  maps.mapDatas.forEach(m=>{
+    result.push({id: m.id, name: m.name});
+  });
+  return result;
+}
+
+function getMapById(id) {
+  console.log('getMapById', id);
+  for(let i=0; i<maps.mapDatas.length; i++){
+    if(maps.mapDatas[i].id===id){
+      console.log('getMapById_result', maps.mapDatas[i]);
+      return maps.mapDatas[i];
+    }
+  }
+}
+
+function getAllMap() {
+  return maps.mapDatas;
+}
 
 
 

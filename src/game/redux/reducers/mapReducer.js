@@ -1,46 +1,36 @@
-// import map1001 from '../../data/maps/map1001';
-// import map1002 from '../../data/maps/map1002';
+/*jshint esversion: 6 */
+import mapServices from '../../services/mapServices/mapServices';
 
-import map1_1 from '../../data/maps/001/1_1';
+let initMap = [mapServices.getMapById('map1001')];
 
 const mapReducerInit = {
-  mapDatas: [
-    {
-      id: 'map1001',
-      data: map1_1.mapDatas[2].data,
-      props: {
-        mapSize: '',
-        terrain: '',
-        water: '',
-        monster: '',
-        building: ''
-      },
-      position: {
-        x: 0,
-        y: 0
-      },
-      foodConsume: 1,
-    },
-    {
-      id: 'map1002',
-      data: map1_1.mapDatas[2].data,
-      props: {
-        mapSize: '',
-        terrain: '',
-        water: '',
-        monster: '',
-        building: ''
-      },
-      position: {
-        x: 0,
-        y: 0
-      },
-      foodConsume: 1,
-    }
-  ],
+  mapDatas: initMap,
+  // [
+  //   {
+  //     id: 'map1001',
+  //     name: 'peacefulForest',
+  //     data: mapServices.getMapById('map1001'),
+  //     props: {
+  //       mapSize: '',
+  //       terrain: '',
+  //       water: '',
+  //       monster: '',
+  //       building: ''
+  //     },
+  //     position: {
+  //       x: 0,
+  //       y: 0
+  //     },
+  //     foodConsume: 1,
+  //   }
+  // ],
   currentMapIndex: 0,
   season: 'spring',
-  selectedTexture: '',
+  selectedTexture: {},
+  selectedAction: {
+    type: null,
+    data: null
+  },
   clickAction: '',
   zoom: 1,
   showGrid: false,
@@ -57,13 +47,20 @@ const mapReducer = (state = mapReducerInit, action) => {
       console.log('characterReducer LOAD_DATA');
       return action.data;
     case 'SWITCH_MAP':
-      let mapIndex = findMapIndex(action.data.mapID);
-      if(mapIndex!==-1) {
+      let newMap = mapServices.getMapById(action.data.mapID);
+      if(newMap) {
         return {
           ...state,
-          currentMapIndex: mapIndex
+          mapDatas: [newMap]
         };
       }
+      // let mapIndex = findMapIndex(action.data.mapID);
+      // if(mapIndex!==-1) {
+      //   return {
+      //     ...state,
+      //     currentMapIndex: mapIndex
+      //   };
+      // }
       return state;
     case 'ADD_MAP':
       if(action.data) {
@@ -109,24 +106,31 @@ const mapReducer = (state = mapReducerInit, action) => {
     //   return state;
     // }
     case 'CHANGE_CLICK_ACTION': {
-      if(action.data) {
-        let newState = Object.assign({}, state);
-        newState.clickAction = action.data;
-        return newState;
-      }
-      return state;
+      let newState = Object.assign({}, state);
+      newState.clickAction = action.data;
+      return newState;
     }
     case 'CHANGE_SELECT_TEXTURE': {
-      if(action.data) {
-        let newState = Object.assign({}, state);
-        newState.selectedTexture = action.data;
-        return newState;
-      }
-      return state;
+      let newState = Object.assign({}, state);
+      newState.selectedTexture = action.data;
+      return newState;
+    }
+    case 'CHANGE_SELECT_ACTION': {
+      let newState = Object.assign({}, state);
+      newState.selectedAction = action.data;
+      return newState;
     }
     case 'SET_MAP_PROPS': {
       //TODO: apply map config to target map
       return state;
+    }
+    case 'SET_POSITION': {
+      let newState = Object.assign({}, state);
+      newState.position = action.data;
+      newState.mapDatas = [].concat(state.mapDatas);
+      newState.mapDatas[state.currentMapIndex] = Object.assign({}, state.mapDatas[state.currentMapIndex]);
+      newState.mapDatas[state.currentMapIndex].position = action.data;
+      return newState;
     }
     case 'MOVE_POSITION': {
       if((state.mapDatas[state.currentMapIndex].position.y+action.data.y)>=0 &&
@@ -177,12 +181,16 @@ const mapReducer = (state = mapReducerInit, action) => {
 
     case 'LOAD_LOCALSTORAGE_MAP':
       try {
-        const newState = localStorage.getItem('UCX2018_STATE_MAP');
-        if(newState === null) {
-          console.log('failed to load map store from localStorage');
-          return state;
-        }
-        return JSON.parse(newState);
+        // const newState = localStorage.getItem('UCX2018_STATE_MAP');
+        // if(newState === null) {
+        //   console.log('failed to load map store from localStorage');
+        //   return state;
+        // }
+        // return JSON.parse(newState);
+        console.log('ss')
+        let newState = Object.assign({}, state);
+        newState.mapDatas = mapServices.getAllMap();
+        return newState;
       } catch(err) {
         console.log('error on loading map store from localStorage', err);
         return state;
@@ -190,12 +198,22 @@ const mapReducer = (state = mapReducerInit, action) => {
 
     case 'SAVE_LOCALSTORAGE_MAP':
       try {
-        const serializedState  = JSON.stringify(state);
-        localStorage.setItem(action.data?action.data:'UCX2018_STATE_MAP', serializedState);
+        for(let i=0; i<state.mapDatas.length; i++) {
+          const serializedState  = JSON.stringify(state.mapDatas[i]);
+          localStorage.setItem(state.mapDatas[i].name, serializedState);
+        }
       } catch(err) {
         console.log('error on saving map store to localStorage', err);
       }
       return state;
+
+    case 'DELETE_MAP': {
+      let newState = {...state};
+      newState.mapDatas = [].concat(state.mapDatas);
+      newState.mapDatas.splice(action.data, 1);
+      return newState;
+    }
+
 
 
     default:

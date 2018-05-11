@@ -45,7 +45,7 @@ function generate(sizeX, sizeY, config, result) {
         exception: [],          // exceptions for isolation detect,
         type:  'geomorphology',
         texture: type,
-        move: 2,
+        move: 'noPass',
         value: "0"
       }
     });

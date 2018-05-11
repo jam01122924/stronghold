@@ -32,3 +32,5 @@
   .edit-map-UI-container .tool-panel .fa {
     zoom: 1.5;
     -moz-transform: scale(1.5); }
+  .edit-map-UI-container .tool-panel .tool-btn-panel-container {
+    overflow: visible; }

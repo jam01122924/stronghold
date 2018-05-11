@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import React from 'react';
 
 import './createMapToolUI.component.css';
@@ -19,10 +20,11 @@ class CreateMapToolUI extends React.Component {
 
     this.state = {
       zoom: 1,
-      showGrid: false
+      showGrid: true
     };
 
     this.handleGridClick = this.handleGridClick.bind(this);
+    this.handleHover = this.handleHover.bind(this);
   }
 
   changeStage(stage) {
@@ -38,7 +40,7 @@ class CreateMapToolUI extends React.Component {
   }
 
   handleGridClick(data) {
-    console.log(data, this.props.clickAction, this.props.mapDatas);
+    console.log(data, this.props.clickAction, this.props.mapDatas, this.props.selectedTexture, this.props.selectedAction);
     if(data && this.props.selectedTexture){
       let targetLayer = this.props.clickAction.substring(8);
       let validTargetLayer = mapServices.validateGridData(targetLayer);
@@ -50,18 +52,37 @@ class CreateMapToolUI extends React.Component {
             x: data.positionX,
             y: data.positionY
           },
-          gridData: {...data.data[targetLayer], type: this.props.selectedTexture, img: this.props.selectedTexture}
+          gridData: {...data.data[targetLayer],
+            type: this.props.selectedTexture.type, img: this.props.selectedTexture.img,
+            move: this.props.selectedTexture.move, value:  this.props.selectedTexture.value
+          }
         }));
       }
+    } else if(data && this.props.selectedAction){
+      let targetLayer = "action";
+      this.props.dispatch(mapActions.changeGrid({
+        targetLayer: targetLayer,
+        location: {
+          x: data.positionX,
+          y: data.positionY
+        },
+        gridData: {...data.data[targetLayer],
+          type: this.props.selectedAction.type, data: this.props.selectedAction.data
+        }
+      }));
     }
   }
+  handleHover(data) {
+      console.log(data);
+  }
+
 
   render() {
-    console.log(this.state.showGrid)
     return (
       <div className="create-map-tool-UI-container">
         <div className="map-box">
-          <MapUI handleGridClick={this.handleGridClick} zoom={this.state.zoom} overflowShow={true} showGrid={this.state.showGrid}></MapUI>
+          <MapUI handleGridClick={this.handleGridClick} handleGridHover={this.handleHover}
+            zoom={this.state.zoom} overflowShow={true} showGrid={this.state.showGrid}></MapUI>
         </div>
         <div className="tool-bar"><EditMapUI></EditMapUI></div>
         <div className="zoom-btns">
@@ -80,7 +101,7 @@ function mapStoreToProps (store, ownProps) {
 	const { gameStage } = store;
   const { stage } = gameStage || { stage: '' };
   const { map } = store;
-  const { mapDatas, selectedTexture, clickAction } = map || { mapDatas: [], selectedTexture: '', clickAction: ''};
-	return { stage, mapDatas, selectedTexture, clickAction };
+  const { mapDatas, selectedTexture, clickAction, selectedAction } = map || { mapDatas: [], selectedTexture: {}, clickAction: '', selectedAction: {}};
+	return { stage, mapDatas, selectedTexture, clickAction, selectedAction };
 }
 export default connect(mapStoreToProps)(CreateMapToolUI);

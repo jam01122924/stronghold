@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
 import equipmentServices from '../../../services/equipmentServices/equipmentServices';
 
+import * as storageActions from '../../../redux/actions/storageActions';
+
 
 class HeroEquipmentInfo extends React.Component {
 
@@ -22,7 +24,18 @@ class HeroEquipmentInfo extends React.Component {
   }
 
   test() {
-    equipmentServices.createEquipment('sword', 'c', 4, 'wood');
+    const qualityClass = ['worn', 'normal', 'good', 'excellent', 'magical', 'epic', 'legendary'];
+    let newEquipment = equipmentServices.createEquipment('sword', qualityClass[4], 4);
+
+    this.props.dispatch(storageActions.addItem({target: 'inBag', data: newEquipment, itemType:'weapon'}));
+    this.props.dispatch(storageActions.addItem({target: 'inBag', data: newEquipment, itemType:'item', amount: 5}));
+    this.props.dispatch(storageActions.removeItem({target: 'inBag', id: newEquipment.id, itemType:'item', amount: 2}));
+    // this.props.dispatch(storageActions.removeItem({target: 'inBag', id: newEquipment.id, itemType:'item', amount: 12}));
+    this.props.dispatch(storageActions.collectItemFromBagToStorage());
+    this.props.dispatch(storageActions.changeInventorySize({target: 'bagSize', data: 5}));
+
+
+
   }
 
 

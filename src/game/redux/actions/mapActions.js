@@ -1,4 +1,4 @@
-
+/*jshint esversion: 6 */
 export const switchMap = data => {
   return {
     type: 'SWITCH_MAP',
@@ -42,14 +42,31 @@ export const selectTexture = (t) => {
     type: 'CHANGE_SELECT_TEXTURE',
     data: t
   };
-}
+};
+
+export const selectAction = (a) => {
+  return {
+    type: 'CHANGE_SELECT_ACTION',
+    data: a
+  };
+};
 
 export const changeClickAction = (action) => {
   return {
     type: 'CHANGE_CLICK_ACTION',
     data: action
   };
-}
+};
+
+export const setPosition = data => {
+  return {
+    type: 'SET_POSITION',
+    data: {
+      x: data.x,
+      y: data.y
+    }
+  };
+};
 
 export const movePosition = data => {
   return {
@@ -102,3 +119,9 @@ export const saveMapToLocal = (data) => {
     data: data
   };
 };
+export const deleteMap = mapIndex => {
+  return {
+    type: 'DELETE_MAP',
+    data: mapIndex
+  };
+}

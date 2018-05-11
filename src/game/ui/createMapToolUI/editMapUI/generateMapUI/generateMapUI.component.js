@@ -14,6 +14,7 @@ class GenerateMapUI extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
+      name: '',
       mapSize: '',
       terrain: '',
       water: '',
@@ -35,6 +36,7 @@ class GenerateMapUI extends React.Component {
 
   generate() {
     let genMapConfig = {
+      name: this.state.name,
       mapSize: this.state.mapSize,
       terrain: this.state.terrain,
       water: this.state.water,
@@ -63,6 +65,10 @@ class GenerateMapUI extends React.Component {
       <div className="generate-map-UI-container">
         <Grid className="modal-grid">
           <Row className="show-grid">
+            <Col xs={12}>
+              <label>Map Name:</label>
+              <input onChange={(e)=>this.setState({'name': e.target.value})}></input>
+            </Col>
             <Col xs={12}>
               <label>Map Size:</label>
               <SplitButton className={'select-box ' + (this.state.mapSize?'':'unselected-dropdown')} title={this.state.mapSize?this.state.mapSize:'select map size...'} id="Dropdown_mapSize">

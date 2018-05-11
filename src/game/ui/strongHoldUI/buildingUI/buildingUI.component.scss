@@ -166,20 +166,3 @@
     }
   }
 }
-
-.hero-info-modal {
-  .modal-header {
-    .close {
-      color: #FFF;
-      opacity: 0.7;
-    }
-  }
-  .modal-content {
-    background-color: $color-gray5;
-    color: $color-gray85;
-    border: 2px solid $color-gray85;
-    -webkit-box-shadow: 0 3px 9px rgba(255,255,255,.5);
-    box-shadow: 0 3px 9px rgba(255,255,255,.5);
-    min-width: 280px;
-  }
-}

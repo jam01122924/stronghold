@@ -1,6 +1,7 @@
+/*jshint esversion: 6 */
 import React from 'react';
 // import FontAwesome from 'react-fontawesome';
-import {ButtonToolbar, ButtonGroup, Button, Modal, OverlayTrigger, Tooltip} from 'react-bootstrap';
+import {ButtonToolbar, ButtonGroup, Button, Modal, OverlayTrigger, Tooltip, DropdownButton, MenuItem} from 'react-bootstrap';
 
 import './editMapUI.component.css';
 
@@ -13,21 +14,32 @@ import { connect } from 'react-redux';
 import * as gameStageActions from '../../../redux/actions/gameStageActions';
 import * as mapActions from '../../../redux/actions/mapActions';
 
+import mapServices from '../../../services/mapServices/mapServices';
+
 class EditMapUI extends React.Component {
 
   constructor(props, context) {
     super(props, context);
     this.state = {
       activeToolBtns: 'files',
-      toolModal: ''
+      toolModal: '',
+
+      actionType: '',
+      actionData: '',
+      actionPosX: 0,
+      actionPosY: 0,
+      actionSelected: false,
     };
     this.generate = this.generate.bind(this);
     this.open = this.open.bind(this);
     this.saveMap = this.saveMap.bind(this);
     this.load = this.load.bind(this);
     this.save = this.save.bind(this);
+    this.delete = this.delete.bind(this);
 
     this.selectTexture = this.selectTexture.bind(this);
+    this.toggleSelectedAction = this.toggleSelectedAction.bind(this);
+
 
   }
 
@@ -36,7 +48,7 @@ class EditMapUI extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('editMapUI receive props');
+    // console.log('editMapUI receive props');
   }
   open(){
     this.setState({toolModal: 'openMap'});
@@ -50,13 +62,52 @@ class EditMapUI extends React.Component {
   save() {
     this.props.dispatch(mapActions.saveMapToLocal('test'));
   }
+  delete() {
+    if(this.props.mapDatas.length>1) {
+      let index = this.props.currentMapIndex;
+      // switch to first map before delete current map
+      this.props.dispatch(mapActions.switchMap(this.props.mapDatas[0].id));
+      this.props.dispatch(mapActions.deleteMap(this.props.currentMapIndex));
+    } else {
+      console.log('Can not delete last map');
+    }
+  }
   generate() {
     this.setState({toolModal: 'generateMap'});
   }
 
-  selectTexture(t, targetlayer) {
+  selectTexture(t, targetlayer, move, value) {
     this.props.dispatch(mapActions.changeClickAction('texture_'+targetlayer));
-    this.props.dispatch(mapActions.selectTexture(t));
+    this.props.dispatch(mapActions.selectTexture({
+      type: t,
+      img: t,
+      move: move,
+      value: value
+    }));
+  }
+  toggleSelectedAction() {
+    this.props.dispatch(mapActions.selectTexture(null));
+    console.log(this.state.actionSelected)
+    if(!this.state.actionSelected) {
+      let data;
+      console.log(this.state.actionType);
+      if(this.state.actionType==='gameStageChange') {
+        data = this.state.actionData;
+      } else if (this.state.actionType==='mapChange') {
+        data = {id: this.state.actionData, position: {x: parseInt(this.state.actionPosX), y: parseInt(this.state.actionPosY)}};
+        console.log(data);
+      }
+      this.props.dispatch(mapActions.selectAction({
+        type: this.state.actionType,
+        data: data
+      }));
+    } else {
+      this.props.dispatch(mapActions.selectAction(null));
+    }
+
+    this.setState({
+      actionSelected: !this.state.actionSelected
+    });
   }
 
   emptyTexture() {
@@ -89,8 +140,48 @@ class EditMapUI extends React.Component {
                 </OverlayTrigger>
               </ButtonGroup>
               <OverlayTrigger placement="top" overlay={<Tooltip id="tooltip-file-btn-delete">delete</Tooltip>} key="delete">
-                <Button className="tool-btn-panel-btn-group"><i className="fa fa-trash" aria-hidden="true"></i></Button>
+                <Button className="tool-btn-panel-btn-group" onClick={this.delete}><i className="fa fa-trash" aria-hidden="true"></i></Button>
               </OverlayTrigger>
+            </ButtonToolbar>
+          </div>
+        );
+      break;
+      case 'action':
+        let mapItem = [];
+        mapServices.getMapList().forEach((map, i)=>{
+          mapItem.push(
+            <MenuItem eventKey={i+2} key={'gameStage-' + i}
+              onClick={()=>{this.props.dispatch(mapActions.selectAction(null)); this.setState({actionType: 'mapChange', actionData: map.id, actionSelected: false})}}>
+              {map.id}:{map.name}
+            </MenuItem>
+          );
+        });
+
+        toolBtns = (
+          <div className="tool-btn-panel-container">
+            <ButtonToolbar>
+              <OverlayTrigger placement="top" overlay={<Tooltip id="tooltip-action-btn">Actions</Tooltip>} key="type">
+                <DropdownButton title={this.state.actionData} id="mapActionTypeDropDown">
+                  <MenuItem eventKey="1"
+                    onClick={()=>{this.props.dispatch(mapActions.selectAction(null)); this.setState({actionType: 'erase', actionData: 'removeAction', actionSelected: false})}}>
+                    remove
+                  </MenuItem>
+                  <MenuItem eventKey="2"
+                    onClick={()=>{this.props.dispatch(mapActions.selectAction(null)); this.setState({actionType: 'gameStageChange', actionData: 'strongHoldUI', actionSelected: false})}}>
+                    strongHoldUI
+                  </MenuItem>
+                  {mapItem}
+                </DropdownButton>
+              </OverlayTrigger>
+              {
+                this.state.actionType==='mapChange'?(
+                  <div style={{margin: '8px'}}>
+                    <span>X: <input value={this.state.actionPosX} style={{width: '45px', color:'black'}} onChange={(e)=>{this.setState({actionPosX: e.target.value})}}></input></span>
+                    <span>Y: <input value={this.state.actionPosY} style={{width: '45px', color:'black'}} onChange={(e)=>{this.setState({actionPosY: e.target.value})}}></input></span>
+                  </div>
+                ):''
+              }
+              <Button onClick={this.toggleSelectedAction} disabled={this.state.actionType===''} bsStyle={this.state.actionSelected?"danger":"primary"} style={{margin: '8px 20px 8px 8px'}}>{this.state.actionSelected?'unselect':'select'}</Button>
             </ButtonToolbar>
           </div>
         );
@@ -141,6 +232,12 @@ class EditMapUI extends React.Component {
                 <i className="fa fa-trophy" aria-hidden="true"></i>
               </Button>
             </OverlayTrigger>
+            <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip-action">action</Tooltip>}>
+              <Button className={this.state.activeToolBtns==='action'?'active-tool-btns':''}
+                onClick={()=>{this.setState({activeToolBtns: 'action'}); this.emptyTexture()}}>
+                <i className="fa fa-cogs" aria-hidden="true"></i>
+              </Button>
+            </OverlayTrigger>
           </ButtonGroup>
 
         </ButtonToolbar>
@@ -173,7 +270,7 @@ function mapStoreToProps (store, ownProps) {
 	const { gameStage } = store;
   const { stage } = gameStage || { stage: '' };
   const { map } = store;
-  const { mapDatas } = map || { mapDatas: []};
-	return { stage, mapDatas };
+  const { mapDatas, currentMapIndex } = map || { mapDatas: [], currentMapIndex: 0};
+	return { stage, mapDatas, currentMapIndex };
 }
 export default connect(mapStoreToProps)(EditMapUI);

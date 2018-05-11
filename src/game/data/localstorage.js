@@ -998,7 +998,7 @@ let data = {
   }],
   "currentMapIndex": 2,
   "season": "spring",
-  "selectedTexture": "",
+  "selectedTexture": {},
   "clickAction": ""
 };
 

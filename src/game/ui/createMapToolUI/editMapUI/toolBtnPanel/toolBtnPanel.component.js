@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import React from 'react';
 import {ButtonToolbar, ButtonGroup, Button, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
@@ -21,11 +22,11 @@ class ToolBtnPanel extends React.Component {
     if(textureData&&textureData[this.props.type]&&textureData[this.props.type].length) {
       textureData[this.props.type].forEach((btn)=>{
         let textureBtns = [];
-        btn.data.forEach((t) => {
+        btn.data.forEach((t, i) => {
           textureBtns.push(
             <OverlayTrigger placement="top" overlay={<Tooltip id={'tooltip-texture-btn-' + t}>{t}</Tooltip>} key={t}>
               <Button className={(self.state.activeTexture===t?'active-texture ':'') + 'texture-btn'}
-                onClick={()=>{self.setState({activeTexture: t}); self.props.callBack(t, self.props.type)}}>
+                onClick={()=>{self.setState({activeTexture: t}); self.props.callBack(t, self.props.type, btn.move[i], btn.value[i])}}>
                 <div className={t + ' map-texture texture-btn-img'}></div>
               </Button>
             </OverlayTrigger>

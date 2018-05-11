@@ -24,7 +24,7 @@ class AdvantureMapUI extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('InGameLandingUI receive props');
+    console.log('InGameLandingUI receive props', this.props, nextProps);
   }
 
   goBackToStronghold() {
@@ -48,9 +48,6 @@ class AdvantureMapUI extends React.Component {
 }
 
 function mapStoreToProps (store, ownProps) {
-	const { gameStage, map } = store;
-  const { stage } = gameStage || { stage: '' };
-  const { mapDatas, position } = map || { mapDatas: [], position: {x:0, y:0}};
-	return { stage, mapDatas, position };
+	return {};
 }
 export default connect(mapStoreToProps)(AdvantureMapUI);

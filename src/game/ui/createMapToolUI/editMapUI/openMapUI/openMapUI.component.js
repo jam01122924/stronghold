@@ -5,6 +5,7 @@ import './openMapUI.component.css';
 
 import { connect } from 'react-redux';
 import * as mapActions from '../../../../redux/actions/mapActions';
+import mapServices from '../../../../services/mapServices/mapServices';
 
 class OpenMapUI extends React.Component {
 
@@ -23,10 +24,10 @@ class OpenMapUI extends React.Component {
 
   render() {
     let mapSelection = [];
-    this.props.mapDatas.forEach((map) => {
+    mapServices.getAllMap().forEach((map) => {
       mapSelection.push(
         <ListGroupItem onClick={()=>{this.setState({selectedMap: map.id})}} active={this.state.selectedMap===map.id} key={map.id}>
-          {map.id}
+          {map.id} - {map.name}
         </ListGroupItem>
       );
     })

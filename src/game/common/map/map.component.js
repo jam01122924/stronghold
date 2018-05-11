@@ -54,7 +54,7 @@ class Map extends React.Component {
     return (
       <div className="map-container" style={{overflow: this.props.overflowShow?'visible':'hidden'}}>
         <div className="map-reposition" ref="mapReposition">
-          <MapLayer mapData={this.props.mapData} handleGridClick={this.props.handleGridClick} showGrid={this.props.showGrid}/>
+          <MapLayer mapData={this.props.mapData} handleGridClick={this.props.handleGridClick} handleGridHover={this.props.handleGridHover} showGrid={this.props.showGrid}/>
         </div>
       </div>
     );

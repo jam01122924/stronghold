@@ -32,6 +32,7 @@ class MapLayer extends React.Component {
           <MapGrid
             data={gridData} key={'grid-' + j}
             handleClick={this.props.handleGridClick}
+            handleHover={this.props.handleGridHover}
             showGrid={this.props.showGrid}
             pos={{x: j, y: i}}
           ></MapGrid>
