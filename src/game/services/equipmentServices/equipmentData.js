@@ -1,3 +1,9 @@
+import swordData from './weapon/sword';
+import daggerData from './weapon/dagger';
+import staffData from './weapon/staff';
+import wandData from './weapon/wand';
+import shieldData from './weapon/shield';
+
 const equipmentData = {
   bonusAttr: {
     all: [
@@ -48,114 +54,11 @@ const equipmentData = {
     // 'phyAttTimer', 'magAttTimer', 'healTimer', 'healReceiveTimer', 'speed', 'dodgeRate', 'blockRate'],
 
   },
-  sword: {
-    weaponPower: {
-      base: 10,
-      min: 1,
-      max: 3,
-      qualityIncrease: 0.5,
-    },
-    type: 'weapon',
-    position: ['rightHand', 'leftHand'],
-    model: [
-      {name: 'shortSword', weight: 3, minLv: 0, img:'',
-        bonusAttr: [
-          { attr: 'weaponPower', value: 3, lvIncrease: 0.6, max: -1 },
-        ],
-        defaultAttr: [
-          { attr: 'speed', value: 5},
-        ],
-      },
-      {name: 'swordstick', weight: 6, minLv: 12,  img:'',
-        bonusAttr: [
-          { attr: 'weaponPower', value: 3, lvIncrease: 0.6, max: -1 },
-        ],
-        defaultAttr: [],
-      },
-      {name: 'longSword', weight: 10, minLv: 24,  img:'',
-        bonusAttr: [
-          { attr: 'weaponPower', value: 3, lvIncrease: 0.6, max: -1 },
-        ],
-        defaultAttr: [],
-      },
-      {name: 'cutlass', weight: 15, minLv: 36,  img:'',
-        bonusAttr: [
-          { attr: 'weaponPower', value: 3, lvIncrease: 0.6, max: -1 },
-        ],
-        defaultAttr: [],
-      },
-      {name: 'broadSword', weight: 21, minLv: 46,  img:'',
-        bonusAttr: [
-          { attr: 'weaponPower', value: 3, lvIncrease: 0.6, max: -1 },
-        ],
-        defaultAttr: [],
-      },
-      {name: 'katana', weight: 18, minLv: 54,  img:'',
-        bonusAttr: [
-          { attr: 'weaponPower', value: 3, lvIncrease: 0.6, max: -1 },
-        ],
-        defaultAttr: [],
-      },
-      {name: 'gladius', weight: 30, minLv: 60,  img:'',
-        bonusAttr: [
-          { attr: 'weaponPower', value: 3, lvIncrease: 0.6, max: -1 },
-        ],
-        defaultAttr: [],
-      },
-    ],
-  },
-  dagger: {
-    weaponPower: {
-      base: 6,
-      min: 0.6,
-      max: 1.8,
-      qualityIncrease: 0.3,
-    },
-    type: 'weapon',
-    position: ['rightHand', 'leftHand'],
-    name: ['shortSword', 'swordstick', 'longSword', 'cutlass', 'gladius', 'katana'],
-    weight: [2,4,6,9,13,18],
-    lvDiff: [5, 12, 21, 32, 45, 60],
-  },
-  staff: {
-    weaponPower: {
-      base: 15,
-      min: 1.5,
-      max: 4.5,
-      qualityIncrease: 0.75,
-    },
-    type: 'weapon',
-    position: ['bothHand'],
-    name: ['shortSword', 'swordstick', 'longSword', 'cutlass', 'gladius', 'katana'],
-    weight: [4,7,11,16,23,30],
-    lvDiff: [5, 12, 21, 32, 45, 60],
-  },
-  wand: {
-    weaponPower: {
-      base: 10,
-      min: 1,
-      max: 3,
-      qualityIncrease: 0.5,
-    },
-    type: 'weapon',
-    position: ['rightHand'],
-    name: ['shortSword', 'swordstick', 'longSword', 'cutlass', 'gladius', 'katana'],
-    weight: [2,4,6,8,11,15],
-    lvDiff: [5, 12, 21, 32, 45, 60],
-  },
-  shield: {
-    armor: {
-      base: 2,
-      min: 0.2,
-      max: 0.6,
-      qualityIncrease: 0.1,
-    },
-    type: 'shield',
-    position: ['leftHand'],
-    name: ['shortSword', 'swordstick', 'longSword', 'cutlass', 'gladius', 'katana'],
-    weight: [3,6,10,15,21,28],
-    lvDiff: [5, 12, 21, 32, 45, 60],
-  },
+  sword: swordData,
+  dagger: daggerData,
+  staff: staffData,
+  wand: wandData,
+  shield: shieldData,
 
 };
 

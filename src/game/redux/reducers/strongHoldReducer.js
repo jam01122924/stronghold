@@ -26,7 +26,7 @@ const strongHoldInit = {
       img: '/imgs/house/small/tavern.png',
     },
     warehouse: {
-      lv: 1,
+      lv: 0,
       storageLv: {
         food: 1,
         wood: 1,

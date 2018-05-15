@@ -26,7 +26,7 @@ class Main extends React.Component {
     return (
       <div className="main-container">
         <Switch>
-          <Route exact path='/' component={Home}/>
+          <Route exact path='/' component={Game}/>
           <Route path='/trips' component={SnippetPage}/>
           <Route path='/entertainment' component={Demo}/>
             <Route path='/entertainment/model' component={AnimationDemo}/>
@@ -35,7 +35,7 @@ class Main extends React.Component {
             <Route path='/entertainment/3D' component={D3Demo}/>
             <Route path='/entertainment/others' component={D3Demo}/>
           <Route path='/contact-us' component={ContactUs}/>
-          <Route path='/game' component={Game}/>
+          <Route path='/game' component={Home}/>
 
           <Route path="*" component={Page404} />
         </Switch>

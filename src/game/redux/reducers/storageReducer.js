@@ -28,7 +28,7 @@ const storageReducerInit = {
     storageSize: 100,
   },
   resource: {
-    soul: 1000,
+    soul: 1000000,
   }
 };
 

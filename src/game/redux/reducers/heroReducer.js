@@ -114,11 +114,10 @@ let heroReducerInit = {
   ],
   inGrave: [],
   special: [],
-  inAdvanture: [],
+  inAdvanture: [],  // index
   inFarming: [],
   teamSize: 4,
   teamNum: 1,
-  advantureFood: 0,
 };
 
 const heroReducer = (state = heroReducerInit, action) => {

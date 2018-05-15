@@ -116,3 +116,13 @@
       .building-ui-modal .building-menu-container .tavern-upgrade-info .quality-odds .quality-num {
         min-width: 180px;
         display: inline-block; }
+  .building-ui-modal .building-menu-container .luggage .btn {
+    padding: 0 6px;
+    min-width: 22px;
+    margin: 10px 5px; }
+  .building-ui-modal .building-menu-container .luggage .luggage-num {
+    margin: 0 10px;
+    min-width: 80px;
+    display: inline-block; }
+  .building-ui-modal .building-menu-container .bottom-btn-group {
+    margin-top: 20px; }

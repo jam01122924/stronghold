@@ -1,4 +1,26 @@
 /*jshint esversion: 6 */
+
+export const changeAdvantureFood = data=>{
+  return {
+    type: 'CHANGE_ADVANTURE_PROPS',
+    props: 'advantureFood',
+    data
+  };
+}
+export const setAdvantureFood = data=>{
+  return {
+    type: 'SET_ADVANTURE_PROPS',
+    props: 'advantureFood',
+    data
+  };
+}
+
+
+
+
+
+
+
 export const changeMoving = data => {
   return {
     type: 'CHANGE_MOVING',

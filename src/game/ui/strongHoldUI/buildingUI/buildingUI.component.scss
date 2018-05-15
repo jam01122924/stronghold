@@ -164,5 +164,23 @@
         }
       }
     }
+
+    // city exit:
+
+    .luggage {
+      .btn {
+        padding: 0 6px;
+        min-width: 22px;
+        margin: 10px 5px;
+      }
+      .luggage-num {
+        margin: 0 10px;
+        min-width: 80px;
+        display: inline-block;
+      }
+    }
+    .bottom-btn-group {
+      margin-top: 20px;
+    }
   }
 }

@@ -1,13 +1,13 @@
 @import '../../../style/color.scss';
 
 .advanture-map-ui-container {
+  background: $color-gray20;
   .tool-bar {
     overflow: auto;
     position: fixed;
     top: 0;
     width: 100vw;
     max-height: 220px;
-    background: $color-gray20;
   }
   .btn {
     font-size: 14px;
@@ -19,5 +19,11 @@
     position: fixed;
     bottom: 10px;
     right: 10px;
+  }
+  .info-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
   }
 }

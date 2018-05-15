@@ -132,7 +132,7 @@ class StrongHoldUI extends React.Component {
         lumberProgress: this.state.lumberProgress + 10
       }, ()=>{
         if(this.state.lumberProgress>=100) {
-          this.props.dispatch(strongHoldActions.changeResource({resource: 'wood', amount: this.props.buildings.lumberMill.lv*100000}));
+          this.props.dispatch(strongHoldActions.changeResource({resource: 'wood', amount: this.props.buildings.lumberMill.lv*10000000}));
           this.setState({
             lumberProgress: 0,
             needMoreResource: '+ ' + this.props.buildings.lumberMill.lv*10 + ' ' + this.LAN.resource.wood

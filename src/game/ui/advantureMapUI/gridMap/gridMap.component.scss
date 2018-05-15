@@ -1,4 +1,5 @@
 @import '../../../gameStyle.scss';
+@import '../../../gameColor.scss';
 
 .grid-map-container {
   font-size: 6px;
@@ -7,7 +8,7 @@
   position: relative;
   text-align: center;
   margin-top: 20px;
-  background: grey;
+  background: $color-gray10;
 
   .map-box {
     top: 0;

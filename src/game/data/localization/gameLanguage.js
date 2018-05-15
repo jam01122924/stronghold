@@ -77,6 +77,7 @@ const gameLanguage = {
         select: 'Select',
         remove: 'Remove',
         createNewTeam: 'Create Team',
+        weight: 'Weight',
       }
     },
     building: {
@@ -158,6 +159,7 @@ const gameLanguage = {
       // Map Names:
       peacefulForest: 'Peaceful Forest',
       peacefulForest_south: 'South of Peaceful Forest',
+      moonlightLake: 'Moonlight Lake',
 
     },
     confirm: {

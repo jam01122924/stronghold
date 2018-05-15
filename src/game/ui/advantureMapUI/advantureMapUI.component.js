@@ -1,6 +1,7 @@
 import React from 'react';
 import './advantureMapUI.component.css';
 import GridMap from './gridMap/gridMap.component';
+import AdvantureInfo from './advantureInfo/advantureInfo.component';
 
 
 import { connect } from 'react-redux';
@@ -40,8 +41,13 @@ class AdvantureMapUI extends React.Component {
         <div className="map-box">
           <GridMap />
         </div>
-        <button onClick={this.goBackToStronghold} style={{position: 'fixed', bottom: '20px', left: '20px', color: 'black'}} >Back</button>
-        <button onClick={this.editMap} style={{position: 'fixed', bottom: '60px', left: '20px', color: 'black'}} >EDIT</button>
+        <div className="info-box">
+          <AdvantureInfo />
+        </div>
+        <div className="test-box">
+          <button onClick={this.goBackToStronghold} style={{position: 'fixed', bottom: '20px', left: '20px', color: 'black'}} >Back</button>
+          <button onClick={this.editMap} style={{position: 'fixed', bottom: '60px', left: '20px', color: 'black'}} >EDIT</button>
+        </div>
       </div>
     );
   }

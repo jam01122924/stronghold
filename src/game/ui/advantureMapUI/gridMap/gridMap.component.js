@@ -10,6 +10,7 @@ import Sprite from '../../../common/sprite/sprite.component';
 import { connect } from 'react-redux';
 import * as mapActions from '../../../redux/actions/mapActions';
 import * as gameStageActions from '../../../redux/actions/gameStageActions';
+import * as advantureActions from '../../../redux/actions/advantureActions';
 import advantureServices from '../../../services/advantureServices/advantureServices';
 import mapServices from '../../../services/mapServices/mapServices';
 
@@ -21,6 +22,8 @@ class GridMap extends React.Component {
     this.LAN = window.localization.gameLanguage;
     this.state = {
       moving: false,
+      canMove: true,
+      mapVisible: true,
       mainCharSpritePosY: 0,
       confirmText: '',
     };
@@ -53,7 +56,7 @@ class GridMap extends React.Component {
 
   handleKeyDown(event) {
     console.log(this.moveAnimateTimeout)
-    if(!this.moveAnimateTimeout) {
+    if(this.state.canMove && !this.moveAnimateTimeout) {
       switch(event.key) {
         case 'ArrowUp':
           this.movePosition(0, -1);
@@ -117,7 +120,9 @@ class GridMap extends React.Component {
         }
       }
       // TODO: Deal with moveCost
-
+      if(moveCost>0){
+        this.props.dispatch(advantureActions.changeAdvantureFood(-moveCost));
+      }
 
       this.props.dispatch(mapActions.movePosition({x: x, y: y}));
 
@@ -134,10 +139,10 @@ class GridMap extends React.Component {
         console.log(mapD.data[mapD.position.y+y][mapD.position.x+x].action);
         switch(mapD.data[mapD.position.y+y][mapD.position.x+x].action.type) {
           case 'gameStageChange':
-            this.setState({confirmText: this.LAN.map.confirmBackToStronghold + '. ' + this.LAN.confirm.question});
+            this.setState({confirmText: this.LAN.map.confirmBackToStronghold + '. ' + this.LAN.confirm.question, canMove: false});
             break;
           case 'mapChange':
-            this.setState({confirmText: this.LAN.map.confirmChangeMap + this.LAN.map[mapServices.getMapById(mapD.data[mapD.position.y+y][mapD.position.x+x].action.data.id).name] + '. ' + this.LAN.confirm.question});
+            this.setState({confirmText: this.LAN.map.confirmChangeMap + this.LAN.map[mapServices.getMapById(mapD.data[mapD.position.y+y][mapD.position.x+x].action.data.id).name] + '. ' + this.LAN.confirm.question, canMove: false});
             break;
           default:
             break;
@@ -162,13 +167,13 @@ class GridMap extends React.Component {
 
   cancelModal() {
     this.setState({
-      confirmText: '',
+      confirmText: '', canMove: true
     });
   }
 
   confirmModal() {
     this.setState({
-      confirmText: '',
+      confirmText: '', canMove: true
     });
     let mapD = this.props.mapDatas[this.props.currentMapIndex];
     if(mapD.data[mapD.position.y][mapD.position.x].action &&
@@ -176,15 +181,18 @@ class GridMap extends React.Component {
       this.props.dispatch(gameStageActions.changeStage(mapD.data[mapD.position.y][mapD.position.x].action.data));
     } else if (mapD.data[mapD.position.y][mapD.position.x].action &&
       mapD.data[mapD.position.y][mapD.position.x].action.type==='mapChange') {
+        this.setState({mapVisible: false});
         //TODO: use new mapActions.changeMap
         this.props.dispatch(mapActions.switchMap(mapD.data[mapD.position.y][mapD.position.x].action.data.id));
         this.props.dispatch(mapActions.setPosition(mapD.data[mapD.position.y][mapD.position.x].action.data.position));
+        setTimeout(()=>{this.setState({mapVisible: true});}, 800);
     }
   }
 
   render() {
     let zoomStyle = {
-      transform: 'scale(' + (this.props.zoom?this.props.zoom:1) + ')'
+      transform: 'scale(' + (this.props.zoom?this.props.zoom:1) + ')',
+      opacity: this.state.mapVisible?1:0,
     };
     return (
       <div className="grid-map-container">
@@ -195,7 +203,7 @@ class GridMap extends React.Component {
             position={this.props.mapDatas[this.props.currentMapIndex].position}
             handleGridClick={this.handleGridClick}
             handleGridHover={this.handleGridHover}
-            overflowShow={true}
+            overflowShow={false}
             showGrid={this.props.showGrid}
           />
           <div className="character-box-container">
@@ -221,7 +229,7 @@ class GridMap extends React.Component {
         </div>
 
         <div>
-          <Modal show={!!this.state.confirmText} onHide={()=>{this.setState({confirmText: null})}} className="confirmModal">
+          <Modal show={!!this.state.confirmText} onHide={()=>{this.setState({confirmText: null, canMove: true})}} className="confirmModal">
             <Modal.Body>
               {this.state.confirmText}
             </Modal.Body>

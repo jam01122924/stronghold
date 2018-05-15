@@ -2,14 +2,17 @@
 import React from 'react';
 import './teamTab.component.css';
 
+import { Button, Pagination } from 'react-bootstrap';
+import HoldableContainer from '../../../../../common/holdableContainer/holdableContainer';
+
 import { connect } from 'react-redux';
 import * as heroActions from '../../../../../redux/actions/heroActions';
 import * as gameStageActions from '../../../../../redux/actions/gameStageActions';
+import * as advantureActions from '../../../../../redux/actions/advantureActions';
 
-import { Button, Pagination } from 'react-bootstrap';
-
+import advantureServices from '../../../../../services/advantureServices/advantureServices';
 // import storageServices from '../../../../../services/storageServices/storageServices';
-import HoldableContainer from '../../../../../common/holdableContainer/holdableContainer';
+
 
 import PickHeroList from './pickHeroList/pickHeroList.component';
 
@@ -21,6 +24,8 @@ class TeamTab extends React.Component {
     this.state = {
       selectedTeam: 0,
       editingTeam: false,
+      food: 0,
+      maxFood: 0,
     };
 
     this.selectHero = this.selectHero.bind(this);
@@ -31,7 +36,7 @@ class TeamTab extends React.Component {
   }
 
   componentDidMount() {
-
+    this.calculateFood();
   }
 
   selectHero(hero) {
@@ -39,7 +44,27 @@ class TeamTab extends React.Component {
   }
 
   toggleEditTeam() {
+    if(this.state.editingTeam) {
+      this.calculateFood();
+    }
     this.setState({editingTeam: !this.state.editingTeam});
+  }
+
+  calculateFood() {
+    let foodLimit = advantureServices.getOpenWeight(this.props.hero.team[this.state.selectedTeam].member);
+    foodLimit = foodLimit>this.props.strongHold.resource.food.current?this.props.strongHold.resource.food.current:foodLimit;
+    this.setState({
+      food: foodLimit,
+      maxFood: foodLimit
+    });
+    // this.props.dispatch(advantureActions.changeAdvantureFood(foodLimit));
+  }
+  changeFood(num) {
+    if(this.state.food + num > 0 && this.state.food + num <= this.state.maxFood) {
+      this.setState({
+        food: this.state.food + num
+      });
+    }
   }
 
   createNewTeam() {
@@ -51,6 +76,7 @@ class TeamTab extends React.Component {
     if(this.props.hero.team[this.state.selectedTeam]&&this.props.hero.team[this.state.selectedTeam].member.length){
       this.props.dispatch(gameStageActions.changeStage('advantureMap'));
       this.props.dispatch(heroActions.sendHeroToAdvanture(this.state.selectedTeam));
+      this.props.dispatch(advantureActions.setAdvantureFood(this.state.food));
     }
   }
 
@@ -107,21 +133,23 @@ class TeamTab extends React.Component {
               <Pagination bsSize="medium">{teamListPagination}</Pagination>
             </div>
             <div className="team-luggage">
-              <div className="luggage-food">
+              <div className="luggage luggage-food">
                 <HoldableContainer onHold={()=>this.changeFood(-1)} rate={10}>
                   <Button onClick={()=>this.changeFood(-1)}>-</Button>
                 </HoldableContainer>
                 <span className="luggage-num">
-                  
+                  {this.state.food} / {this.state.maxFood}
                 </span>
                 <HoldableContainer onHold={()=>this.changeFood(1)} rate={10}>
                   <Button onClick={()=>this.changeFood(1)}>+</Button>
                 </HoldableContainer>
               </div>
             </div>
-            <Button onClick={this.start} bsStyle="warning" className="team-start-btn" disabled={!(this.props.hero.team[this.state.selectedTeam]&&this.props.hero.team[this.state.selectedTeam].member.length)}>{this.LAN.strongHoldUI.cityExit.start}</Button>
-            <Button onClick={this.toggleEditTeam} >{this.LAN.strongHoldUI.cityExit.editTeam}</Button>
-            <Button onClick={this.createNewTeam} >{this.LAN.strongHoldUI.cityExit.createNewTeam}</Button>
+            <div className="bottom-btn-group">
+              <Button onClick={this.start} bsStyle="warning" className="team-start-btn" disabled={!(this.props.hero.team[this.state.selectedTeam]&&this.props.hero.team[this.state.selectedTeam].member.length)}>{this.LAN.strongHoldUI.cityExit.start}</Button>
+              <Button onClick={this.toggleEditTeam} >{this.LAN.strongHoldUI.cityExit.editTeam}</Button>
+              <Button onClick={this.createNewTeam} >{this.LAN.strongHoldUI.cityExit.createNewTeam}</Button>
+            </div>
           </div>
         </div>
       ):(
@@ -139,8 +167,8 @@ class TeamTab extends React.Component {
 }
 
 function mapStoreToProps (store, ownProps) {
-	const { hero, storage, gameStage } = store;
+	const { hero, strongHold, gameStage, advanture } = store;
 
-	return { hero, storage, gameStage };
+	return { hero, strongHold, gameStage, advanture };
 }
 export default connect(mapStoreToProps)(TeamTab);

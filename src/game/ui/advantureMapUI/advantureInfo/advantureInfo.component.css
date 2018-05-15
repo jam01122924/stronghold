@@ -1,0 +1,10 @@
+.advanture-info-container {
+  position: relative;
+  min-height: 60px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  text-align: left; }
+  .advanture-info-container .advanture-positon-info {
+    font-size: 1.4em; }
+  .advanture-info-container .advanture-weight-info {
+    font-size: 1.2em; }

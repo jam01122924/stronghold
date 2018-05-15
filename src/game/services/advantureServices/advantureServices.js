@@ -4,19 +4,39 @@ import reduxStore from '../../redux/store';
 import * as advantureActions from '../../redux/actions/advantureActions';
 import * as mapActions from '../../redux/actions/mapActions';
 import maps from '../../data/maps/mapData';
+import advantureData from './advantureData';
 
 let moveAnimateTimeout = null;
 const advantureServices = {
+  getOpenWeight: getOpenWeight,
+
+  generateMonster: generateMonster,
+
+
+
   handleKeyDown: handleKeyDown,
   movePosition: movePosition,
-
-
   toClearTimeout: toClearTimeout,
+
 };
 
-function test() {
-  console.log(reduxStore.store.getState());
+function getOpenWeight(member) {
+  let result = 0;
+  for(let i=0; i<member.length; i++) {
+    result += member[i].calculatedStatus.strength*5;
+    for(let j=0; j<member[i].equipment.length; j++) {
+      result -= member[i].equipment[j].weight;
+    }
+  }
+  return result;
 }
+
+function generateMonster(mapData) {
+
+}
+
+
+
 
 function handleKeyDown(event) {
   if(!moveAnimateTimeout) {
@@ -42,7 +62,6 @@ function handleKeyDown(event) {
     }
   }
 }
-
 function movePosition(x, y) {
   let stateMap = reduxStore.store.getState().map;
   let mapD = stateMap.mapDatas[stateMap.currentMapIndex];
@@ -76,9 +95,6 @@ function movePosition(x, y) {
     }
   }
 }
-
-
-
 function toClearTimeout() {
   clearTimeout(moveAnimateTimeout);
   moveAnimateTimeout = null;

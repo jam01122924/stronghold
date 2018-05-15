@@ -5,6 +5,7 @@ import heroData from '../../data/hero/heroData.js';
 const heroServices = {
   createRandomHero: createRandomHero,
   calculateInitStatus: calculateInitStatus,
+  calculateCurrStatus: calculateCurrStatus,
   upgradeStatus: upgradeStatus,
   upgradeRating: upgradeRating,
   upgradeHero: upgradeHero,
@@ -32,11 +33,15 @@ function createRandomHero(quality) {
     lv: 1,
     quality: quality,
     rate: rate,
-    status: initStatus,
-    talent: [],
-    extraGrow: extraGrow,
-    grow: grow,
     energy: 100,
+    status: initStatus,
+    grow: grow,
+    extraGrow: extraGrow,
+    talent: [],
+    faceImg: '',
+    mapImg: [],
+    equipment: [],
+    calculatedStatus: initStatus
   };
   return newHero;
 }
@@ -56,6 +61,18 @@ function calculateInitStatus(heroClass, quality, extraGrow) {
     result = upgradeStatus(heroClass, quality, extraGrow, result);
   }
   return result;
+}
+
+// UNTESTED:
+function calculateCurrStatus(hero) {
+  let result = hero.status;
+  for(let i=0; i<hero.equipment.length; i++) {
+    for(let j=0; j<hero.equipment[i].bonus.length; j++) {
+      if(hasOwnProperty.call(result, hero.equipment[i].bonus[j].attr)) {
+        result[hero.equipment[i].bonus[j].attr] += hero.equipment[i].bonus[j].num;
+      }
+    }
+  }
 }
 
 function calculateHeroExtraGrow(quality) {
