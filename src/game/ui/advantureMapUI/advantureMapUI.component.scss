@@ -1,7 +1,12 @@
 @import '../../../style/color.scss';
 
 .advanture-map-ui-container {
-  background: $color-gray20;
+  background: $color-gray10;
+  margin-top: 5vh;
+
+  @media screen and (max-height: 480px) {
+    margin-top: 10px;
+  }
   .tool-bar {
     overflow: auto;
     position: fixed;

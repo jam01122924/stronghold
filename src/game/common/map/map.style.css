@@ -3,6 +3,7 @@
   position: relative;
   overflow: visible;
   margin: auto;
+  border: 1px solid gold;
   width: 90vh;
   height: 90vh;
   /* Landscape */ }
@@ -46,6 +47,10 @@
         position: absolute;
         top: 0;
         left: 0; }
+      .map-layer-container .map-line-container .map-grid-container .map-grid-monster-icon {
+        background-image: url("/imgs/grid/monsterIcon_sm.png");
+        background-repeat: no-repeat;
+        background-size: contain; }
     .map-layer-container .map-line-container .map-grid-show-grid {
       box-sizing: border-box;
       border: 0.5px solid rgba(125, 255, 215, 0.4); }

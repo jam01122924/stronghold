@@ -6,7 +6,7 @@
   position: relative;
   overflow: visible;
   margin: auto;
-  // border: 4px solid gold;
+  border: 1px solid gold;
 
   width: $map-box-vh;
   height: $map-box-vh;
@@ -54,6 +54,11 @@
         position: absolute;
         top: 0;
         left: 0;
+      }
+      .map-grid-monster-icon {
+        background-image: url('/imgs/grid/monsterIcon_sm.png');
+        background-repeat: no-repeat;
+        background-size: contain;
       }
     }
     .map-grid-show-grid {

@@ -1,123 +1,86 @@
 /*jshint esversion: 6 */
-/*
-equipment lv:
-worn   -> normal -> good -> excellent -> magical -> epic -> legendary，     set
-破损的 -> 普通的 -> 优秀的 -> 精良的 -> 附魔的 -> 史诗级 -> 传说级，           套装
-gray  ->  white -> green -> blue -> golden -> purple -> orange             bright green
+import monsterData from './monsterData';
 
-
-*/
-import equipmentData from './equipmentData';
-
-
-const qualityClass = ['worn', 'normal', 'good', 'excellent', 'magical', 'epic', 'legendary'];
-
-const equipmentServices = {
-  createEquipment: createEquipment,
-  // createSpecificEquipment: createSpecificEquipment,
-  // upgradeEquipment: upgradeEquipment,
-  // breakDownEquipment: breakDownEquipment,
-  // sellEquipment: sellEquipment,
-  // calculateQuality: calculateQuality,
+const monsterServices = {
+  getMonsterListByClass: getMonsterListByClass,
+  getMonsterData: getMonsterData,
+  generateMonster: generateMonster,
+  cleanMonsterOnMap: cleanMonsterOnMap,
+  generateMonsterOnMap: generateMonsterOnMap,
 };
 
-function createEquipment(eClass, quality, lv) {
-  if(equipmentData[eClass]){
-    let model = {};
-    equipmentData[eClass].model.forEach((m)=>{
-      model = (m.minLv<=lv)?m:model;
-    });
-    let qualityClassLv = qualityClass.indexOf(quality);
-    console.log(model, qualityClassLv);
+function getMonsterListByClass(monsterClass) {
+  return monsterData.monsters[monsterClass];
+}
 
-    // Calculate default Attr first, and avoid repeat attr:
-    let defaultAttr = calculateDefaultAttr(model);
+function getMonsterData(monsterClass, monster) {
+  return monsterData.monsters[monsterClass]&&monsterData.monsters[monsterClass][monster];
+}
 
-    let result = {
-      id: equipmentData[eClass].type + '_' + eClass + '_' + model.minLv + '_' + model.name + '_' + Math.random().toString(36).substr(2, 9),
-      class: eClass,
-      type: equipmentData[eClass].type,
-      name: model.name,
-      img: model.img,
-      weight: model.weight,
-      position: equipmentData[eClass].position,
-      quality: quality,
-      weaponPower: calculateWeaponPower(eClass, qualityClassLv, lv),
-      lv: lv,
-      requiredLv: model.minLv,
-      forgeLv: 0,
-      bonus: calculateBonusArray(eClass, model, qualityClassLv, lv, defaultAttr).concat(defaultAttr),
-    };
-    console.log(result);
+function generateMonster(monsterClass, monster, lv) {
+  let result = getMonsterData(monsterClass, monster);
+  if(result) {
+    for(let attr in result.status) {
+      result.status[attr] = result.status[attr] * (1 + (lv-1)*monsterData.monsterGrowthRate);
+      result.status[attr] = Math.round(10*result.status[attr]*(Math.random()*(monsterData.monsterAdjustMax - monsterData.monsterAdjustMin) + monsterData.monsterAdjustMin))/10;
+    }
+    // TODO: calculate skills
+
+
     return result;
   }
-  console.log('equipment class not found:', eClass);
 }
 
-function calculateWeaponPower(eClass, qualityClassLv, lv) {
-  let result = 0;
-  let wp = equipmentData[eClass].weaponPower;
-  return Math.round(wp.base + lv*(Math.random()*(wp.max-wp.min) + wp.min + qualityClassLv*wp.qualityIncrease));
-}
-
-function calculateBonusArray(eClass, model, qualityClassLv, lv, forbiddenAttr) {
-  let result = [];
-  let attrNum = [0, 0, 1, 2, 3, 4, 4];
-  let availableAttr = equipmentData.bonusAttr.all.concat(equipmentData.bonusAttr[equipmentData[eClass].type]).concat(model.bonusAttr);
-
-  // remove forbidden attr from available attr:
-  forbiddenAttr.forEach(fAttr => {
-    availableAttr.forEach((aAttr, i) => {
-      if(fAttr.attr === aAttr.attr) {
-        availableAttr.splice(i, 1);
-      }
-    });
-  });
-
-  // Normal Equipment:
-  if(qualityClassLv<5) {
-    let attrMaxNum = attrNum[qualityClassLv]<=availableAttr.length?attrNum[qualityClassLv]:availableAttr.length;
-    for(let i=0; i<attrMaxNum; i++) {
-      let bonusItem = calculateBonusItem(availableAttr, lv);
-      availableAttr.forEach((aAttr, i) => {
-        if(bonusItem.attr === aAttr.attr) {
-          availableAttr.splice(i, 1);
-        }
-      });
-      result.push(bonusItem);
+function cleanMonsterOnMap(map) {
+  for(let y=0; y<map.data.length; y++) {
+    for(let x=0; x<map.data[y].length; x++) {
+      delete map.data[y][x].monster;
     }
   }
-
-  // TODO: Handle special equipment later
-
-  return result;
 }
 
-function calculateBonusItem(availableBonusAttrArray, lv) {
-  // random pick attr:
-  let bonusAttr = availableBonusAttrArray[Math.floor(Math.random()*availableBonusAttrArray.length)];
-  // 属性浮动 90% - 110%；
-  let floatNum = Math.round(Math.random()*200 + 900)/1000;
-  let value = (bonusAttr.value + bonusAttr.lvIncrease * lv) * floatNum;
-  if(bonusAttr.max!==-1) {
-    value = value>bonusAttr.max?bonusAttr.max:value;
+function generateMonsterOnMap(map) {
+  if(map&&map.monsterData&&map.monsterData.length) {
+    cleanMonsterOnMap(map);
+    for(let i=0; i<map.monsterData.length; i++) {
+      let monsterCurrentGroupNum = 0;
+      let openPositions = [];
+      for(let posX=map.monsterData[i].range.minX; posX<map.monsterData[i].range.maxX; posX++) {
+        for(let posY=map.monsterData[i].range.minY; posY<map.monsterData[i].range.maxY; posY++) {
+          let reachable = true;
+          for(let layer in map.data[posY][posX]) {
+            if(map.data[posY][posX][layer].move==='noPass'){
+              reachable = false;
+            }
+          }
+          if(reachable&&!map.data[posY][posX].monster&&!map.data[posY][posX].action) {
+            openPositions.push({x:posX, y:posY});
+          }
+        }
+      }
+      console.log(openPositions);
+
+      let monsterGroupNum = Math.random()*(map.monsterData[i].amount.max - map.monsterData[i].amount.min) + map.monsterData[i].amount.min;
+      console.log(monsterGroupNum);
+      while(openPositions.length && monsterCurrentGroupNum < monsterGroupNum) {
+        let index = Math.floor(Math.random()*openPositions.length);
+        map.data[openPositions[index].y][openPositions[index].x].monster = [];
+        for(let mIndex=0; mIndex<map.monsterData[i].monsterGroup.length; mIndex++) {
+          let monsterNum = Math.round(Math.random()*(map.monsterData[i].monsterGroup[mIndex].amount.max - map.monsterData[i].monsterGroup[mIndex].amount.min) + map.monsterData[i].monsterGroup[mIndex].amount.min);
+          while(monsterNum>0) {
+            let lv = Math.round(Math.random()*(map.monsterData[i].monsterGroup[mIndex].lv.max - map.monsterData[i].monsterGroup[mIndex].lv.min) +  map.monsterData[i].monsterGroup[mIndex].lv.min);
+            let monster = generateMonster(map.monsterData[i].monsterGroup[mIndex].class, map.monsterData[i].monsterGroup[mIndex].monster, lv);
+            map.data[openPositions[index].y][openPositions[index].x].monster.push(monster);
+            monsterNum--;
+          }
+        }
+        monsterCurrentGroupNum++;
+        openPositions.splice(index, 1);
+      }
+
+      console.log(map)
+    }
   }
-  return {
-    attr: bonusAttr.attr,
-    value: Math.round(value*100)/100
-  };
 }
 
-function calculateDefaultAttr(model) {
-  let result = [];
-  model.defaultAttr.forEach(attr=>{
-    result.push(attr);
-  });
-  return result;
-}
-
-function addRandomBonus(eClass, qualityClassLv, lv) {
-
-}
-
-export default equipmentServices;
+export default monsterServices;

@@ -7,6 +7,9 @@ const advantureReducerInit = {
   advantureFood: 0,
   advantureWeightMax: 0,
   advantureWeight: 0,
+  advantureFood: 0,
+  
+  stage: 'map',
 };
 
 const advantureReducer = (state = advantureReducerInit, action) => {

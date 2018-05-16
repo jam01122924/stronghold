@@ -14,6 +14,13 @@ export const setAdvantureFood = data=>{
     data
   };
 }
+export const changeStage = data=>{
+  return {
+    type: 'SET_ADVANTURE_PROPS',
+    props: 'stage',
+    data
+  };
+}
 
 
 

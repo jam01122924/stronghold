@@ -11,6 +11,7 @@ import * as gameStageActions from '../../../../../redux/actions/gameStageActions
 import * as advantureActions from '../../../../../redux/actions/advantureActions';
 
 import advantureServices from '../../../../../services/advantureServices/advantureServices';
+import monsterServices from '../../../../../services/monsterServices/monsterServices';
 // import storageServices from '../../../../../services/storageServices/storageServices';
 
 
@@ -52,7 +53,7 @@ class TeamTab extends React.Component {
 
   calculateFood() {
     let foodLimit = advantureServices.getOpenWeight(this.props.hero.team[this.state.selectedTeam].member);
-    foodLimit = foodLimit>this.props.strongHold.resource.food.current?this.props.strongHold.resource.food.current:foodLimit;
+    foodLimit = foodLimit>this.props.food.current?this.props.food.current:foodLimit;
     this.setState({
       food: foodLimit,
       maxFood: foodLimit
@@ -74,9 +75,10 @@ class TeamTab extends React.Component {
 
   start() {
     if(this.props.hero.team[this.state.selectedTeam]&&this.props.hero.team[this.state.selectedTeam].member.length){
-      this.props.dispatch(gameStageActions.changeStage('advantureMap'));
+      monsterServices.generateMonsterOnMap(this.props.mapDatas[0]);
       this.props.dispatch(heroActions.sendHeroToAdvanture(this.state.selectedTeam));
       this.props.dispatch(advantureActions.setAdvantureFood(this.state.food));
+      this.props.dispatch(gameStageActions.changeStage('advantureMap'));
     }
   }
 
@@ -167,8 +169,11 @@ class TeamTab extends React.Component {
 }
 
 function mapStoreToProps (store, ownProps) {
-	const { hero, strongHold, gameStage, advanture } = store;
+	const { hero, strongHold, gameStage, advanture, map } = store;
+  const { resource } = strongHold || { resource: {} };
+  const { food } = resource || {food: {}};
+  const { mapDatas } = map || {mapDatas: {}};
 
-	return { hero, strongHold, gameStage, advanture };
+	return { hero, food, gameStage, advanture, mapDatas };
 }
 export default connect(mapStoreToProps)(TeamTab);

@@ -5,9 +5,15 @@
   padding: 10px;
   text-align: left;
   .advanture-positon-info {
-    font-size: 1.4em;
+    font-size: 20px;
+    @media screen and (max-width: 640px) {
+      font-size: 14px;
+    }
   }
   .advanture-weight-info {
-    font-size: 1.2em;
+    font-size: 16px;
+    @media screen and (max-width: 640px) {
+      font-size: 10px;
+    }
   }
 }

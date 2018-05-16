@@ -1,19 +1,19 @@
 /*jshint esversion: 6 */
 
 import React from 'react';
-import './gridMap.component.css';
+import './battleMap.component.css';
 
 import { Button, ButtonGroup, Modal } from 'react-bootstrap';
-import Map from '../../../common/map/map.component';
-import Sprite from '../../../common/sprite/sprite.component';
+import Map from '../../../../common/map/map.component';
+import Sprite from '../../../../common/sprite/sprite.component';
 
 import { connect } from 'react-redux';
-import * as mapActions from '../../../redux/actions/mapActions';
-import * as gameStageActions from '../../../redux/actions/gameStageActions';
-import * as advantureActions from '../../../redux/actions/advantureActions';
-import advantureServices from '../../../services/advantureServices/advantureServices';
-import mapServices from '../../../services/mapServices/mapServices';
-import monsterServices from '../../../services/monsterServices/monsterServices';
+import * as mapActions from '../../../../redux/actions/mapActions';
+import * as gameStageActions from '../../../../redux/actions/gameStageActions';
+import * as advantureActions from '../../../../redux/actions/advantureActions';
+import advantureServices from '../../../../services/advantureServices/advantureServices';
+import mapServices from '../../../../services/mapServices/mapServices';
+import monsterServices from '../../../../services/monsterServices/monsterServices';
 
 class GridMap extends React.Component {
 
@@ -125,7 +125,7 @@ class GridMap extends React.Component {
           }
         }
       }
-
+      // TODO: Deal with moveCost
       if(moveCost>0){
         this.props.dispatch(advantureActions.changeAdvantureFood(-moveCost));
       }
@@ -154,20 +154,6 @@ class GridMap extends React.Component {
             break;
         }
       }
-
-      // Trigger battle if monster near by
-      if(mapD.data[mapD.position.y+y][mapD.position.x+x].monster) {
-        document.removeEventListener("keydown", this.handleKeyDown);
-        this.moveAnimateTimeout && clearTimeout(this.moveAnimateTimeout);
-        this.moveAnimateTimeout = null;
-        setTimeout(()=>{
-          this.props.dispatch(advantureActions.changeStage('inBattle'));
-        }, 300);
-      }
-
-
-
-
     }
   }
 

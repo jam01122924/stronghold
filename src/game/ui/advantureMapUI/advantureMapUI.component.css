@@ -1,5 +1,9 @@
 .advanture-map-ui-container {
-  background: #2E2E2E; }
+  background: #171717;
+  margin-top: 5vh; }
+  @media screen and (max-height: 480px) {
+    .advanture-map-ui-container {
+      margin-top: 10px; } }
   .advanture-map-ui-container .tool-bar {
     overflow: auto;
     position: fixed;
