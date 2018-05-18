@@ -10,6 +10,7 @@ import Sprite from '../../../common/sprite/sprite.component';
 import { connect } from 'react-redux';
 import * as mapActions from '../../../redux/actions/mapActions';
 import * as gameStageActions from '../../../redux/actions/gameStageActions';
+import * as heroActions from '../../../redux/actions/heroActions';
 import * as advantureActions from '../../../redux/actions/advantureActions';
 import advantureServices from '../../../services/advantureServices/advantureServices';
 import mapServices from '../../../services/mapServices/mapServices';
@@ -199,6 +200,10 @@ class GridMap extends React.Component {
     if(mapD.data[mapD.position.y][mapD.position.x].action &&
       mapD.data[mapD.position.y][mapD.position.x].action.type==='gameStageChange') {
       this.props.dispatch(gameStageActions.changeStage(mapD.data[mapD.position.y][mapD.position.x].action.data));
+      console.log(mapD.data[mapD.position.y][mapD.position.x].action.data, this.props.currentAdvantureTeamIndex)
+      if(mapD.data[mapD.position.y][mapD.position.x].action.data==='strongHoldUI' && this.props.currentAdvantureTeamIndex!==null) {
+        this.props.dispatch(heroActions.advantureTeamHome(this.props.currentAdvantureTeamIndex));
+      }
     } else if (mapD.data[mapD.position.y][mapD.position.x].action &&
       mapD.data[mapD.position.y][mapD.position.x].action.type==='mapChange') {
         this.setState({mapVisible: false});
@@ -238,7 +243,6 @@ class GridMap extends React.Component {
         <div className="map-box" style={zoomStyle}>
           <Map
             mapData={this.props.mapDatas[this.props.currentMapIndex].data}
-            mapSize={64}
             position={this.props.mapDatas[this.props.currentMapIndex].position}
             handleGridClick={this.handleGridClick}
             handleGridHover={this.handleGridHover}
@@ -287,8 +291,8 @@ class GridMap extends React.Component {
 function mapStoreToProps (store, ownProps) {
 	const { hero, map, advanture } = store;
   const { mapDatas, currentMapIndex, clickPos, zoom, showGrid } = map || { mapDatas: [], currentMapIndex: 0, clickPos: {x:0, y:0}, zoom: 1, showGrid: false };
-  const {advantureFood} = hero || {advantureFood: 0};
+  const {currentAdvantureTeamIndex} = hero || {currentAdvantureTeamIndex: null};
   const { moving, mainCharSpritePosY } = advanture || { moving: false, mainCharSpritePosY:0 }
-  return { advantureFood, mapDatas, currentMapIndex, clickPos, zoom, showGrid, moving, mainCharSpritePosY };
+  return { currentAdvantureTeamIndex, mapDatas, currentMapIndex, clickPos, zoom, showGrid, moving, mainCharSpritePosY };
 }
 export default connect(mapStoreToProps)(GridMap);

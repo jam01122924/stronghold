@@ -76,7 +76,7 @@ class TeamTab extends React.Component {
   start() {
     if(this.props.hero.team[this.state.selectedTeam]&&this.props.hero.team[this.state.selectedTeam].member.length){
       monsterServices.generateMonsterOnMap(this.props.mapDatas[0]);
-      this.props.dispatch(heroActions.sendHeroToAdvanture(this.state.selectedTeam));
+      this.props.dispatch(heroActions.sendTeamToAdvanture(this.state.selectedTeam));
       this.props.dispatch(advantureActions.setAdvantureFood(this.state.food));
       this.props.dispatch(gameStageActions.changeStage('advantureMap'));
     }

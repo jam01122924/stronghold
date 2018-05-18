@@ -6,21 +6,21 @@ export const changeAdvantureFood = data=>{
     props: 'advantureFood',
     data
   };
-}
+};
 export const setAdvantureFood = data=>{
   return {
     type: 'SET_ADVANTURE_PROPS',
     props: 'advantureFood',
     data
   };
-}
+};
 export const changeStage = data=>{
   return {
     type: 'SET_ADVANTURE_PROPS',
     props: 'stage',
     data
   };
-}
+};
 
 
 

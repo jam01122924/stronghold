@@ -1,0 +1,32 @@
+.battle-grid-info-container .grid-info-box {
+  float: right;
+  margin: 10px 5vw 10px 0;
+  border-radius: 5px;
+  padding: 15px 7px;
+  border: 1px solid gold;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  max-width: 20vw;
+}
+
+.battle-grid-info-container .grid-info-box .grid-info-position {
+  font-size: 10px;
+}
+
+.battle-grid-info-container .grid-img-container {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  margin: 0 10px 4px 10px;
+}
+
+.battle-grid-info-container .grid-img-container .map-grid-unit {
+  width: 32px;
+  height: 32px;
+}
+
+.battle-grid-info-container .grid-img-container .map-grid-overlap-unit {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

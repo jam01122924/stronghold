@@ -115,6 +115,7 @@ let heroReducerInit = {
   inGrave: [],
   special: [],
   inAdvanture: [],  // index
+  currentAdvantureTeamIndex: null,
   inFarming: [],
   teamSize: 4,
   teamNum: 1,
@@ -177,9 +178,18 @@ const heroReducer = (state = heroReducerInit, action) => {
       newState.teamNum++;
       return newState;
     }
-    case 'SEND_HERO_TO_ADVANTURE': {
+    case 'SEND_TEAM_TO_ADVANTURE': {
       let newState = Object.assign({}, state);
       newState.inAdvanture.push(action.data);
+      newState.currentAdvantureTeamIndex = action.data;
+      return newState;
+    }
+    case 'ADVANTURE_TEAM_HOME': {
+      let newState = Object.assign({}, state);
+      newState.inAdvanture = newState.inAdvanture.filter((teamIndex)=>{
+        return teamIndex !== action.data;
+      });
+      newState.currentAdvantureTeamIndex = null;
       return newState;
     }
 

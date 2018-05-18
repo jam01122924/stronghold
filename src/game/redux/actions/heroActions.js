@@ -56,9 +56,16 @@ export const addNewTeam = () => {
   };
 };
 
-export const sendHeroToAdvanture = (teamIndex) => {
+export const sendTeamToAdvanture = (teamIndex) => {
   return {
-    type: 'SEND_HERO_TO_ADVANTURE',
+    type: 'SEND_TEAM_TO_ADVANTURE',
+    data: teamIndex
+  };
+};
+
+export const advantureTeamHome = (teamIndex) => {
+  return {
+    type: 'ADVANTURE_TEAM_HOME',
     data: teamIndex
   };
 };

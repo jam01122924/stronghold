@@ -7,9 +7,12 @@ import { Button, ButtonGroup, Modal } from 'react-bootstrap';
 
 import { connect } from 'react-redux';
 import * as advantureActions from '../../../redux/actions/advantureActions';
+import * as battleActions from '../../../redux/actions/battleActions';
 import advantureServices from '../../../services/advantureServices/advantureServices';
 
 import BattleMap from './battleMap/battleMap.component';
+import BattleGridInfo from './battleGridInfo/battleGridInfo.component';
+import BattleInfo from './battleInfo/battleInfo.component';
 
 class BattleUI extends React.Component {
 
@@ -24,6 +27,22 @@ class BattleUI extends React.Component {
   }
 
   componentDidMount() {
+    this.props.dispatch(battleActions.emptyBattleInfo());
+    this.props.dispatch(battleActions.addMsgToBattleInfo('Engage Battle...'));
+    this.props.dispatch(battleActions.addMsgToBattleInfo('Engage Battle...'));
+    this.props.dispatch(battleActions.addMsgToBattleInfo('Engage Battle...'));
+    this.props.dispatch(battleActions.addMsgToBattleInfo('111111...'));
+    this.props.dispatch(battleActions.addMsgToBattleInfo('Engage Battle...'));
+    this.props.dispatch(battleActions.addMsgToBattleInfo('Engage Battle...'));
+    this.props.dispatch(battleActions.addMsgToBattleInfo('Engage Battle...'));
+    this.props.dispatch(battleActions.addMsgToBattleInfo('2222...'));
+    this.props.dispatch(battleActions.addMsgToBattleInfo('Engage Battle...'));
+
+
+    setTimeout(  ()=>{
+        this.props.dispatch(battleActions.setBattleStatus('tactics'));
+      }, 1000)
+
   }
 
   componentWillUnmount() {
@@ -39,9 +58,20 @@ class BattleUI extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>BATTLE UI</h1>
-        <Button onClick={this.test}>Quit Battle</Button>
+      <div className="battle-ui-container">
+        <div className="battle-map-box">
+          <BattleMap />
+        </div>
+        <div className="battle-info-display-section">
+          <div className="battle-info-box">
+            <BattleInfo />
+            <div style={{position: 'absolute', bottom: '-15px'}}><Button onClick={this.test}>Quit Battle</Button></div>
+          </div>
+          <div className="battle-grid-info-box">
+            <BattleGridInfo />
+          </div>
+          <div className="clear"></div>
+        </div>
       </div>
     );
   }

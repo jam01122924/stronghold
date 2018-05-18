@@ -24,3 +24,5 @@
     top: 0;
     left: 0;
     width: 100vw; }
+  .advanture-map-ui-container .battle-hero-info-box {
+    max-width: 70vw; }

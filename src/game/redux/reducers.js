@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 import advantureReducer from './reducers/advantureReducer';
+import battleReducer from './reducers/battleReducer';
 import gameStageReducer from './reducers/gameStageReducer';
 import heroReducer from './reducers/heroReducer';
 import mapReducer from './reducers/mapReducer';
@@ -10,6 +11,7 @@ import storageReducer from './reducers/storageReducer';
 
 const reducers = combineReducers({
   advanture: advantureReducer,
+  battle: battleReducer,
   gameStage: gameStageReducer,
   hero: heroReducer,
   map: mapReducer,

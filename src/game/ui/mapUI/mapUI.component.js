@@ -76,7 +76,6 @@ class MapUI extends React.Component {
         {this.props.mapDatas[this.props.currentMapIndex].position.x}, {this.props.mapDatas[this.props.currentMapIndex].position.y}
         <Map
           mapData={this.props.mapDatas[this.props.currentMapIndex].data}
-          mapSize={64}
           position={this.props.mapDatas[this.props.currentMapIndex].position}
           handleGridClick={this.props.handleGridClick}
           handleGridHover={this.props.handleGridHover}

@@ -1,50 +1,7 @@
-.grid-map-container {
-  font-size: 6px;
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  text-align: center;
-  margin-top: 20px;
-  background: #171717; }
-  .grid-map-container .map-box {
-    top: 0;
-    margin: 0 auto;
-    position: relative; }
-  .grid-map-container .character-box-container {
-    text-align: center;
-    position: relative;
-    margin: -90vh auto;
-    width: 90vh;
-    height: 90vh;
-    /* Landscape */ }
-    @media screen and (orientation: portrait) {
-      .grid-map-container .character-box-container {
-        /* Portrait styles here */
-        width: 90vw;
-        height: 90vw;
-        margin: -90vw auto; } }
-    @media screen and (orientation: landscape) {
-      .grid-map-container .character-box-container {
-        /* Landscape styles here */
-        width: 90vh;
-        height: 90vh;
-        margin: -90vh auto; } }
-  .grid-map-container .character-box {
-    position: absolute;
-    top: 42vh;
-    left: 42vh;
-    /* Landscape */ }
-    @media screen and (orientation: portrait) {
-      .grid-map-container .character-box {
-        /* Portrait styles here */
-        top: 42vw;
-        left: 42vw; } }
-    @media screen and (orientation: landscape) {
-      .grid-map-container .character-box {
-        /* Landscape styles here */
-        top: 42vh;
-        left: 42vh; } }
-  .grid-map-container .zoom-btns {
-    position: fixed;
-    bottom: 10px;
-    right: 10px; }
+.battle-map-container .player-tactics {
+  background-color: rgba(200, 255, 220, 0.6);
+}
+
+.battle-map-container .enemy-tactics {
+  background-color: rgba(255, 115, 110, 0.6);
+}

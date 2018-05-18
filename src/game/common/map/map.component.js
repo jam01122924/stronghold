@@ -51,10 +51,15 @@ class Map extends React.Component {
   }
 
   render() {
+    let mapStyle = {overflow: this.props.overflowShow?'visible':'hidden'};
+    let zoomStyle = {transform: 'scale(' + (this.props.zoom?this.props.zoom:1) + ')', marginTop: (this.props.marginTop?this.props.marginTop:0)};
+    console.log(this.props.zoom)
     return (
-      <div className="map-container" style={{overflow: this.props.overflowShow?'visible':'hidden'}}>
-        <div className="map-reposition" ref="mapReposition">
-          <MapLayer mapData={this.props.mapData} handleGridClick={this.props.handleGridClick} handleGridHover={this.props.handleGridHover} showGrid={this.props.showGrid}/>
+      <div className="map-container" style={mapStyle}>
+        <div className="map-zoom-container" style={zoomStyle}>
+          <div className="map-reposition" ref="mapReposition">
+            <MapLayer mapData={this.props.mapData} handleGridClick={this.props.handleGridClick} handleGridHover={this.props.handleGridHover} showGrid={this.props.showGrid}/>
+          </div>
         </div>
       </div>
     );

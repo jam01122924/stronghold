@@ -49,6 +49,10 @@ class MapGrid extends React.Component {
               </div>):this.props.data.action.data?this.props.data.action.data:this.props.data.action.type}
           </div>:null
         }
+        {this.props.data.battle.img?
+          <div className={this.props.data.battle.img + ' map-grid-unit map-texture map-grid-overlap-unit'}>
+          </div>:null
+        }
       </div>
     );
   }
