@@ -38,8 +38,10 @@ function createRandomHero(quality) {
     grow: grow,
     extraGrow: extraGrow,
     talent: [],
-    faceImg: '',
-    mapImg: [],
+    faceImg: heroClass + '-face-img-' + Math.floor(Math.random()*5),
+    spriteImg: heroData.classData[heroClass].spriteImg,
+    facingNum: 0,   // 0: down, 1: left, 2: right, 3: top
+    moving: false,
     equipment: [],
     calculatedStatus: initStatus
   };

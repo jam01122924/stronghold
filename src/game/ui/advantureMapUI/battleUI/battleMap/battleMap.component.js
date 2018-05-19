@@ -27,7 +27,7 @@ class BattleMap extends React.Component {
 
   componentDidMount() {
     let battleMapData = battleServices.generateRandomBattleMap(this.props.mapDatas[this.props.currentMapIndex]);
-    // battleMapData = battleServices.startTactics(battleMapData);
+    battleMapData = battleServices.startTactics(battleMapData);
     this.props.dispatch(battleActions.changeBattleMap(battleMapData));
     this.setState({
       ready: true,
@@ -37,7 +37,10 @@ class BattleMap extends React.Component {
   }
 
   componentWillUnmount() {
-
+    this.props.dispatch(battleActions.changeCurrHoverGridData({
+      data: this.props.battleMapDatas.data[0][0],
+      positionX: 0, positionY: 0
+    }));
   }
 
 
@@ -73,7 +76,7 @@ class BattleMap extends React.Component {
               overflowShow={false}
               showGrid={false}
               zoom={this.props.battleMapDatas.zoom}
-              marginTop={(window.innerHeight > window.innerWidth)?'-23vw':'-23vh'}
+              marginTop={(window.innerHeight > window.innerWidth)?'0':'0'}
             />
           </div>:''
         }

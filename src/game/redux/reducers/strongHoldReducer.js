@@ -21,7 +21,7 @@ const strongHoldInit = {
       img: '/imgs/house/small/blacksmith.png',
     },
     tavern: {
-      lv: 0,
+      lv: 20,
       name: 'tavern',
       img: '/imgs/house/small/tavern.png',
     },

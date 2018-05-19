@@ -89,8 +89,12 @@ const warriorData = {
           }
         }
     },
-
-  }
+  },
+  spriteImg: {
+    url: '/imgs/hero/4Dir/001.png',
+    imgPosX: 81.81,
+    imgPosY: 0,
+  },
 };
 
 export default warriorData;

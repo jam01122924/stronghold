@@ -5,9 +5,7 @@
   background-color: rgba(0, 0, 0, 0.8);
   max-width: 68vw;
   height: 122px;
-  overflow: auto;
-}
+  overflow: auto; }
 
 .battle-info-box {
-  max-width: 70vw;
-}
+  max-width: 70vw; }

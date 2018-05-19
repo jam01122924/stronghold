@@ -1,0 +1,50 @@
+@import '../../gameStyle.scss';
+
+.hero-grid-unit {
+  width: $grid-vh;
+  height: $grid-vh;
+  background-size: 1200%;
+  @media screen and (orientation:portrait) {
+    /* Portrait styles here */
+    width: $grid-vw;
+    height: $grid-vw;
+  }
+  /* Landscape */
+  @media screen and (orientation:landscape) {
+    /* Landscape styles here */
+    width: $grid-vh;
+    height: $grid-vh;
+  }
+
+  background-size: 1200%;
+}
+
+
+.warrior-map-img-top {
+  background-image: url(/imgs/hero/4Dir/001.png);
+  background-position: 200% 0%;
+}
+.warrior-map-img-left {
+
+}
+.warrior-map-img-right {
+
+}
+.warrior-map-img-bottom {
+
+}
+.warrior-face-img-0 {
+
+}
+.warrior-face-img-1 {
+
+}
+.warrior-face-img-2 {
+
+}
+.warrior-face-img-3 {
+
+}
+.warrior-face-img-4 {
+
+}

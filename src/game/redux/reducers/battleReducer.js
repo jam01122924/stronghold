@@ -16,7 +16,7 @@ const battleReducerInit = {
       building: ''
     },
     currHoverGridData: null,
-    zoom: 1.2,
+    zoom: 1,
   },
   battleStatus: 'none', // none, tactics, playerRound, enemyRound, win, lose
   roundNum: 0,

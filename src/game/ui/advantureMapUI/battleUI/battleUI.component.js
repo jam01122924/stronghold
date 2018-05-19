@@ -27,6 +27,7 @@ class BattleUI extends React.Component {
   }
 
   componentDidMount() {
+    this.props.dispatch(battleActions.setBattleStatus('tactics'));
     this.props.dispatch(battleActions.emptyBattleInfo());
     this.props.dispatch(battleActions.addMsgToBattleInfo('Engage Battle...'));
     this.props.dispatch(battleActions.addMsgToBattleInfo('Engage Battle...'));
@@ -37,11 +38,6 @@ class BattleUI extends React.Component {
     this.props.dispatch(battleActions.addMsgToBattleInfo('Engage Battle...'));
     this.props.dispatch(battleActions.addMsgToBattleInfo('2222...'));
     this.props.dispatch(battleActions.addMsgToBattleInfo('Engage Battle...'));
-
-
-    setTimeout(  ()=>{
-        this.props.dispatch(battleActions.setBattleStatus('tactics'));
-      }, 1000)
 
   }
 
