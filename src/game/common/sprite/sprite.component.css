@@ -1,15 +1,18 @@
-.sprite-grid-unit {
-  width: 6vh;
-  height: 6vh;
-  background-size: 1200%;
-  /* Landscape */ }
-  @media screen and (orientation: portrait) {
-    .sprite-grid-unit {
-      /* Portrait styles here */
-      width: 6vw;
-      height: 6vw; } }
-  @media screen and (orientation: landscape) {
-    .sprite-grid-unit {
-      /* Landscape styles here */
-      width: 6vh;
-      height: 6vh; } }
+.sprite-container {
+  position: relative;
+  display: inline-block; }
+  .sprite-container .sprite-grid-unit {
+    width: 6vh;
+    height: 6vh;
+    background-size: 1200%;
+    /* Landscape */ }
+    @media screen and (orientation: portrait) {
+      .sprite-container .sprite-grid-unit {
+        /* Portrait styles here */
+        width: 6vw;
+        height: 6vw; } }
+    @media screen and (orientation: landscape) {
+      .sprite-container .sprite-grid-unit {
+        /* Landscape styles here */
+        width: 6vh;
+        height: 6vh; } }

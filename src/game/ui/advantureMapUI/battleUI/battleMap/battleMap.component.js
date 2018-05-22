@@ -4,7 +4,7 @@ import React from 'react';
 import './battleMap.component.css';
 
 import { Button, ButtonGroup, Modal } from 'react-bootstrap';
-import Map from '../../../../common/map/map.component';
+import MapForBattle from '../../../../common/map/mapForBattle.component';
 import Sprite from '../../../../common/sprite/sprite.component';
 import TacticsStage from './tacticsStage/tacticsStage.component';
 
@@ -67,7 +67,7 @@ class BattleMap extends React.Component {
       <div className="battle-map-container">
         {this.state.ready?
           <div className="map-box" style={zoomStyle}>
-            <Map
+            <MapForBattle
               mapData={this.props.battleMapDatas.data}
               mapSize={this.props.battleMapDatas.data.length}
               position={{x: mapPositionNum, y:mapPositionNum}}

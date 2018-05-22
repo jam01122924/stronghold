@@ -54,3 +54,33 @@
     .map-layer-container .map-line-container .map-grid-show-grid {
       box-sizing: border-box;
       border: 0.5px solid rgba(125, 255, 215, 0.4); }
+
+.map-for-battle-container {
+  width: 81vh;
+  height: 81vh;
+  /* Landscape */ }
+  @media screen and (orientation: portrait) {
+    .map-for-battle-container {
+      /* Portrait styles here */
+      width: 81vw;
+      height: 81vw; } }
+  @media screen and (orientation: landscape) {
+    .map-for-battle-container {
+      /* Landscape styles here */
+      width: 81vh;
+      height: 81vh; } }
+  .map-for-battle-container .map-layer-container .map-line-container .map-grid-container .map-grid-unit {
+    display: inline-block;
+    width: 9vh;
+    height: 9vh;
+    /* Landscape */ }
+    @media screen and (orientation: portrait) {
+      .map-for-battle-container .map-layer-container .map-line-container .map-grid-container .map-grid-unit {
+        /* Portrait styles here */
+        width: 9vw;
+        height: 9vw; } }
+    @media screen and (orientation: landscape) {
+      .map-for-battle-container .map-layer-container .map-line-container .map-grid-container .map-grid-unit {
+        /* Landscape styles here */
+        width: 9vh;
+        height: 9vh; } }

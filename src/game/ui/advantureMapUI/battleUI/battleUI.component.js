@@ -61,7 +61,7 @@ class BattleUI extends React.Component {
         <div className="battle-info-display-section">
           <div className="battle-info-box">
             <BattleInfo />
-            <div style={{position: 'absolute', bottom: '-15px'}}><Button onClick={this.test}>Quit Battle</Button></div>
+            <div style={{position: 'absolute', top: '15px', left: '20px'}}><Button onClick={this.test}>Quit Battle</Button></div>
           </div>
           <div className="battle-grid-info-box">
             <BattleGridInfo />

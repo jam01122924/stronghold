@@ -59,3 +59,4 @@ extra Attr:
   'speed',
   'dodgeRate',
   'blockRate',
+  'hitRate',

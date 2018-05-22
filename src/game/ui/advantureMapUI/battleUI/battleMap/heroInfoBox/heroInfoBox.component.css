@@ -1,0 +1,8 @@
+.hero-info-box-container {
+  margin: 5px;
+  border: 1px solid #5C5C5C;
+  display: inline-block; }
+  .hero-info-box-container .hero-info-name {
+    width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden; }

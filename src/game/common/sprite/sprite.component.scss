@@ -1,18 +1,23 @@
 @import '../../gameStyle.scss';
 
-.sprite-grid-unit {
-  width: $grid-vh;
-  height: $grid-vh;
-  background-size: 1200%;
-  @media screen and (orientation:portrait) {
-    /* Portrait styles here */
-    width: $grid-vw;
-    height: $grid-vw;
-  }
-  /* Landscape */
-  @media screen and (orientation:landscape) {
-    /* Landscape styles here */
+.sprite-container {
+  position:relative;
+  display: inline-block;
+  .sprite-grid-unit {
     width: $grid-vh;
     height: $grid-vh;
+    background-size: 1200%;
+    @media screen and (orientation:portrait) {
+      /* Portrait styles here */
+      width: $grid-vw;
+      height: $grid-vw;
+    }
+    /* Landscape */
+    @media screen and (orientation:landscape) {
+      /* Landscape styles here */
+      width: $grid-vh;
+      height: $grid-vh;
+    }
   }
+
 }

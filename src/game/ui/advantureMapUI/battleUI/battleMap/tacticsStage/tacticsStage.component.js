@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import * as battleActions from '../../../../../redux/actions/battleActions';
 import battleServices from '../../../../../services/battleServices/battleServices';
 
-import UnitSprite from '../../../../../common/unitSprite/unitSprite.component';
+import HeroInfoBox from '../heroInfoBox/heroInfoBox.component';
 
 class TacticsStage extends React.Component {
 
@@ -52,7 +52,7 @@ class TacticsStage extends React.Component {
         let currHero = this.props.team[this.props.currentAdvantureTeamIndex].member[i];
         heroList.push(
           <div className="hero-select-list-item" key={"heroSelectListItem" + i}>
-            <UnitSprite data={currHero} />
+            <HeroInfoBox data={currHero} />
           </div>
         );
       }

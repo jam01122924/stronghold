@@ -43,8 +43,9 @@ function createRandomHero(quality) {
     facingNum: 0,   // 0: down, 1: left, 2: right, 3: top
     moving: false,
     equipment: [],
-    calculatedStatus: initStatus
   };
+  newHero.calculatedStatus = calculateCurrStatus(newHero);
+
   return newHero;
 }
 
@@ -68,13 +69,62 @@ function calculateInitStatus(heroClass, quality, extraGrow) {
 // UNTESTED:
 function calculateCurrStatus(hero) {
   let result = hero.status;
+  result.weaponPower = 0;
+  result.phyDef = 0;
+  result.magDef = 0;
+  // Calculate Status
   for(let i=0; i<hero.equipment.length; i++) {
     for(let j=0; j<hero.equipment[i].bonus.length; j++) {
       if(hasOwnProperty.call(result, hero.equipment[i].bonus[j].attr)) {
         result[hero.equipment[i].bonus[j].attr] += hero.equipment[i].bonus[j].num;
       }
     }
+    if(hero.equipment[i].type === 'weapon') {
+      result.weaponPower += hero.equipment[i].weaponPower;
+    }
+    if(hero.equipment[i].type === 'armor' || hero.equipment[i].type === 'shield') {
+      result.phyDef += hero.equipment[i].armor;
+      result.magDef += hero.equipment[i].resist;
+    }
   }
+  result.maxHp = 10 * result.endurance;
+  result.hpRecover = 0;
+  result.hpAbsorb = 0;
+  result.maxMp = 10 * result.intelligence;
+  result.mpRecover = 0;
+  result.mpAbsorb = 0;
+  result.criticalRate = (result.luck - hero.lv*4) * 0.001 + 0.1;
+  result.criticalRate = result.criticalRate>0?result.criticalRate:0;
+  result.criticalDamageTimer = 1.5;
+  result.phyAttTimer = 1;
+  result.magDef = 0;
+  result.magAttTimer = 1;
+  result.healTimer = 1;
+  result.healReceiveTimer = 1;
+  result.blockRate = 0;
+
+
+
+  // Based on Class:
+  switch(hero.class) {
+    case 'warrior':
+      result.phyMeleeAtt = 2 * result.strength + result.weaponPower;
+      result.phyRangeAtt = 0;
+      result.phyDef += 2 * result.endurance;
+      result.magAtt = 0.5 * result.intelligence;
+      result.movementRange = 3;
+      result.speed = 2 * result.agility;
+      result.dodgeRate = (result.agility - hero.lv*4) * 0.001 + 0.1;
+      result.hitRate = 2*result.perception;
+
+    break;
+    default: break;
+  }
+
+
+  result.hp = hero.calculatedStatus.hp!==undefined?hero.calculatedStatus.hp:result.maxHp;
+
+
 }
 
 function calculateHeroExtraGrow(quality) {

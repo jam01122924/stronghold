@@ -67,3 +67,43 @@
     }
   }
 }
+
+.map-for-battle-container {
+  width: $map-battle-box-vh;
+  height: $map-battle-box-vh;
+
+  @media screen and (orientation:portrait) {
+   /* Portrait styles here */
+   width: $map-battle-box-vw;
+   height: $map-battle-box-vw;
+  }
+  /* Landscape */
+  @media screen and (orientation:landscape) {
+     /* Landscape styles here */
+     width: $map-battle-box-vh;
+     height: $map-battle-box-vh;
+  }
+
+  .map-layer-container {
+    .map-line-container {
+      .map-grid-container {
+        .map-grid-unit {
+          display: inline-block;
+          width: $grid-battle-vh;
+          height: $grid-battle-vh;
+          @media screen and (orientation:portrait) {
+           /* Portrait styles here */
+           width: $grid-battle-vw;
+           height: $grid-battle-vw;
+          }
+          /* Landscape */
+          @media screen and (orientation:landscape) {
+             /* Landscape styles here */
+             width: $grid-battle-vh;
+             height: $grid-battle-vh;
+          }
+        }
+      }
+    }
+  }
+}

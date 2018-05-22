@@ -94,6 +94,7 @@ let heroReducerInit = {
         mpAbsorb: 0,
         criticalRate: 0,
         criticalDamageTimer: 1.5,
+
         weaponPower: 20,
         phyMeleeAtt: 0,
         phyRangeAtt: 0,
@@ -109,6 +110,7 @@ let heroReducerInit = {
         speech: 100,
         dodgeRate: 10,
         blockRate: 0,
+        hitRate: 100,
       },
     }
   ],

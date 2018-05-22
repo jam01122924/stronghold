@@ -92,7 +92,7 @@ const warriorData = {
   },
   spriteImg: {
     url: '/imgs/hero/4Dir/001.png',
-    imgPosX: 81.81,
+    imgPosX: 81.81818,
     imgPosY: 0,
   },
 };
