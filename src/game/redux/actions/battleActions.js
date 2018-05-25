@@ -45,3 +45,18 @@ export const setBattleType = data => {
     data: data
   };
 };
+export const selectHero = data => {
+  return {
+    type: 'CHANGE_BATTLE_DATA',
+    field: 'selectedHero',
+    data:  data
+  };
+};
+
+export const setMonsterList = data => {
+  return {
+    type: 'CHANGE_BATTLE_DATA',
+    field: 'monster',
+    data:  data
+  };
+};

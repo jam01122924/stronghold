@@ -1,8 +1,34 @@
 .hero-info-box-container {
   margin: 5px;
-  border: 1px solid #5C5C5C;
-  display: inline-block; }
+  border: 3px ridge #8C8C8C;
+  border-radius: 5px;
+  display: inline-block;
+  overflow: hidden;
+  padding: 5px;
+  width: 120px; }
+  @media screen and (max-width: 640px) {
+    .hero-info-box-container {
+      width: 90px;
+      font-size: 12px; } }
+  .hero-info-box-container .hero-info-img .unit-sprite-container .sprite-grid-unit {
+    width: 40px;
+    height: 40px; }
   .hero-info-box-container .hero-info-name {
-    width: 120px;
+    width: 110px;
     text-overflow: ellipsis;
     overflow: hidden; }
+    @media screen and (max-width: 640px) {
+      .hero-info-box-container .hero-info-name {
+        width: 80px; } }
+  .hero-info-box-container .hero-info-lv {
+    font-size: 10px; }
+  .hero-info-box-container .hero-info-hp, .hero-info-box-container hero-info-mp {
+    margin: 3px 0; }
+
+.placed-hero-info-box-container {
+  border: 3px ridge #FFFFFF;
+  background: #0d6425; }
+
+.selected-hero-info-box-container {
+  border: 3px ridge #FFFFFF;
+  background: #0f707f; }

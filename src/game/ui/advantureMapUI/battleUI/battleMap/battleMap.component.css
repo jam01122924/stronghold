@@ -1,5 +1,19 @@
-.battle-map-container .player-tactics {
-  background-color: rgba(200, 255, 220, 0.6); }
+@media screen and (orientation: portrait) {
+  /* Portrait styles here */ }
 
-.battle-map-container .enemy-tactics {
-  background-color: rgba(255, 115, 110, 0.6); }
+/* Landscape */
+@media screen and (orientation: landscape) {
+  /* Landscape styles here */ }
+
+.battle-map-container {
+  position: relative;
+  width: 78vw;
+  height: 78vw;
+  margin: auto; }
+  .battle-map-container .map-box {
+    width: 78vw;
+    height: 78vw; }
+  .battle-map-container .player-tactics {
+    background-color: rgba(200, 255, 220, 0.6); }
+  .battle-map-container .enemy-tactics {
+    background-color: rgba(255, 115, 110, 0.6); }

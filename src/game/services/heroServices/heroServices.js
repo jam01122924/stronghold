@@ -43,6 +43,7 @@ function createRandomHero(quality) {
     facingNum: 0,   // 0: down, 1: left, 2: right, 3: top
     moving: false,
     equipment: [],
+    calculatedStatus: {}
   };
   newHero.calculatedStatus = calculateCurrStatus(newHero);
 
@@ -68,7 +69,7 @@ function calculateInitStatus(heroClass, quality, extraGrow) {
 
 // UNTESTED:
 function calculateCurrStatus(hero) {
-  let result = hero.status;
+  let result = JSON.parse(JSON.stringify(hero.status));
   result.weaponPower = 0;
   result.phyDef = 0;
   result.magDef = 0;
@@ -121,10 +122,10 @@ function calculateCurrStatus(hero) {
     default: break;
   }
 
-
   result.hp = hero.calculatedStatus.hp!==undefined?hero.calculatedStatus.hp:result.maxHp;
+  result.mp = hero.calculatedStatus.mp!==undefined?hero.calculatedStatus.mp:result.maxMp;
 
-
+  return result;
 }
 
 function calculateHeroExtraGrow(quality) {
@@ -272,7 +273,7 @@ function getHeroById(heroList, id) {
     return result[0];
   }
   else {
-    return [];
+    return null;
   }
 }
 
@@ -282,6 +283,7 @@ function getHeroIndexById(heroList, id) {
       return i;
     }
   }
+  return -1;
 }
 
 

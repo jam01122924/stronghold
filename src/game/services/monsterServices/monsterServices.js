@@ -1,6 +1,8 @@
 /*jshint esversion: 6 */
 import monsterData from './monsterData';
 
+import heroServices from '../heroServices/heroServices';
+
 const monsterServices = {
   getMonsterListByClass: getMonsterListByClass,
   getMonsterData: getMonsterData,
@@ -18,13 +20,17 @@ function getMonsterData(monsterClass, monster) {
 }
 
 function generateMonster(monsterClass, monster, lv) {
-  let result = getMonsterData(monsterClass, monster);
+  let result = JSON.parse(JSON.stringify(getMonsterData(monsterClass, monster)));
   if(result) {
     for(let attr in result.status) {
       result.status[attr] = result.status[attr] * (1 + (lv-1)*monsterData.monsterGrowthRate);
       result.status[attr] = Math.round(10*result.status[attr]*(Math.random()*(monsterData.monsterAdjustMax - monsterData.monsterAdjustMin) + monsterData.monsterAdjustMin))/10;
+      console.log(attr, result.status[attr]);
     }
-    // TODO: calculate skills
+    result.lv = lv;
+    result.equipment = [];
+    heroServices.calculateCurrStatus()
+    // TODO: calculate skills, calculated status, and loot
 
 
     return result;
@@ -69,6 +75,7 @@ function generateMonsterOnMap(map) {
           let monsterNum = Math.round(Math.random()*(map.monsterData[i].monsterGroup[mIndex].amount.max - map.monsterData[i].monsterGroup[mIndex].amount.min) + map.monsterData[i].monsterGroup[mIndex].amount.min);
           while(monsterNum>0) {
             let lv = Math.round(Math.random()*(map.monsterData[i].monsterGroup[mIndex].lv.max - map.monsterData[i].monsterGroup[mIndex].lv.min) +  map.monsterData[i].monsterGroup[mIndex].lv.min);
+            console.log('lv:::::', lv);
             let monster = generateMonster(map.monsterData[i].monsterGroup[mIndex].class, map.monsterData[i].monsterGroup[mIndex].monster, lv);
             map.data[openPositions[index].y][openPositions[index].x].monster.push(monster);
             monsterNum--;

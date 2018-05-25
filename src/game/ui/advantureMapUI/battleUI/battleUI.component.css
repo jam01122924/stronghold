@@ -1,3 +1,17 @@
+@media screen and (orientation: portrait) {
+  /* Portrait styles here */ }
+
+/* Landscape */
+@media screen and (orientation: landscape) {
+  /* Landscape styles here */ }
+
+@media screen and (orientation: portrait) {
+  /* Portrait styles here */ }
+
+/* Landscape */
+@media screen and (orientation: landscape) {
+  /* Landscape styles here */ }
+
 .hero-grid-unit {
   width: 6vh;
   height: 6vh;
@@ -18,6 +32,9 @@
 .battle-ui-container {
   max-width: 100vw;
   max-height: 100vh; }
+  .battle-ui-container .battle-map-box {
+    width: 100%;
+    text-align: center; }
   .battle-ui-container .battle-info-box {
     width: 70vw;
     display: inline-block; }

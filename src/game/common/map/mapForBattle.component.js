@@ -41,7 +41,7 @@ class MapForBattle extends React.Component {
   render() {
     let mapStyle = {overflow: this.props.overflowShow?'visible':'hidden'};
     let zoomStyle = {transform: 'scale(' + (this.props.zoom?this.props.zoom:1) + ')', marginTop: (this.props.marginTop?this.props.marginTop:0)};
-    console.log(this.props.zoom)
+
     return (
       <div className="map-container map-for-battle-container" style={mapStyle}>
         <div className="map-zoom-container" style={zoomStyle}>

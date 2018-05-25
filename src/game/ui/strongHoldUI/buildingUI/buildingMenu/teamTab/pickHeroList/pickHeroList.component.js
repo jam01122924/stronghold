@@ -38,8 +38,8 @@ class PickHeroList extends React.Component {
   getCurrentInTeamHeroIdList() {
     if(this.props.teamIndex!==undefined) {
       let heroIDs = [];
-      this.props.hero.team[this.props.teamIndex].member.forEach(h=>{
-        heroIDs.push(h.id);
+      this.props.hero.team[this.props.teamIndex].member.forEach(id=>{
+        heroIDs.push(id);
       });
       this.setState({
         currentHeroInTeamIdList: heroIDs

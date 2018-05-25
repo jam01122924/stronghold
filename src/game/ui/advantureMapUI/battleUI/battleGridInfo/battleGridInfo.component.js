@@ -19,30 +19,32 @@ class BattleGridInfo extends React.Component {
   }
 
   render() {
-    return (
-      <div className="battle-grid-info-container">
-        {this.props.currHoverGridData?
-          <div className="grid-info-box">
-            <div className="grid-img-container">
-              <MapGrid
-                data={this.props.currHoverGridData.data}
-                showGrid={true}
-                pos={{x: 0, y: 0}}
-              ></MapGrid>
-            </div>
-            <div className="grid-info-position">
-              Pos: {this.props.currHoverGridData.positionX}, {this.props.currHoverGridData.positionY}
-            </div>
-            <div className="grid-info-move">
-              Mov: {this.props.currHoverGridData.data.battle.move}
-            </div>
-            <div className="grid-info-def">
-              Def: {this.props.currHoverGridData.data.battle.def}
-            </div>
-          </div>:''
-        }
-      </div>
-    );
+    if(this.props.currHoverGridData && this.props.currHoverGridData.data) {
+      return (
+        <div className="battle-grid-info-container">
+          {this.props.currHoverGridData?
+            <div className="grid-info-box">
+              <div className="grid-img-container">
+                <MapGrid
+                  data={this.props.currHoverGridData.data}
+                  showGrid={true}
+                  pos={{x: 0, y: 0}}
+                ></MapGrid>
+              </div>
+              <div className="grid-info-position">
+                Pos: {this.props.currHoverGridData.positionX}, {this.props.currHoverGridData.positionY}
+              </div>
+              <div className="grid-info-move">
+                Mov: {this.props.currHoverGridData.data.battle.move}
+              </div>
+              <div className="grid-info-def">
+                Def: {this.props.currHoverGridData.data.battle.def}
+              </div>
+            </div>:''
+          }
+        </div>
+      );
+    }
   }
 }
 

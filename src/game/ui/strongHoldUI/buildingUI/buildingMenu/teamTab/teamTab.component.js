@@ -52,7 +52,7 @@ class TeamTab extends React.Component {
   }
 
   calculateFood() {
-    let foodLimit = advantureServices.getOpenWeight(this.props.hero.team[this.state.selectedTeam].member);
+    let foodLimit = advantureServices.getOpenWeight(this.props.hero.hired, this.props.hero.team[this.state.selectedTeam].member);
     foodLimit = foodLimit>this.props.food.current?this.props.food.current:foodLimit;
     this.setState({
       food: foodLimit,
@@ -87,7 +87,13 @@ class TeamTab extends React.Component {
     let TeamHeroListUI = [];
     for(let i=0; i<this.props.hero.teamSize; i++) {
       // load hero or null as empty
-      let hero = this.props.hero.team[this.state.selectedTeam].member.length>i?this.props.hero.team[this.state.selectedTeam].member[i]:null;
+      let heroId = this.props.hero.team[this.state.selectedTeam].member.length>i?this.props.hero.team[this.state.selectedTeam].member[i]:null;
+
+      let hero = null;
+      if(heroId) {
+        hero = this.props.hero.hired.filter(h=>h.id===heroId);
+        hero = hero.length?hero[0]:null;
+      }
       if(hero&&hero.id) {
         TeamHeroListUI.push(
           <div className="team-hero-info" key={'team-hero-' + i}>

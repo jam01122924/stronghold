@@ -5,6 +5,10 @@
 .battle-ui-container {
   max-width: 100vw;
   max-height: 100vh;
+  .battle-map-box {
+    width: 100%;
+    text-align: center;
+  }
   .battle-info-box {
     width: 70vw;
     display: inline-block;

@@ -3,7 +3,7 @@
 import React from 'react';
 import './battleUI.component.css';
 
-import { Button, ButtonGroup, Modal } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 import { connect } from 'react-redux';
 import * as advantureActions from '../../../redux/actions/advantureActions';

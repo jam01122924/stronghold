@@ -1,3 +1,10 @@
+@media screen and (orientation: portrait) {
+  /* Portrait styles here */ }
+
+/* Landscape */
+@media screen and (orientation: landscape) {
+  /* Landscape styles here */ }
+
 .sprite-container {
   position: relative;
   display: inline-block; }

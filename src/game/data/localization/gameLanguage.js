@@ -1,3 +1,5 @@
+import battleLanguage from './battleLanguage';
+
 const gameLanguage = {
   en: {
     landingMenu: {
@@ -164,9 +166,13 @@ const gameLanguage = {
     },
     confirm: {
       question: 'Are you sure?',
+      finish: 'Finish',
+      start: 'Start',
       yes: 'Yes',
       no: 'No',
-    }
+      ok: 'Ok',
+    },
+    battle: battleLanguage.en,
   },
   cn: {
     landingMenu: {
@@ -177,7 +183,13 @@ const gameLanguage = {
     },
     introUI: {
       continue: '继续',
-    }
+    },
+
+
+
+
+
+    battle: battleLanguage.cn,
 
   }
 }

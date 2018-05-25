@@ -2,11 +2,45 @@
 
 .hero-info-box-container {
   margin: 5px;
-  border: 1px solid $color-gray40;
+  border: 3px ridge $color-gray60;
+  border-radius: 5px;
   display: inline-block;
+  overflow: hidden;
+  padding: 5px;
+  
+  width: 120px;
+  
+  @media screen and (max-width: 640px) {
+    width: 90px;
+    font-size: 12px;
+  }
+  .hero-info-img {
+    .unit-sprite-container .sprite-grid-unit {
+      width: 40px;
+      height: 40px;
+    }
+  }
   .hero-info-name {
-    width: 120px;
+    width: 110px;
     text-overflow: ellipsis;
     overflow: hidden;
+    @media screen and (max-width: 640px) {
+      width: 80px;
+    }
   }
+  .hero-info-lv {
+    font-size: 10px;
+  }
+  .hero-info-hp, hero-info-mp {
+    margin: 3px 0;
+  }
+}
+
+.placed-hero-info-box-container {
+  border: 3px ridge #FFFFFF;
+  background: #0d6425;
+}
+.selected-hero-info-box-container {
+  border: 3px ridge #FFFFFF;
+  background: #0f707f;
 }

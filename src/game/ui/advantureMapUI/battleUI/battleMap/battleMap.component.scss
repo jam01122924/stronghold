@@ -2,7 +2,14 @@
 @import '../../../../gameColor.scss';
 
 .battle-map-container {
-
+  position: relative;
+  width: $mapBattleBoxSize;
+  height: $mapBattleBoxSize;
+  margin: auto;
+  .map-box {
+    width: $mapBattleBoxSize;
+    height: $mapBattleBoxSize;
+  }
   // tactics css
   .player-tactics {
     background-color: rgba(200, 255, 220, 0.6);

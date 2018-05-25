@@ -18,10 +18,12 @@ const battleReducerInit = {
     currHoverGridData: null,
     zoom: 1,
   },
+  selectedHero: null,
   battleStatus: 'none', // none, tactics, playerRound, enemyRound, win, lose
   roundNum: 0,
   battleInfo: [],
   battleType: 'wild', // wild, dungeon, boss
+  monster: [],
 };
 
 

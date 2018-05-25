@@ -20,14 +20,20 @@ const advantureServices = {
 
 };
 
-function getOpenWeight(member) {
+function getOpenWeight(member, memberIdList) {
+  console.log(member, memberIdList)
   let result = 0;
-  for(let i=0; i<member.length; i++) {
-    result += member[i].calculatedStatus.strength*5;
-    for(let j=0; j<member[i].equipment.length; j++) {
-      result -= member[i].equipment[j].weight;
+  for(let m=0; m<memberIdList.length; m++) {
+    for(let i=0; i<member.length; i++) {
+      if(member[i].id===memberIdList[m]) {
+        result += member[i].calculatedStatus.strength*5;
+        for(let j=0; j<member[i].equipment.length; j++) {
+          result -= member[i].equipment[j].weight;
+        }
+      }
     }
   }
+
   return result;
 }
 

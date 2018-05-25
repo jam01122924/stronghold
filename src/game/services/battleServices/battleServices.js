@@ -8,7 +8,7 @@ const battleServices = {
 };
 
 function generateRandomBattleMap(map, RandomBattleMapSize) {
-  RandomBattleMapSize = RandomBattleMapSize?RandomBattleMapSize:9;
+  RandomBattleMapSize = RandomBattleMapSize?RandomBattleMapSize:12;
   if(map && map.data && map.data.length && map.data[0].length) {
     let mapH = map.data.length;
     let mapW = map.data[0].length;

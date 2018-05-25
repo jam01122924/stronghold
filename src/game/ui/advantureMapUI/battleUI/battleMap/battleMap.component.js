@@ -3,14 +3,15 @@
 import React from 'react';
 import './battleMap.component.css';
 
-import { Button, ButtonGroup, Modal } from 'react-bootstrap';
 import MapForBattle from '../../../../common/map/mapForBattle.component';
-import Sprite from '../../../../common/sprite/sprite.component';
 import TacticsStage from './tacticsStage/tacticsStage.component';
+import CharForBattle from './charForBattle/charForBattle.component';
 
 import { connect } from 'react-redux';
 import * as battleActions from '../../../../redux/actions/battleActions';
 import battleServices from '../../../../services/battleServices/battleServices';
+import * as heroActions from '../../../../redux/actions/heroActions';
+import heroServices from '../../../../services/heroServices/heroServices';
 
 class BattleMap extends React.Component {
 
@@ -23,12 +24,16 @@ class BattleMap extends React.Component {
     };
 
     this.handleGridHover = this.handleGridHover.bind(this);
+    this.handleGridClick = this.handleGridClick.bind(this);
   }
 
   componentDidMount() {
     let battleMapData = battleServices.generateRandomBattleMap(this.props.mapDatas[this.props.currentMapIndex]);
     battleMapData = battleServices.startTactics(battleMapData);
     this.props.dispatch(battleActions.changeBattleMap(battleMapData));
+    this.props.dispatch(battleActions.setBattleStatus('tactics'));
+    this.props.dispatch(battleActions.setRoundNum(1));
+    
     this.setState({
       ready: true,
       gridInfo: null,
@@ -51,10 +56,42 @@ class BattleMap extends React.Component {
 
 
   handleGridHover(data) {
-    console.log(data);
     this.props.dispatch(battleActions.changeCurrHoverGridData(data));
+
+    switch(this.props.battleStatus) {
+      case 'tactics':
+        if(this.props.selectedHero) {
+          let heroIndex = heroServices.getHeroIndexById(this.props.hired, this.props.selectedHero);
+          // limit drop position to last 2 lanes at bottom:
+          if(heroIndex!==-1 && data.positionY>this.props.battleMapDatas.data.length-3) {
+            this.props.hired[heroIndex].battleStatus.targetPosition = {x: data.positionX, y: data.positionY};
+            this.props.dispatch(heroActions.changeHero(this.props.hired[heroIndex], heroIndex));
+          }
+        }
+      break;
+      default:
+      break;
+    }
   }
 
+  handleGridClick(data) {
+    switch(this.props.battleStatus) {
+      case 'tactics':
+        console.log(data, this.props.selectedHero);
+        if(this.props.selectedHero) {
+          let heroIndex = heroServices.getHeroIndexById(this.props.hired, this.props.selectedHero);
+          if(heroIndex!==-1) {
+            this.props.hired[heroIndex].battleStatus.position = {x: this.props.hired[heroIndex].battleStatus.targetPosition.x, y: this.props.hired[heroIndex].battleStatus.targetPosition.y};
+            this.props.hired[heroIndex].battleStatus.targetPosition = {x: null, y: null};
+            this.props.dispatch(heroActions.changeHero(this.props.hired[heroIndex], heroIndex));
+            this.props.dispatch(battleActions.selectHero(null));
+          }
+        }
+      break;
+      default:
+      break;
+    }
+  }
 
 
   render() {
@@ -62,6 +99,7 @@ class BattleMap extends React.Component {
     let zoomStyle = {
       transform: 'scale(1)'
     };
+    
 
     return (
       <div className="battle-map-container">
@@ -80,6 +118,7 @@ class BattleMap extends React.Component {
             />
           </div>:''
         }
+        <CharForBattle />
         {this.props.battleStatus==='tactics'?<TacticsStage />:null}
       </div>
     );
@@ -89,8 +128,9 @@ class BattleMap extends React.Component {
 function mapStoreToProps (store, ownProps) {
 	const { hero, map, battle } = store;
   const { mapDatas, currentMapIndex } = map || { mapDatas: [], currentMapIndex: 0 };
-  const { battleMapDatas, battleStatus } = battle || {battleMapDatas: {}, battleStatus: 'none'};
+  const { battleMapDatas, battleStatus, selectedHero} = battle || {battleMapDatas: {}, battleStatus: 'none', selectedHero: ''};
+  const { hired, team, currentAdvantureTeamIndex } = hero || {hired: [], team: [], currentAdvantureTeamIndex: null};
 
-  return { hero, mapDatas, currentMapIndex, battleMapDatas, battleStatus };
+  return { hired, team, currentAdvantureTeamIndex, mapDatas, currentMapIndex, battleMapDatas, battleStatus, selectedHero };
 }
 export default connect(mapStoreToProps)(BattleMap);

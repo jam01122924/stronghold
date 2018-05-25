@@ -5,6 +5,8 @@ import HeroEquipmentInfo from './heroEquipmentInfo/heroEquipmentInfo.component';
 
 import { Grid, Row, Col } from 'react-bootstrap';
 
+// Props: 
+// heroData
 
 class HeroInfo extends React.Component {
 
@@ -17,7 +19,6 @@ class HeroInfo extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.heroData);
   }
 
   render() {

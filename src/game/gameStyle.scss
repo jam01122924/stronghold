@@ -3,7 +3,30 @@ $grid-vh: 6vh;
 $map-box-vw: 90vw;
 $map-box-vh: 90vh;
 
-$grid-battle-vw: 9vw;
-$grid-battle-vh: 9vh;
-$map-battle-box-vw: 81vw;
-$map-battle-box-vh: 81vh;
+$grid-battle-vw: 6.5vw;
+$grid-battle-vh: 6.5vh;
+$map-battle-box-vw: 78vw;
+$map-battle-box-vh: 78vh;
+
+
+$gridSize: $grid-vw;
+$mapBoxSize: $map-box-vw;
+$gridBattleSize: $grid-battle-vw;
+$mapBattleBoxSize: $map-battle-box-vw;
+
+
+@media screen and (orientation:portrait) {
+  /* Portrait styles here */
+  $gridSize: $grid-vw;
+  $mapBoxSize: $map-box-vw;
+  $gridBattleSize: $grid-battle-vw;
+  $mapBattleBoxSize: $map-battle-box-vw;
+}
+/* Landscape */
+@media screen and (orientation:landscape) {
+  /* Landscape styles here */
+  $gridSize: $grid-vh;
+  $mapBoxSize: $map-box-vh;
+  $gridBattleSize: $grid-battle-vh;
+  $mapBattleBoxSize: $map-battle-box-vh;
+}

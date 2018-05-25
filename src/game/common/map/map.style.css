@@ -1,3 +1,10 @@
+@media screen and (orientation: portrait) {
+  /* Portrait styles here */ }
+
+/* Landscape */
+@media screen and (orientation: landscape) {
+  /* Landscape styles here */ }
+
 .map-container {
   text-align: center;
   position: relative;
@@ -56,31 +63,31 @@
       border: 0.5px solid rgba(125, 255, 215, 0.4); }
 
 .map-for-battle-container {
-  width: 81vh;
-  height: 81vh;
+  width: 78vh;
+  height: 78vh;
   /* Landscape */ }
   @media screen and (orientation: portrait) {
     .map-for-battle-container {
       /* Portrait styles here */
-      width: 81vw;
-      height: 81vw; } }
+      width: 78vw;
+      height: 78vw; } }
   @media screen and (orientation: landscape) {
     .map-for-battle-container {
       /* Landscape styles here */
-      width: 81vh;
-      height: 81vh; } }
+      width: 78vh;
+      height: 78vh; } }
   .map-for-battle-container .map-layer-container .map-line-container .map-grid-container .map-grid-unit {
     display: inline-block;
-    width: 9vh;
-    height: 9vh;
+    width: 6.5vh;
+    height: 6.5vh;
     /* Landscape */ }
     @media screen and (orientation: portrait) {
       .map-for-battle-container .map-layer-container .map-line-container .map-grid-container .map-grid-unit {
         /* Portrait styles here */
-        width: 9vw;
-        height: 9vw; } }
+        width: 6.5vw;
+        height: 6.5vw; } }
     @media screen and (orientation: landscape) {
       .map-for-battle-container .map-layer-container .map-line-container .map-grid-container .map-grid-unit {
         /* Landscape styles here */
-        width: 9vh;
-        height: 9vh; } }
+        width: 6.5vh;
+        height: 6.5vh; } }

@@ -45,9 +45,9 @@ let heroReducerInit = {
         agility: 2,
         luck: 2
       },
+
       talent: [],
-      faceImg: '',
-      mapImg: [],
+
       equipment: [
         {
           id: 'easdf111',
@@ -112,6 +112,23 @@ let heroReducerInit = {
         blockRate: 0,
         hitRate: 100,
       },
+
+      faceImg: '',
+      spriteImg: {
+        url: '/imgs/hero/4Dir/001.png',
+        imgPosX: 81.81818,
+        imgPosY: 0,
+      },
+      facingNum: 0,   // 0: down, 1: left, 2: right, 3: top
+      moving: false,
+
+      battleStatus: {
+        state: 'finish',  // ready, moved, finished, dead, 
+        debuff: [], // slow, burn, weak, stone, freeze, root, ...
+        position: {x: null, y: null},
+        targetPosition: {x: null, y:null},
+        path: [],
+      },
     }
   ],
   inGrave: [],
@@ -159,14 +176,14 @@ const heroReducer = (state = heroReducerInit, action) => {
       let newState = Object.assign({}, state);
       newState.team = state.team.slice(0);
       newState.team[action.teamIndex].member = state.team[action.teamIndex].member.slice(0);
-      newState.team[action.teamIndex].member.push(action.hero);
+      newState.team[action.teamIndex].member.push(action.hero.id);
       return newState;
     }
     case 'REMOVE_HERO_FROM_TEAM': {
       let newState = Object.assign({}, state);
       newState.team = state.team.slice(0);
       newState.team[action.teamIndex].member = state.team[action.teamIndex].member.slice(0);
-      let index = heroServices.getHeroIndexById(newState.team[action.teamIndex].member, action.hero.id);
+      let index = newState.team[action.teamIndex].member.indexOf(action.hero.id);
       newState.team[action.teamIndex].member.splice(index, 1);
       return newState;
     }

@@ -1,3 +1,10 @@
+@media screen and (orientation: portrait) {
+  /* Portrait styles here */ }
+
+/* Landscape */
+@media screen and (orientation: landscape) {
+  /* Landscape styles here */ }
+
 .unit-sprite-container {
   display: inline-block; }
   .unit-sprite-container .sprite-grid-unit {

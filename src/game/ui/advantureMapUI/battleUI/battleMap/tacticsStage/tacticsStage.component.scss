@@ -1,8 +1,29 @@
 .tactics-stage-container {
-  width: 100vw;
-  height: 10vh;
-  background: rgba(100, 0, 0, 0.2);
-  position: fixed;
-  top: 0;
-  left: 0;
+  .tactics-hero-select-container {
+    width: 100vw;
+    overflow: auto;
+    min-height: 10vh;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display:flex;
+    text-align: center;
+
+  }
+  .hero-select-list {
+    margin: auto;
+    min-width: 420px;
+    display: block;
+  }
+  .hero-select-list-item {
+    display: inline-block;
+  }
+  .selected-hero-select-list-item {
+    background: yellow;
+  }
+
+  .start-btn-container {
+    margin-top: 30px;
+  }
 }
