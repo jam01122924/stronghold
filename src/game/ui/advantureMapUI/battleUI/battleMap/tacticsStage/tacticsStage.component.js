@@ -84,9 +84,44 @@ class TacticsStage extends React.Component {
     let currMap = this.props.mapDatas[this.props.currentMapIndex];
     let monsterArray = currMap.data[currMap.position.y][currMap.position.x]?currMap.data[currMap.position.y][currMap.position.x].monster:null;
     console.log(monsterArray);
+    //test:
+    battleServices.findPath(this.props.battleMapDatas.data, {x:0, y: 0}, {x:10, y: 10});
+
+
+    for(let i=0; i<monsterArray.length; i++) {
+      let monsterPosX = 0;
+      // Pick drop position for monster that is not isolated:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      monsterArray[i].battleStatus = {
+        state: 'finish',  // ready, moved, finished, dead, 
+        debuff: [], // slow, burn, weak, stone, freeze, root, ...
+        position: {x: null, y: null},
+        targetPosition: {x: null, y:null},
+        path: [],
+      };
+    }
 
     if(monsterArray) {
       this.props.dispatch(battleActions.setMonsterList(monsterArray));
+      this.props.dispatch(battleActions.setBattleStatus('test'));
+
+
+
+
     } else {
       console.error('Monster Not Found!!!');
       this.props.dispatch(advantureActions.changeStage('map'));
@@ -140,7 +175,7 @@ class TacticsStage extends React.Component {
             <div className="hero-select-list-item" key={"heroSelectListItem" + i} onClick={()=>{this.selectHero(currHero)}}>
               <HeroInfoBox data={currHero} 
                 isSelected={this.props.selectedHero && this.props.selectedHero===currHero.id}
-                isPlaced={currHero.battleStatus.position.x!==null&&currHero.battleStatus.position.y!==null}
+                isPlaced={currHero.battleStatus && currHero.battleStatus.position.x!==null&&currHero.battleStatus.position.y!==null}
               />
             </div>
           );

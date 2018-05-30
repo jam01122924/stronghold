@@ -69,6 +69,7 @@ function calculateInitStatus(heroClass, quality, extraGrow) {
 
 // UNTESTED:
 function calculateCurrStatus(hero) {
+  console.log('calculateCurrStatus', hero);
   let result = JSON.parse(JSON.stringify(hero.status));
   result.weaponPower = 0;
   result.phyDef = 0;
@@ -122,8 +123,8 @@ function calculateCurrStatus(hero) {
     default: break;
   }
 
-  result.hp = hero.calculatedStatus.hp!==undefined?hero.calculatedStatus.hp:result.maxHp;
-  result.mp = hero.calculatedStatus.mp!==undefined?hero.calculatedStatus.mp:result.maxMp;
+  result.hp = hero.calculatedStatus && hero.calculatedStatus.hp!==undefined?hero.calculatedStatus.hp:result.maxHp;
+  result.mp = hero.calculatedStatus && hero.calculatedStatus.mp!==undefined?hero.calculatedStatus.mp:result.maxMp;
 
   return result;
 }

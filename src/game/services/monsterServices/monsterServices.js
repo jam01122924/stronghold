@@ -29,7 +29,7 @@ function generateMonster(monsterClass, monster, lv) {
     }
     result.lv = lv;
     result.equipment = [];
-    heroServices.calculateCurrStatus()
+    result.calculatedStatus = heroServices.calculateCurrStatus(result)
     // TODO: calculate skills, calculated status, and loot
 
 

@@ -80,7 +80,7 @@ class CharForBattle extends React.Component {
     let heroSpriteList = [];
     for (let i = 0; i < this.props.team[this.props.currentAdvantureTeamIndex].member.length; i++) {
       let heroData = heroServices.getHeroById(this.props.hired, this.props.team[this.props.currentAdvantureTeamIndex].member[i]);
-      if(heroData && heroData.battleStatus.position.x!==null && heroData.battleStatus.position.y!==null ) {
+      if(heroData && heroData.battleStatus && heroData.battleStatus.position.x!==null && heroData.battleStatus.position.y!==null ) {
         heroSpriteList.push(
           <SpriteInMap key={'hero-' + i}
             imgSrc={heroData.spriteImg.url}
@@ -94,7 +94,7 @@ class CharForBattle extends React.Component {
         )
       }
       // hover:
-      if(heroData && heroData.battleStatus.targetPosition.x!==null && heroData.battleStatus.targetPosition.y!==null ) {
+      if(heroData && heroData.battleStatus && heroData.battleStatus.targetPosition.x!==null && heroData.battleStatus.targetPosition.y!==null ) {
         heroSpriteList.push(
           <SpriteInMap key={'hero-' + i}
             imgSrc={heroData.spriteImg.url}
