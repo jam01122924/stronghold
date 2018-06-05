@@ -85,7 +85,7 @@ class TacticsStage extends React.Component {
     let monsterArray = currMap.data[currMap.position.y][currMap.position.x]?currMap.data[currMap.position.y][currMap.position.x].monster:null;
     console.log(monsterArray);
     //test:
-    battleServices.findPath(this.props.battleMapDatas.data, {x:0, y: 0}, {x:10, y: 10});
+    battleServices.findPath(this.props.battleMapDatas.data, {x:0, y: 2}, {x:7, y: 0});
 
 
     for(let i=0; i<monsterArray.length; i++) {
