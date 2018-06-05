@@ -107,7 +107,7 @@ class TacticsStage extends React.Component {
 
 
       monsterArray[i].battleStatus = {
-        state: 'finish',  // ready, moved, finished, dead, 
+        state: 'finish',  // ready, moved, finished, dead,
         debuff: [], // slow, burn, weak, stone, freeze, root, ...
         position: {x: null, y: null},
         targetPosition: {x: null, y:null},
@@ -127,7 +127,7 @@ class TacticsStage extends React.Component {
       this.props.dispatch(advantureActions.changeStage('map'));
     }
 
-    
+
   }
 
   finish() {
@@ -173,7 +173,7 @@ class TacticsStage extends React.Component {
           currHero = currHero[0];
           heroList.push(
             <div className="hero-select-list-item" key={"heroSelectListItem" + i} onClick={()=>{this.selectHero(currHero)}}>
-              <HeroInfoBox data={currHero} 
+              <HeroInfoBox data={currHero}
                 isSelected={this.props.selectedHero && this.props.selectedHero===currHero.id}
                 isPlaced={currHero.battleStatus && currHero.battleStatus.position.x!==null&&currHero.battleStatus.position.y!==null}
               />
