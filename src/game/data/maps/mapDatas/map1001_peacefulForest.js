@@ -1,6 +1,6 @@
 const monsterData = [{
     monsterGroup: [{
-      monster: 'cockroach',
+      monster: 'mouse',
       class: 'nature',
       lv: {
         min: 1,
@@ -24,7 +24,7 @@ const monsterData = [{
   },
   {
     monsterGroup: [{
-      monster: 'mouse',
+      monster: 'spider',
       class: 'nature',
       lv: {
         min: 3,
@@ -48,7 +48,7 @@ const monsterData = [{
   },
   {
     monsterGroup: [{
-        monster: 'mouse',
+        monster: 'spider',
         class: 'nature',
         lv: {
           min: 3,
@@ -60,7 +60,7 @@ const monsterData = [{
         },
       },
       {
-        monster: 'cockroach',
+        monster: 'mouse',
         class: 'nature',
         lv: {
           min: 1,

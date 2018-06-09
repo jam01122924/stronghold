@@ -27,11 +27,11 @@ function generateMonster(monsterClass, monster, lv) {
       result.status[attr] = Math.round(10*result.status[attr]*(Math.random()*(monsterData.monsterAdjustMax - monsterData.monsterAdjustMin) + monsterData.monsterAdjustMin))/10;
       console.log(attr, result.status[attr]);
     }
+    
     result.lv = lv;
     result.equipment = [];
     result.calculatedStatus = heroServices.calculateCurrStatus(result)
     // TODO: calculate skills, calculated status, and loot
-
 
     return result;
   }

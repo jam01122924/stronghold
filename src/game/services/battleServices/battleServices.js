@@ -10,6 +10,8 @@ const battleServices = {
 
   // Battle:
   findPath: pathFinding.findPath,
+  generatePath: pathFinding.generatePath,
+  testAccess: pathFinding.testAccess,
 };
 
 function generateRandomBattleMap(map, RandomBattleMapSize) {
@@ -37,7 +39,7 @@ function generateRandomBattleMap(map, RandomBattleMapSize) {
 }
 
 function setValueForBattle (grid, pos, mapSize) {
-  const treeMove = 1;
+  const treeMove = 5;
 
   delete grid.monster;
   grid.battle = {};
@@ -103,10 +105,12 @@ function endTactics(map) {
       for(let j=0; j<mapW; j++) {
         // FOR NOW: player always appear in bottom 3 lines; AI always appear in top 4 lines;
         if(i<4) {
-          map[i][j].battle.img = '';
+          map[i][j].battle.tactics = null;
+          map[i][j].battle.img = null;
         }
         if(i>mapH-3) {
-          map[i][j].battle.img = '';
+          map[i][j].battle.tactics = null;
+          map[i][j].battle.img = null;
         }
       }
     }

@@ -34,6 +34,15 @@ const battleReducer = (state = battleReducerInit, action) => {
       newState.battleMapDatas.data = action.data;
       return newState;
     }
+    case 'EMPTY_BATTLE_MAP_PATH': {
+      let newState = {...state, battleMapDatas: {...state.battleMapDatas, data: {...state.battleMapDatas.data}}};
+      newState.battleMapDatas.data.forEach(line=>{
+        line.forEach(grid=>{
+          delete grid.path;
+        });
+      });
+      return newState;
+    }
     case 'CHANGE_CURR_HOVER_GRID_DATA': {
       let newState = {...state, battleMapDatas: {...state.battleMapDatas}};
       newState.battleMapDatas.currHoverGridData = action.data;

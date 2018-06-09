@@ -53,6 +53,11 @@ class MapGrid extends React.Component {
           <div className={this.props.data.battle.img + ' map-grid-unit map-texture map-grid-overlap-unit'}>
           </div>:null
         }
+        {this.props.data.path && this.props.data.path.img?
+          <div className={'map-grid-unit map-texture map-grid-overlap-unit'} >
+            <img src={'/imgs/battle/' + this.props.data.path.img + '.png'} style={{width: '100%', height: 'auto'}}/>
+          </div>:null
+        }
       </div>
     );
   }

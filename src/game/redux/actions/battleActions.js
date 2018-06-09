@@ -6,6 +6,13 @@ export const changeBattleMap = data=>{
     data
   };
 };
+
+export const removeBattleMapPath = ()=>{
+  return {
+    type: 'EMPTY_BATTLE_MAP_PATH'
+  };
+}
+
 export const changeCurrHoverGridData = data=>{
   return {
     type: 'CHANGE_CURR_HOVER_GRID_DATA',

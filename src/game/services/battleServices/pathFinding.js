@@ -1,6 +1,9 @@
 const pathFinding = {
   findPath: findPath,
+  generatePath: generatePath,
   getOpenGrid: getOpenGrid,
+
+  testAccess: testAccess,
 }
 
 
@@ -23,12 +26,12 @@ function findPath(map, start, end) {
 
     while(openList.length>0 && !found && count<1500) {
       count++;
-      let heuristic = 10000;
+      let heuristic = 100000;
       let selectIndex = null;
       for(let i=0; i<openList.length; i++) {
         let tempHeuristic = Math.abs(end.x - openList[i].x) + Math.abs(end.y - openList[i].y) + openList[i].cost;
         selectIndex = tempHeuristic<heuristic?i:selectIndex;
-        heuristic = tempHeuristic;
+        heuristic = tempHeuristic<heuristic?tempHeuristic:heuristic;
       }
       // console.log('picked grid:', openList, selectIndex);
 
@@ -97,6 +100,47 @@ function findPath(map, start, end) {
   }
 }
 
+function generatePath(map, start, end) {
+  let result = findPath(map, start, end);
+
+  let lastGrid = result.path[0];
+
+  for(let i=1; i<result.path.length; i++) {
+    let type=(i===result.path.length-1)?'arrow':'path';
+    if(lastGrid.x===result.path[i].x){
+      if(lastGrid.y===result.path[i].y-1) {
+        result.path[i].img = type+'T';
+        if(i>1) {
+          result.path[i-1].img += 'B';
+        }
+      } else if(lastGrid.y===result.path[i].y+1) {
+        result.path[i].img = type+'B';
+        if(i>1) {
+          result.path[i-1].img += 'T';
+        }
+      }
+    } else if(lastGrid.x===result.path[i].x-1){
+      if(lastGrid.y===result.path[i].y) {
+        result.path[i].img = type+'L';
+        if(i>1) {
+          result.path[i-1].img += 'R';
+        }
+      }
+    } else if(lastGrid.x===result.path[i].x+1){
+      if(lastGrid.y===result.path[i].y) {
+        result.path[i].img = type+'R';
+        if(i>1) {
+          result.path[i-1].img += 'L';
+        }
+      }
+    }
+    lastGrid =  result.path[i];
+  }
+  
+  console.log(result.path);
+  return result;
+}
+
 function getOpenGrid(map, pos) {
   let result = [];
   let testGrid = null;
@@ -132,8 +176,9 @@ function getOpenGrid(map, pos) {
   return result;
 }
 
-function calculateNewOpenList() {
+function testAccess(map, pos) {
 
 }
+
 
 export default pathFinding;
