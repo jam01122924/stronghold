@@ -4,15 +4,15 @@ import React from 'react';
 import './charForBattle.component.css';
 
 import { Button } from 'react-bootstrap';
-import SpriteInMap from '../../../../../common/spriteInMap/spriteInMap.component';
+import SpriteInMap from '../../../../../../common/spriteInMap/spriteInMap.component';
 
 import { connect } from 'react-redux';
-import * as battleActions from '../../../../../redux/actions/battleActions';
-import battleServices from '../../../../../services/battleServices/battleServices';
-import * as heroActions from '../../../../../redux/actions/heroActions';
-import heroServices from '../../../../../services/heroServices/heroServices';
+import * as battleActions from '../../../../../../redux/actions/battleActions';
+import battleServices from '../../../../../../services/battleServices/battleServices';
+import * as heroActions from '../../../../../../redux/actions/heroActions';
+import heroServices from '../../../../../../services/heroServices/heroServices';
 
-import spritePosition from '../../../../../data/spritePosition';
+import spritePosition from '../../../../../../data/spritePosition';
 
 class CharForBattle extends React.Component {
 
@@ -84,18 +84,19 @@ class CharForBattle extends React.Component {
     for (let i = 0; i < this.props.team[this.props.currentAdvantureTeamIndex].member.length; i++) {
       let heroData = heroServices.getHeroById(this.props.hired, this.props.team[this.props.currentAdvantureTeamIndex].member[i]);
       let imgPosYAdd = 0;
-      switch(heroData.battleStatus.facing) {
-        case 'top': imgPosYAdd = 27.3;
-        break;
-        case 'bottom': imgPosYAdd = 0;
-        break;
-        case 'left': imgPosYAdd = 9.1;
-        break;
-        case 'right': imgPosYAdd = 18.2;
-        break;
-        default: break;
-      }
       if(heroData && heroData.battleStatus && heroData.battleStatus.position.x!==null && heroData.battleStatus.position.y!==null ) {
+        switch(heroData.battleStatus.facing) {
+          case 'top': imgPosYAdd = 27.3;
+          break;
+          case 'bottom': imgPosYAdd = 0;
+          break;
+          case 'left': imgPosYAdd = 9.1;
+          break;
+          case 'right': imgPosYAdd = 18.2;
+          break;
+          default: break;
+        }
+        
         heroSpriteList.push(
           <SpriteInMap key={'hero-' + i}
             imgSrc={heroData.spriteImg.url}

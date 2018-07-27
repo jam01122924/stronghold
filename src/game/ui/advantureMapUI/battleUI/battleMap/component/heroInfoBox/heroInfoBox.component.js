@@ -2,8 +2,8 @@
 
 import React from 'react';
 import './heroInfoBox.component.css';
-import UnitSprite from '../../../../../common/unitSprite/unitSprite.component';
-import HpMpBar from '../../../../../common/battle/hpMpBar/hpMpBar.component';
+import UnitSprite from '../../../../../../common/unitSprite/unitSprite.component';
+import HpMpBar from '../../../../../../common/battle/hpMpBar/hpMpBar.component';
 
 class HeroInfoBox extends React.Component {
 

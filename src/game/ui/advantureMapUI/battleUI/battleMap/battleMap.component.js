@@ -4,8 +4,9 @@ import React from 'react';
 import './battleMap.component.css';
 
 import MapForBattle from '../../../../common/map/mapForBattle.component';
-import TacticsStage from './tacticsStage/tacticsStage.component';
-import CharForBattle from './charForBattle/charForBattle.component';
+import CharForBattle from './component/charForBattle/charForBattle.component';
+
+import TacticsStage from './stage/tacticsStage/tacticsStage.component';
 
 import { connect } from 'react-redux';
 import * as battleActions from '../../../../redux/actions/battleActions';

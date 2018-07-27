@@ -6,14 +6,14 @@ import './tacticsStage.component.css';
 import { Button, Modal } from 'react-bootstrap';
 
 import { connect } from 'react-redux';
-import * as advantureActions from '../../../../../redux/actions/advantureActions';
-import * as heroActions from '../../../../../redux/actions/heroActions';
-import heroServices from '../../../../../services/heroServices/heroServices';
-import * as battleActions from '../../../../../redux/actions/battleActions';
-import battleServices from '../../../../../services/battleServices/battleServices';
-import monsterServices from '../../../../../services/monsterServices/monsterServices';
+import * as advantureActions from '../../../../../../redux/actions/advantureActions';
+import * as heroActions from '../../../../../../redux/actions/heroActions';
+import heroServices from '../../../../../../services/heroServices/heroServices';
+import * as battleActions from '../../../../../../redux/actions/battleActions';
+import battleServices from '../../../../../../services/battleServices/battleServices';
+import monsterServices from '../../../../../../services/monsterServices/monsterServices';
 
-import HeroInfoBox from '../heroInfoBox/heroInfoBox.component';
+import HeroInfoBox from '../../component/heroInfoBox/heroInfoBox.component';
 
 class TacticsStage extends React.Component {
 
@@ -86,17 +86,17 @@ class TacticsStage extends React.Component {
     let monsterArray = currMap.data[currMap.position.y][currMap.position.x]?currMap.data[currMap.position.y][currMap.position.x].monster:null;
     console.log(monsterArray);
     //========================== test: ==========================
-    battleServices.findPath(this.props.battleMapDatas.data, {x:0, y: 2}, {x:7, y: 0});
+    // battleServices.findPath(this.props.battleMapDatas.data, {x:0, y: 2}, {x:7, y: 0});
 
-    let pathData = battleServices.generatePath(this.props.battleMapDatas.data, {x:0, y: 2}, {x:7, y: 0});
+    // let pathData = battleServices.generatePath(this.props.battleMapDatas.data, {x:0, y: 2}, {x:7, y: 0});
 
-    for(let i=0; i<pathData.path.length; i++) {
-      this.props.battleMapDatas.data[pathData.path[i].y][pathData.path[i].x].path = {
-        img: pathData.path[i].img
-      };
-    }
+    // for(let i=0; i<pathData.path.length; i++) {
+    //   this.props.battleMapDatas.data[pathData.path[i].y][pathData.path[i].x].path = {
+    //     img: pathData.path[i].img
+    //   };
+    // }
 
-    this.props.dispatch(battleActions.changeBattleMap(this.props.battleMapDatas.data));
+    // this.props.dispatch(battleActions.changeBattleMap(this.props.battleMapDatas.data));
     // ========================== end of test ==========================
 
     // TODO: Find all open and reachable position:
@@ -110,6 +110,7 @@ class TacticsStage extends React.Component {
       }
     }
 
+    // Place monster randomly on open grid:
     for(let i=0; i<monsterArray.length; i++) {
       if(openGrid.length) {
         let randIndex = Math.floor(Math.random() * openGrid.length);
