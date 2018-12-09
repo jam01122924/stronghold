@@ -5,6 +5,9 @@
 @media screen and (orientation: landscape) {
   /* Landscape styles here */ }
 
+:export {
+  animationMillis: 20; }
+
 .grid-map-container {
   font-size: 6px;
   width: 100vw;

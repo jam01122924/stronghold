@@ -5,6 +5,9 @@
 @media screen and (orientation: landscape) {
   /* Landscape styles here */ }
 
+:export {
+  animationMillis: 20; }
+
 .hero-grid-unit {
   width: 6vh;
   height: 6vh;

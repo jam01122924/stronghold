@@ -4,3 +4,6 @@
 /* Landscape */
 @media screen and (orientation: landscape) {
   /* Landscape styles here */ }
+
+:export {
+  animationMillis: 20; }

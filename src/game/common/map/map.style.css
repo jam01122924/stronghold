@@ -5,6 +5,9 @@
 @media screen and (orientation: landscape) {
   /* Landscape styles here */ }
 
+:export {
+  animationMillis: 20; }
+
 .map-container {
   text-align: center;
   position: relative;

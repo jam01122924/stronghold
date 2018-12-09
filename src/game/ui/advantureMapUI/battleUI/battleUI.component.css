@@ -5,12 +5,18 @@
 @media screen and (orientation: landscape) {
   /* Landscape styles here */ }
 
+:export {
+  animationMillis: 20; }
+
 @media screen and (orientation: portrait) {
   /* Portrait styles here */ }
 
 /* Landscape */
 @media screen and (orientation: landscape) {
   /* Landscape styles here */ }
+
+:export {
+  animationMillis: 20; }
 
 .hero-grid-unit {
   width: 6vh;

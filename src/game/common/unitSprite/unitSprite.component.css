@@ -5,6 +5,9 @@
 @media screen and (orientation: landscape) {
   /* Landscape styles here */ }
 
+:export {
+  animationMillis: 20; }
+
 .unit-sprite-container {
   display: inline-block; }
   .unit-sprite-container .sprite-grid-unit {

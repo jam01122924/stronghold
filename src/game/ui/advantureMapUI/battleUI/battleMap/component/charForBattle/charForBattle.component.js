@@ -96,7 +96,7 @@ class CharForBattle extends React.Component {
           break;
           default: break;
         }
-        
+
         heroSpriteList.push(
           <SpriteInMap key={'hero-' + i}
             imgSrc={heroData.spriteImg.url}
@@ -171,20 +171,22 @@ class CharForBattle extends React.Component {
 
     return (
       <div className="char-for-battle-container">
-        {heroSpriteList}
-        {monsterSpriteList}
-        
-        <SpriteInMap
-            imgSrc="/imgs/monster/4Dir/001.png"
-            posX={spritePosition[0][2].x} posY={spritePosition[0][2].y}
-            frameLen={3}
-            animateSpeed={12}
-            animate={true}
-            mapPosition={{x: 3, y: 11}}
-            gridSize={6.5}
-            handleClick={this.handleCharClick}
-            opacity={0.6}
-          />
+        <div className="char-for-battle-content">
+          {heroSpriteList}
+          {monsterSpriteList}
+
+          <SpriteInMap
+              imgSrc="/imgs/monster/4Dir/001.png"
+              posX={spritePosition[0][2].x} posY={spritePosition[0][2].y}
+              frameLen={3}
+              animateSpeed={12}
+              animate={true}
+              mapPosition={{x: 3, y: 11}}
+              gridSize={6.5}
+              handleClick={this.handleCharClick}
+              opacity={0.6}
+            />
+        </div>
       </div>
     );
   }

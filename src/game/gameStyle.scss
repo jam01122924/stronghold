@@ -30,3 +30,7 @@ $mapBattleBoxSize: $map-battle-box-vw;
   $gridBattleSize: $grid-battle-vh;
   $mapBattleBoxSize: $map-battle-box-vh;
 }
+
+:export {
+  animationMillis: 20;
+}

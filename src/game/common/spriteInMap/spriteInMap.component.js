@@ -23,7 +23,6 @@ class SpriteInMap extends React.Component {
   }
 
   componentDidMount() {
-    console.log("11111")
   }
 
   componentWillReceiveProps(nextProps) {
@@ -34,20 +33,21 @@ class SpriteInMap extends React.Component {
 
   render() {
     let positionUnit = window.innerHeight > window.innerWidth?'vw':'vh';
+    let spritePos = {x: this.props.mapPosition.x*this.props.gridSize, y: this.props.mapPosition.y*this.props.gridSize};
     let style = {
       position: 'absolute',
-      top: this.props.mapPosition.y?(this.props.mapPosition.y*this.props.gridSize + positionUnit):0,
-      left: this.props.mapPosition.x?(this.props.mapPosition.x*this.props.gridSize + positionUnit):0,
+      top: this.props.mapPosition.y?(spritePos.y + positionUnit):0,
+      left: this.props.mapPosition.x?('calc((100% - 78' + positionUnit + ')/2 + ' + spritePos.x + positionUnit + ')'):('calc((100% - 78' + positionUnit + ')/2)'),
       opacity: this.props.opacity?this.props.opacity:1,
-    }
+    };
     return (
       <div className="sprite-in-map-container" style={style} onClick={this.props.handleClick}>
-        <Sprite increase={this.props.increase} 
-          frameLen={this.props.frameLen} 
+        <Sprite increase={this.props.increase}
+          frameLen={this.props.frameLen}
           imgSrc={this.props.imgSrc}
-          posX={this.props.posX} posY={this.props.posY} 
-          animate={this.props.animate} 
-          animateSpeed={this.props.animateSpeed} 
+          posX={this.props.posX} posY={this.props.posY}
+          animate={this.props.animate}
+          animateSpeed={this.props.animateSpeed}
         />
       </div>
     )
